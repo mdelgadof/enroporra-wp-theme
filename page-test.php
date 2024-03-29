@@ -67,3 +67,40 @@ if ($_GET["completadas"]==1) {
 
 	}
 }
+
+if ($_GET["setpartidos"]==1) {
+    $fixtures = $competition->getFixtures();
+    if (count($fixtures)) {
+        echo "<span style='color:red'>ERROR: Ya existen partidos en esta competición</span>";
+    }
+    else {
+        $competition->setCompetitionFixtures();
+        echo "OK, partidos generados para ".$competition->getName();
+    }
+}
+
+if ($_GET["setfechas"]==1) {
+    if ($_POST) {
+        foreach ($_POST as $key => $date) {
+            $fixtureId = explode('_', $key)[1];
+            try {
+                $fixture = new EP_Fixture($fixtureId);
+                $fixture->setDate($date);
+            }
+            catch (Exception $e) {
+                echo "No se ha podido crear el partido con id ".$fixtureId." o su fecha: ".$e->getMessage();
+            }
+        }
+        echo "OK, fechas creadas";
+    }
+    else {
+        $args['tournament'] = 'groups';
+        $fixtures = $competition->getFixtures($args);
+        echo "<form action='test.php?setfechas=1' method='post'>";
+        foreach ($fixtures as $fixture) {
+            echo "<input type='text' name='date_" . $fixture->getId() . "' value='2024-06-14 21:00:00' /> " . $fixture->getTeam(1)->getName() . " - " . $fixture->getTeam(2)->getName() . "<br>";
+        }
+        echo "<input type='submit' value='Enviar' />";
+        echo "</form>";
+    }
+}
