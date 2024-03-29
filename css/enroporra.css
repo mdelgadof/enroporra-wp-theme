@@ -1,0 +1,607 @@
+.carousel-caption {
+    text-align: center;
+    width: 100%;
+    right: 0;
+    left: 0;
+}
+.scores {
+    display: inline-flex;
+    margin-top: 20px;
+}
+.scores-mobile {
+    display: none;
+}
+
+.score {
+    padding: 20px;
+    background-color: rgba(100%,100%,100%,0.4);
+    border-radius: 50px;
+    max-width: 800px;
+    min-width: 450px;
+    margin: 0 auto;
+}
+.score.future, .score.past {
+    max-width: 460px;
+    margin: 0 10px;
+}
+
+.score.past {
+    min-width: 30%;
+    margin-bottom: 15px;
+    width: 350px;
+}
+.score-title {
+    text-align: center;
+    font-size: 24px;
+    font-family: Arial;
+}
+.score-leg {
+    text-align: center;
+    font-size: 18px;
+}
+.score-leg .number {
+    font-family: Arial;
+    font-size: 14px;
+}
+.score-table {
+    width: 66%;
+    margin: 0 auto;
+}
+.score-table.future {
+    width: 85%;
+}
+.score-team1, .score-team2 {
+    font-size: 32px;
+    white-space: nowrap;
+}
+.score-flag1 img, .score-flag2 img {
+    width: 110px;
+}
+.score-team1, .score-flag1, .score-goals1 {
+    text-align: left;
+}
+.score-team2, .score-flag2, .score-goals2 {
+    text-align: right;
+}
+.score-goals1, .score-goals2 {
+    font-size: 96px;
+    font-family: Arial;
+}
+.score-goals1 span {
+    margin-left: 30px;
+}
+.score-goals2 span {
+    margin-right: 30px;
+}
+.underscore-desktop {
+    text-align: center;
+    font-size: 18px;
+}
+.underscore-desktop .number {
+    font-family: Arial;
+    font-size: 14px;
+}
+
+@-webkit-keyframes blinker {
+    from { opacity: 1.0; }
+    to { opacity: 0.4; }
+}
+@keyframes blinker {
+    50% {
+        opacity: 0.4;
+    }
+}
+
+.prediction-mobile {
+    display: none;
+}
+.score-scorers {
+    font-size: 14px;
+    font-family: Arial;
+    text-align: center;
+}
+.score-scorers .score-scorers-wrapper {
+    display: inline-block;
+}
+.score-scorers .score-scorers-wrapper .score-scorers-goal {
+    display: flex;
+}
+.recent-goal {
+    animation: blinker 1s linear infinite;
+}
+.recent-scorer {
+    animation: blinker 1.3s linear infinite;
+}
+
+#timeToGo {
+    font-size:48px;
+    font-family:Arial;
+    text-align:center;
+}
+
+#timeToGo p {
+    text-align: center;
+}
+
+#timeToGo .subtitle {
+    font-size: 12px;
+}
+
+#timeToGoMobile {
+    font-family: Arial;
+    text-align: center;
+    display: none;
+}
+
+p.page_title {
+    text-transform: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+p.page_title span {
+    color: #e74c3c;
+}
+
+.first-section {
+    margin-top: 80px;
+}
+@media (max-width: 1310px) {
+    .carousel-caption {
+        top: 8%;
+    }
+}
+@media (max-width: 1600px) {
+    .score {
+        padding: 10px;
+        max-width: 800px;
+    }
+    .score.future {
+        max-width: 380px;
+        min-width: 330px;
+        margin: 0 8px;
+    }
+    .score-title {
+        font-size: 18px;
+    }
+    .score-leg {
+        font-size: 14px;
+    }
+    .score-leg .number {
+        font-family: Arial;
+        font-size: 12px;
+    }
+    .score-table {
+        width: 66%;
+    }
+    .score-table.future {
+        width: 85%;
+    }
+    .score-team1, .score-team2 {
+        font-size: 24px;
+    }
+    .score-goals1, .score-goals2 {
+        font-size: 72px;
+    }
+    .score-goals1 span {
+        margin-left: 20px;
+    }
+    .score-goals2 span {
+        margin-right: 20px;
+    }
+    .score-scorers {
+        font-size: 10px;
+    }
+    #timeToGo {
+        font-size:48px;
+    }
+}
+@media (max-width: 1500px) {
+    header {
+        text-align: center;
+    }
+    header .container {
+        width: auto;
+        display: inline-flex;
+    }
+    #timeToGo {
+        font-size:36px;
+    }
+    .score-flag1 img, .score-flag2 img {
+        width: 90px;
+    }
+    .score.future {
+        max-width: 320px;
+        padding: 25px;
+        margin: 0 8px;
+    }
+    .score.future .score-teams .score-leg, .underscore-desktop {
+        display: none;
+    }
+    .score-table.future {
+        width: 95%;
+    }
+}
+@media (max-width: 1310px) {
+    .carousel-caption {
+        top: 3%;
+    }
+}
+@media (max-width: 1200px) {
+    .score.future {
+        padding:18px;
+        min-width: 290px;
+    }
+    .scores {
+        margin-top: 0px;
+    }
+    .score-team1,.score-team2 {
+        font-size: 21px;
+    }
+}
+@media (max-width: 1100px) {
+
+    .score.future {
+        padding:15px;
+    }
+    .menuBar li {
+        margin-left: -5px;
+    }
+    .menuBar li a {
+        font-size: 10px;
+        padding: 10px 12px;
+    }
+    .carousel-caption a.btn {
+        display: block;
+        line-height: 35px;
+        height: 40px;
+        margin: 0 auto;
+    }
+    #timeToGo {
+        font-size: 28px;
+    }
+    #timeToGo p {
+        margin: 10px 0;
+    }
+    .scores {
+        margin-top: 0px;
+    }
+}
+@media (max-width: 990px) {
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .carousel-caption {
+        top: 20%;
+    }
+}
+@media (max-width: 767px) {
+    header .container {
+        display: block;
+    }
+    .scores {
+        display: none;
+    }
+    .score-scorers {
+        font-size: 14px;
+    }
+    .scores-mobile {
+        display: block;
+    }
+    .scores-mobile .score {
+        min-width: initial;
+        max-width: initial;
+        margin: 30px 30px;
+        background-color: rgba(60%,60%,60%,1);
+        color: #FFFFFF;
+    }
+    .prediction-mobile {
+        display: block;
+    }
+    .carousel-caption {
+        top: 50%;
+    }
+}
+@media (max-width: 650px) {
+    .score-scorers {
+        font-size: 12px;
+    }
+
+}
+@media (max-width: 600px) {
+    .slider .btn {
+        display: block;
+        margin: 0 auto;
+    }
+    .prediction-mobile {
+        display:none;
+    }
+    .underscore-desktop {
+        display:block;
+    }
+    .hide-mobile {
+        display: none;
+    }
+}
+@media (max-width: 480px) {
+    #timeToGo {
+        font-size: 24px;
+    }
+    #timeToGo .subtitle {
+        font-size: 10px;
+    }
+    .slider .btn {
+        line-height: 33px;
+        height: 35px;
+    }
+}
+@media (max-width: 440px) {
+    .carousel-fade .carousel-inner .active:after {
+        background: rgba(0, 0, 0, 0);
+    }
+    .scores-mobile .score {
+        margin: 30px 5px;
+    }
+    #timeToGoMobile {
+        display: block;
+        font-size: 22px;
+        color: #000000;
+        font-weight: bold;
+    }
+    #timeToGoMobile .btn-default {
+        background: #999999;
+        color: #FFFFFF;
+        border-radius: 15px;
+    }
+    #timeToGoMobile .subtitle {
+        font-size: 14px;
+        color: #000;
+        text-transform: none;
+        margin: 25px 15px;
+        font-family: Corbel;
+    }
+}
+@media (max-width: 350px) {
+    .scores-mobile .score {
+        margin: 20px 5px;
+    }
+}
+
+/* APUESTA */
+
+.grey-info-block h3 {
+    color: #333;
+    line-height: 110%;
+    text-decoration: none;
+}
+
+span.strong {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+input {
+    padding: 5px 10px;
+    border: 1px solid #e74c3c;
+    border-radius: 7px;
+    width: 47%;
+}
+input.long {
+    width: 95%;
+}
+
+div.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+div.dropdown div.dropdown-launcher {
+    height: 55px;
+    border: 1px solid #e74c3c;
+    border-radius: 10px;
+    width: 100%;
+    cursor: pointer;
+    padding: 5px 15px;
+}
+
+div.dropdown ul.dropdown-content {
+    display: none;
+    position: absolute;
+    width: 100%;
+    background-color: #FFFFFF;
+    border: 1px solid #AAAAAA;
+    scrollbar-arrow-color: #0c6ca0;
+    overflow-y: scroll;
+    max-height: 300px;
+    padding-left: 0;
+    z-index: 1;
+}
+
+div.dropdown ul.dropdown-content li {
+    display: block;
+    height: 55px;
+    cursor: pointer;
+    padding: 5px 15px;
+}
+div.dropdown ul.dropdown-content li:hover {
+    background-color: #EEEEEE;
+}
+.betFixture {
+    margin: 15px 0;
+    border-bottom: 1px solid #DDD;
+    padding-bottom: 10px;
+}
+.betFixtureResult {
+    display: flex;
+}
+.betTeamContainer {
+
+}
+.betTeamName {
+    font-size: 28px;
+    position: relative;
+    top: 6px;
+    margin-right: 10px;
+    color: #000;
+    font-weight: 400;
+}
+input[type=number].betTeamResult {
+    max-width: 50px;
+    height: 50px;
+    margin-right: 12px;
+    font-size: 36px;
+    position: relative;
+    top: 10px;
+    padding-left: 14px;
+    -moz-appearance: textfield;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.bet_number {
+    font-weight: bold;
+    font-size: 72px;
+    font-family: Arial;
+    color: #e74c3c;
+}
+
+.twitter-timeline {
+    display: flex;
+    max-width: 90%!important;
+    margin: 20px auto!important;
+}
+
+#googleMap iframe {
+    width: 450px;
+    height: 240px;
+}
+
+.top-scorer-bet {
+    margin: 20px 0;
+}
+.fixture-bet {
+    margin-bottom: 10px;
+}
+
+.black-text {
+    color: #000000;
+}
+.grey-text {
+    color: #BBBBBB;
+}
+.big-text {
+    font-size:20px;
+    font-weight: bold;
+}
+.points-text {
+    font-weight: bold;
+    color: #e74c3c;
+}
+.points-text-inverse {
+    font-weight: bold;
+    background-color: #e74c3c;
+    color: #FFFFFF;
+    padding: 0px 2px;
+}
+.black-link a {
+    color: #000000;
+}
+.verified-big {
+    width: 20px;
+    margin-left: 5px;
+}
+.verified-normal {
+    width: 15px;
+    margin-left:3px;
+}
+.my-bet {
+    background-color: #FFFF88;
+}
+.my-friend {
+    background-color: #FFCCAA;
+}
+
+.bet2-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.bet2-container.semis {
+    justify-content: space-around;
+}
+
+.bet2-container.final {
+    justify-content: center;
+}
+
+.bet2-matchdiv {
+    margin-bottom: 20px;
+    width: 265px;
+}
+.bet2-team {
+    display: flex;
+    justify-content: space-between;
+}
+.bet2-team-name {
+    font-size: 22px;
+}
+.bet2-team-result input.betTeamResult {
+    width: 100%;
+    top: 5px;
+    margin-bottom: 5px;
+}
+.bet2-penalties-winner {
+    border: 1px solid #000000;
+    border-radius: 4px;
+    padding: 0 5px;
+    min-height: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.bet2-resolve-draw {
+    display: none;
+    justify-content: left;
+}
+.bet2-resolve-draw-flex {
+    display: flex;
+}
+.my-bets {
+    margin-top: 50px;
+}
+.my-bets td, .my-bets th {
+    padding: 0 20px 10px 0;
+}
+.my-bets td.center {
+    text-align: center;
+}
+@media (min-width: 1200px) {
+    .container-ranking {
+        width: 1310px;
+    }
+}
+@media (max-width: 767px) {
+    .row {
+        padding: 20px 0;
+    }
+    .betFixtureResult {
+        display: block;
+    }
+    input[type=number].betTeamResult {
+        float: right;
+    }
+}
+
+@media (max-width: 500px) {
+    #googleMap iframe {
+        width: 300px;
+        margin-top: 30px;
+    }
+    .bet2-container {
+        justify-content: center;
+    }
+}
