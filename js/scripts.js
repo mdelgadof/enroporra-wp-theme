@@ -1,18 +1,17 @@
 jQuery(document).ready(function ($) {
 
     // Convert UTC dates to browser local timezone
+    var weekdays = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+    function pad(n) { return n < 10 ? '0' + n : n; }
+    function formatLocalDate(date, format) {
+        var d = pad(date.getDate()), m = pad(date.getMonth() + 1), y = date.getFullYear();
+        var h = pad(date.getHours()), min = pad(date.getMinutes());
+        if (format === 'date') return d + '/' + m + '/' + y;
+        return weekdays[date.getDay()] + ' ' + d + '/' + m + '/' + y + ' ' + h + ':' + min;
+    }
     $('time.local-date').each(function() {
         var date = new Date($(this).data('utc'));
-        var format = $(this).data('format') || 'datetime';
-        if (format === 'datetime') {
-            var weekday = date.toLocaleDateString('es-ES', { weekday: 'long' });
-            weekday = weekday.charAt(0).toUpperCase() + weekday.slice(1);
-            var dateStr = date.toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric' });
-            var timeStr = date.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
-            $(this).text(weekday + ' ' + dateStr + ' ' + timeStr);
-        } else if (format === 'date') {
-            $(this).text(date.toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric' }));
-        }
+        $(this).text(formatLocalDate(date, $(this).data('format') || 'datetime'));
     });
 
     // General dropdown selectors
