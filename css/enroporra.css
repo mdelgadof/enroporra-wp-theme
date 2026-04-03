@@ -591,8 +591,16 @@ input::-webkit-inner-spin-button {
     .betFixtureResult {
         display: block;
     }
+    .betTeamContainer {
+        position: relative;
+        min-height: 70px;
+        padding-right: 70px;
+    }
     input[type=number].betTeamResult {
-        float: right;
+        position: absolute;
+        right: 0;
+        top: 0;
+        float: none;
     }
 }
 
