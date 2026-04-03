@@ -8,7 +8,7 @@
 function fixtureHTML(EP_Fixture $fixture) {
 
 	if ($fixture->isFuture()) {
-		$title = weekDay(date("w",strtotime($fixture->getRawDate())))." ".$fixture->getDate();
+		$title = $fixture->getDateHTML();
         $subtitle=$fixture->getTournamentLabel();
         $stats = $fixture->getBetsStatsPre();
         $class = "future";
@@ -19,7 +19,7 @@ function fixtureHTML(EP_Fixture $fixture) {
         $class = "live";
     }
     else {
-        $title = __('Terminado','enroporra').', '.explode(" ",$fixture->getDate())[0];
+        $title = __('Terminado','enroporra').', '.$fixture->getDateHTML('date');
 	    $subtitle = $fixture->getTournamentLabel();
         $class = "past";
     }
@@ -33,17 +33,19 @@ function fixtureHTML(EP_Fixture $fixture) {
     if (in_array($fixture->getCompetition()->getStage(),array(EP_Competition::GROUP_STAGE_PLAYING,EP_Competition::PLAYOFF_PLAYING)) && $fixture->isFuture()) {
         $prediction = '<div class="">' . __( 'Nuestros apostantes dicen', 'enroporra' ) . '</div>';
         foreach ($stats["winners"] as $winner_id => $times)
-	        $prediction .= (new EP_Team($winner_id))->getFlagHTML( 20 ) . ': <span class="number">' . round( $times * 100 / $stats["total"] ) . '%</span> &nbsp;&nbsp;';
-	    if ($fixture->getTournament()=="groups") {
+	        $prediction .= (new EP_Team(intval($winner_id)))->getFlagHTML( 20 ) . ': <span class="number">' . round( $times * 100 / $stats["total"] ) . '%</span> &nbsp;&nbsp;';
+	    /*if ($fixture->getTournament()=="groups") {
             $prediction.=__( 'Empate', 'enroporra' ) . ': <span class="number">' . round( $stats["winners"]["X"] * 100 / $stats["total"] ) . '%</span> &nbsp;';
-        }
+        }*/
         $moreRepeatedResultData = explode("|",array_key_first( $stats["scores"] ));
 	    $moreWeirdResultData = explode("|",array_key_last( $stats["scores"] ));
-        $prediction.=
-	                  '<br />' . __( 'Resultado más repetido', 'enroporra' ) . ': <span class="number">' . (new EP_Team($moreRepeatedResultData[0]))->getFlagHTML(20) . $moreRepeatedResultData[1] . (new EP_Team($moreRepeatedResultData[2]))->getFlagHTML(20) . ' (' . round( array_shift( $stats["scores"] ) * 100 / $stats["total"] ) . '%)</span>'.
-	                  '<br />' .
-	                  __( 'Resultado más raro', 'enroporra' ) . ': <span class="number">' . (new EP_Team($moreWeirdResultData[0]))->getFlagHTML(20) . $moreWeirdResultData[1] . (new EP_Team($moreWeirdResultData[2]))->getFlagHTML(20) .'</span> 
-        ';
+        if (is_numeric($moreRepeatedResultData[0]) && is_numeric($moreRepeatedResultData[2])) {
+            $prediction .=
+                '<br />' . __('Resultado más repetido', 'enroporra') . ': <span class="number">' . (new EP_Team($moreRepeatedResultData[0]))->getFlagHTML(20) . $moreRepeatedResultData[1] . (new EP_Team($moreRepeatedResultData[2]))->getFlagHTML(20) . ' (' . round(array_shift($stats["scores"]) * 100 / $stats["total"]) . '%)</span>' .
+                '<br />' .
+                __('Resultado más raro', 'enroporra') . ': <span class="number">' . (new EP_Team($moreWeirdResultData[0]))->getFlagHTML(20) . $moreWeirdResultData[1] . (new EP_Team($moreWeirdResultData[2]))->getFlagHTML(20) . '</span> 
+            ';
+        }
     }
     if ($fixture->isPlayed()) {
         $stats = $fixture->getBetsStatsPost();
@@ -119,7 +121,7 @@ function teamBoxfixturePlayOffHTML(EP_Fixture $fixture, int $teamNumber) : strin
  */
 function fixturePlayOffHTML(EP_Fixture $fixture) {
     echo "<div class='bet2-matchdiv' id='matchdiv_".$fixture->getFixtureNumber()."' data-fixture-number='".$fixture->getFixtureNumber()."'>";
-        echo "<div class='bet2-matchtitle'><strong>".$fixture->getTournamentLabel()."</strong> ".$fixture->getDate()."</div>";
+        echo "<div class='bet2-matchtitle'><strong>".$fixture->getTournamentLabel()."</strong> ".$fixture->getDateHTML()."</div>";
         echo teamBoxfixturePlayOffHTML($fixture,1);
 	    echo teamBoxfixturePlayOffHTML($fixture,2);
         echo "<div class='bet2-resolve-draw'>";

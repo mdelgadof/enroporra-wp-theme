@@ -1,3 +1,18 @@
+// Convert UTC dates to browser local timezone
+document.querySelectorAll('time.local-date').forEach(function(el) {
+    var date = new Date(el.dataset.utc);
+    var format = el.dataset.format || 'datetime';
+    if (format === 'datetime') {
+        var weekday = date.toLocaleDateString('es-ES', { weekday: 'long' });
+        weekday = weekday.charAt(0).toUpperCase() + weekday.slice(1);
+        var dateStr = date.toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric' });
+        var timeStr = date.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
+        el.textContent = weekday + ' ' + dateStr + ' ' + timeStr;
+    } else if (format === 'date') {
+        el.textContent = date.toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric' });
+    }
+});
+
 jQuery(document).ready(function ($) {
 
     // General dropdown selectors
@@ -61,7 +76,6 @@ jQuery(document).ready(function ($) {
         // Check empty results
         $('#bet2_form input[type=number]').each(function() {
             if (results_fail) return;
-            console.log(typeof $(this).val());
             if (typeof $(this).val()===undefined || $(this).val() == "") {
                 alert('¡Te has dejado algún resultado por rellenar!');
                 $(this).focus();
@@ -75,7 +89,7 @@ jQuery(document).ready(function ($) {
             if (results_fail) return;
             var fixture_number = $(this).data('fixture-number');
             if ($('input[name='+fixture_number+'_team1result]').val()==$('input[name='+fixture_number+'_team2result]').val()) {
-                if ($('input[name=winner_'+fixture_number+']').val()=="") {
+                if ($('input[name='+fixture_number+'_winner]').val()=="" || typeof $('input[name='+fixture_number+'_winner]').val() === 'undefined') {
                     alert('¡Te faltan unos penaltis por decidir!');
                     $('input[name='+fixture_number+'_team2result]').focus();
                     results_fail = true;

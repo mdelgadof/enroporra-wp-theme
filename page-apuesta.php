@@ -112,7 +112,7 @@
                         $team2 = $fixture->getTeam(2);
                     ?>
                     <div class="betFixture">
-                        <div class="betFixtureDate"><?php echo $fixture->getDate().' - '.__('Grupo','enroporra').' '.$fixture->getGroup(); ?></div>
+                        <div class="betFixtureDate"><?php echo $fixture->getDateHTML().' - '.__('Grupo','enroporra').' '.$fixture->getGroup(); ?></div>
                         <div class="betFixtureResult">
                             <div class="betTeamContainer"><?php echo $team1->getFlagHTML(60); ?> <span class="betTeamName"><?php echo $team1->getName() ?></span> <input type="number" name="enroporra_result_<?php echo $fixture->getFixtureNumber() ?>_1" class="betTeamResult" max="15" min="0" required /></div>
                             <div class="betTeamContainer"><?php echo $team2->getFlagHTML(60); ?> <span class="betTeamName"><?php echo $team2->getName() ?></span> <input type="number" name="enroporra_result_<?php echo $fixture->getFixtureNumber() ?>_2" class="betTeamResult" max="15" min="0" required /></div>
@@ -125,7 +125,7 @@
         </form>
         <?php }
         else if ( ($competition->getStage()==EP_Competition::BEFORE_PLAYOFF || $_GET["admin"]=="second_stage") && count($_POST) && is_user_logged_in()) {
-
+            $error_msg = '';
 	        try {
 		        $bet = new EP_Bet( $_POST["bet_id"] );
 		        $user = new EP_User(get_current_user_id());
@@ -171,7 +171,7 @@
 		        }
 
                 $scores1 = $bet->getScores();
-                $bet->setScores($scores1+$scores2);
+                $bet->setScores($scores2+$scores1);
 
                 ?>
                     <div class="row grey-info-block text-left">
