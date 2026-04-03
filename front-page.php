@@ -14,8 +14,8 @@ if ($competition->getStage()<EP_Competition::AFTER_FINAL_GAME) {
     <section class="slider">
         <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
             <div class="carousel-inner">
-                <?php $j=rand(1,9); ?>
-                <div class="item active"> <img data-src="<?php echo get_stylesheet_directory_uri() ?>/images/slider/slider0<?php echo $j ?>.jpg" alt="slide" src="<?php echo get_stylesheet_directory_uri() ?>/images/slider/slider0<?php echo $j ?>.jpg">
+                <?php $j=(time()%10); $k=rand(0,1)?>
+                <div class="item active"> <img data-src="<?php echo get_stylesheet_directory_uri() ?>/images/slider/slider<?php echo $k.$j ?>.jpg" alt="slide" src="<?php echo get_stylesheet_directory_uri() ?>/images/slider/slider<?php echo $k.$j ?>.jpg">
                     <div class="container hero">
                         <div class="carousel-caption text-left">
                             <?php if ($competition->getStage()==EP_Competition::BEFORE_KICK_OFF) {
@@ -66,15 +66,14 @@ if ($competition->getStage()<EP_Competition::AFTER_FINAL_GAME) {
                     </div>
                 </div>
             <?php  } ?>
-            <div class="container">
+            <!--<div class="container">
                 <div class="seper"></div>
                 <h1 class="page_title">Rellena tu segunda fase, <span>hay poco tiempo</span>.</h1>
                 <p>Tienes hasta el sábado 3 a las 15:30 (hora peninsular española) para rellenar la <a class="btn btn-primary btn-lg" href="/mis-apuestas/" role="button">segunda fase</a></p>.</p>
                 <p>Os recordamos nuestros canales de comunicación, el email <a href="mailto:comisionporra@gmail.com">comisionporra@gmail.com</a> y nuestra cuenta de Twitter <a href="https://www.twitter.com/comisionporra" target="_blank">@Comisionporra</a></p>
 
                 <p>Muchas gracias por estar ahí, un año más.<br />La comisión.</p>
-                <!--<p><a class="btn btn-primary btn-lg" href="#" role="button">more info</a></p>-->
-            </div>
+            </div>-->
         </div>
         <div class="titles services text-left">
             <div class="container">

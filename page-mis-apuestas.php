@@ -45,6 +45,9 @@
                     </tr>
 	            <?php } ?>
                 </table>
+                <div style="margin-top:60px">
+                    <p>¿Este no es tu correo? Prueba a cambiarlo <a href="<?php echo wp_logout_url('/mis-apuestas'); ?>">haciendo click aquí</a></p>
+                </div>
             </div>
         </div>
         <?php } ?>
