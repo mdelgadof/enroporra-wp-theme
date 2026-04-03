@@ -592,15 +592,23 @@ input::-webkit-inner-spin-button {
         display: block;
     }
     .betTeamContainer {
-        position: relative;
-        min-height: 70px;
-        padding-right: 70px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+    .betTeamContainer img {
+        flex-shrink: 0;
+    }
+    .betTeamName {
+        flex: 1;
+        min-width: 0;
     }
     input[type=number].betTeamResult {
-        position: absolute;
-        right: 0;
-        top: 0;
+        flex-shrink: 0;
+        align-self: flex-start;
+        position: static;
         float: none;
+        top: auto;
     }
 }
 
