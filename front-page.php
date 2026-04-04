@@ -11,17 +11,6 @@ if ($competition->getStage()<EP_Competition::AFTER_FINAL_GAME) {
 }
 ?>
 
-    <?php
-        $slider_dir = get_stylesheet_directory() . '/images/slider/';
-        $slider_base_uri = get_stylesheet_directory_uri() . '/images/slider/';
-        $slider_files = array_values(array_filter(scandir($slider_dir), function($f) {
-            return preg_match('/^slider.*\.(jpg|jpeg|png|webp)$/i', $f);
-        }));
-        $slider_urls = array_map(function($f) use ($slider_base_uri) {
-            return $slider_base_uri . $f;
-        }, $slider_files);
-    ?>
-    <script>var enroporraSliderImages = <?php echo json_encode($slider_urls) ?>;</script>
     <section class="slider">
         <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
             <div class="carousel-inner">
