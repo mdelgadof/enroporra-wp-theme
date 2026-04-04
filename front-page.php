@@ -75,19 +75,6 @@ if ($competition->getStage()<EP_Competition::AFTER_FINAL_GAME) {
                 <p>Muchas gracias por estar ahí, un año más.<br />La comisión.</p>
             </div>-->
         </div>
-        <div class="titles services text-left">
-            <div class="container">
-                <div class="seper"></div>
-                <h2 class="page__title">Enroporra en Twitter</h2>
-                <p class="small-paragraph">¡Hacemos RT de la gente simpática!</p>
-            </div>
-        </div>
-        <div class="row three__blocks  text-left no_padding no-margin">
-            <div class="container">
-                <a class="twitter-timeline" data-lang="es" data-height="1200" href="https://twitter.com/comisionporra?ref_src=twsrc%5Etfw">Tweets by comisionporra</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            </div>
-        </div>
         <!--<div class="row three__blocks  text-left no_padding no-margin">
             <div class="container">
                 <div class="col-md-4">
