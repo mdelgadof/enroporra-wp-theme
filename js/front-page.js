@@ -22,8 +22,15 @@ function adjustHomepageToSlider() {
 
 jQuery(document).ready(function() {
     var img = document.getElementById('slider-img');
+    var homepage = document.querySelector('.homepage');
     if (img && typeof enroporraSliderImages !== 'undefined' && enroporraSliderImages.length) {
         var src = enroporraSliderImages[Math.floor(Math.random() * enroporraSliderImages.length)];
+        // Provisional margin antes de que cargue la imagen (estimación 16:9)
+        if (homepage) {
+            var headerHeight = document.querySelector('section.slider').getBoundingClientRect().top;
+            var provisional = window.innerWidth * 9 / 16;
+            homepage.style.marginTop = (headerHeight + Math.min(provisional, window.innerHeight - headerHeight)) + 'px';
+        }
         img.src = src;
         img.dataset.src = src;
     }

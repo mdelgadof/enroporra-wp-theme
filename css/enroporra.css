@@ -528,13 +528,13 @@ input::-webkit-inner-spin-button {
 
 @media (min-width: 768px) {
     .homepage {
-        margin-top: 80vh;
+        margin-top: 56vw;
     }
 }
 
 @media (max-width: 767px) {
     .homepage {
-        margin-top: 60vh;
+        margin-top: 56vw;
     }
 }
 
