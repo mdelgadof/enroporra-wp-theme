@@ -235,18 +235,36 @@
                         <h3><?php _e('Elige los resultados de los cruces','enroporra'); ?></h3>
                     </div>
                     <div id="bet2-wrapper" class="container">
-                        <div class="bet2-container">
+                        <?php if ($competition->getFixtures(array('tournament'=>'last32'))) { ?>
+                        <h4 class="bet2-round-title"><?php _e('Dieciseisavos de final','enroporra'); ?></h4>
+                        <div class="bet2-container last32">
+                    <?php
+                    $fixtures = $competition->getFixtures(array('tournament'=>'last32'));
+                    foreach ($fixtures as $fixture) {
+                        fixturePlayOffHTML($fixture);
+                    }
+                    ?>
+                        </div>
+                        <?php } ?>
+                        <h4 class="bet2-round-title"><?php _e('Octavos de final','enroporra'); ?></h4>
+                        <div class="bet2-container last16">
                     <?php
                     $fixtures = $competition->getFixtures(array('tournament'=>'last16'));
                     foreach ($fixtures as $fixture) {
                         fixturePlayOffHTML($fixture);
                     }
+                    ?>
+                        </div>
+                        <h4 class="bet2-round-title"><?php _e('Cuartos de final','enroporra'); ?></h4>
+                        <div class="bet2-container last8">
+                    <?php
                     $fixtures = $competition->getFixtures(array('tournament'=>'last8'));
                     foreach ($fixtures as $fixture) {
                         fixturePlayOffHTML($fixture);
                     }
                     ?>
                         </div>
+                        <h4 class="bet2-round-title"><?php _e('Semifinales','enroporra'); ?></h4>
                         <div class="bet2-container semis">
                     <?php
                     $fixtures = $competition->getFixtures(array('tournament'=>'last4'));
@@ -255,6 +273,7 @@
                     }
                     ?>
                         </div>
+                        <h4 class="bet2-round-title"><?php _e('Final','enroporra'); ?></h4>
                         <div class="bet2-container final">
                     <?php
                     $fixtures = $competition->getFixtures(array('tournament'=>'final'));

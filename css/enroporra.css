@@ -526,22 +526,31 @@ input::-webkit-inner-spin-button {
     background-color: #FFCCAA;
 }
 
+.bet2-round-title {
+    margin: 30px 0 10px;
+    border-bottom: 2px solid #e74c3c;
+    padding-bottom: 5px;
+}
+
 .bet2-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px 15px;
+    margin-bottom: 10px;
 }
 .bet2-container.semis {
-    justify-content: space-around;
+    grid-template-columns: repeat(2, 265px);
+    justify-content: center;
 }
 
 .bet2-container.final {
+    grid-template-columns: 265px;
     justify-content: center;
 }
 
 .bet2-matchdiv {
-    margin-bottom: 20px;
-    width: 265px;
+    margin-bottom: 0;
+    min-width: 0;
 }
 .bet2-team {
     display: flex;
@@ -612,12 +621,23 @@ input::-webkit-inner-spin-button {
     }
 }
 
+@media (max-width: 767px) {
+    .bet2-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .bet2-container.semis,
+    .bet2-container.final {
+        grid-template-columns: 1fr;
+        justify-content: unset;
+    }
+}
+
 @media (max-width: 500px) {
     #googleMap iframe {
         width: 300px;
         margin-top: 30px;
     }
     .bet2-container {
-        justify-content: center;
+        grid-template-columns: 1fr;
     }
 }
