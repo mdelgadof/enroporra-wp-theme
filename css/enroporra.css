@@ -532,6 +532,12 @@ input::-webkit-inner-spin-button {
     }
 }
 
+@media (max-width: 767px) {
+    .homepage {
+        margin-top: 60vh;
+    }
+}
+
 .bet2-round-title {
     margin: 30px 0 10px;
     border-bottom: 2px solid #e74c3c;
