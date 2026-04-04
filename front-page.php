@@ -14,7 +14,7 @@ if ($competition->getStage()<EP_Competition::AFTER_FINAL_GAME) {
     <section class="slider">
         <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
             <div class="carousel-inner">
-                <div class="item active"> <img id="slider-img" alt="slide" src="">
+                <div class="item active"> <img id="slider-img" alt="slide" style="opacity:0;transition:opacity .4s ease">
                     <div class="container hero">
                         <div class="carousel-caption text-left">
                             <?php if ($competition->getStage()==EP_Competition::BEFORE_KICK_OFF) {

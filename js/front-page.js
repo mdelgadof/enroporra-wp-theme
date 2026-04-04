@@ -9,6 +9,7 @@ function adjustHomepageToSlider() {
         var renderedHeight = (window.innerWidth / img.naturalWidth) * img.naturalHeight;
         var maxVisible = window.innerHeight - headerHeight;
         homepage.style.marginTop = (headerHeight + Math.min(renderedHeight, maxVisible)) + 'px';
+        img.style.opacity = 1;
     }
 
     if (img.complete && img.naturalWidth) {
