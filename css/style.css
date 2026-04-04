@@ -444,13 +444,13 @@ ul.dropdown-menu>li>a:hover {
     margin-top: -70px;
 }
 .carousel-control .carousel-control-left {
-    background: url('../images/slider/prev.png') no-repeat;
+    background: url('../images/carousel/prev.png') no-repeat;
     width: 57px;
     height: 57px;
     left: 25px;
 }
 .carousel-control .carousel-control-right {
-    background: url('../images/slider/next.png') no-repeat;
+    background: url('../images/carousel/next.png') no-repeat;
     width: 57px;
     height: 57px;
     right: 25px;
@@ -459,7 +459,7 @@ ul.dropdown-menu>li>a:hover {
     background: url('../images/slider/prev_a.png') no-repeat;
 }
 .carousel-control .carousel-control-right:hover {
-    background: url('../images/slider/next_a.png') no-repeat;
+    background: url('../images/carousel/next_a.png') no-repeat;
 }
 .boxess .carousel-control .carousel-control-left {
     top: 50%;
@@ -651,10 +651,10 @@ img.full-width {
     margin: 0 3px;
     width: 10px;
     height: 11px;
-    background: url('../images/slider/pager.png') no-repeat center center;
+    background: url('../images/carousel/pager.png') no-repeat center center;
 }
 .line__bg .carousel-indicators li.active, .line__bg .carousel-indicators li:hover {
-    background: url('../images/slider/pager_a.png') no-repeat center center;
+    background: url('../images/carousel/pager_a.png') no-repeat center center;
 }
 /*Icons Blocks*/
 .icons__blocks {

@@ -1,5 +1,5 @@
 function adjustHomepageToSlider() {
-    var img = document.querySelector('section.slider img');
+    var img = document.getElementById('slider-img');
     var homepage = document.querySelector('.homepage');
     if (!img || !homepage) return;
 
@@ -20,6 +20,12 @@ function adjustHomepageToSlider() {
 }
 
 jQuery(document).ready(function() {
+    var img = document.getElementById('slider-img');
+    if (img && typeof enroporraSliderImages !== 'undefined' && enroporraSliderImages.length) {
+        var src = enroporraSliderImages[Math.floor(Math.random() * enroporraSliderImages.length)];
+        img.src = src;
+        img.dataset.src = src;
+    }
     adjustHomepageToSlider();
 });
 

@@ -15,7 +15,7 @@ function redirect_sub_to_home_wpse_93843( $redirect_to, $request, $user ) {
 add_filter( 'login_redirect', 'redirect_sub_to_home_wpse_93843', 10, 3 );
 
 function enroporra_enqueue_styles_scripts() {
-	$version = "20260404-4";
+	$version = "20260404-5";
 	wp_enqueue_style('font-dosis', 'https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800',array(),"1.0");
 	wp_enqueue_style('font-open-sans', 'https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800',array(),"1.0");
 	wp_enqueue_style('bootstrap',get_template_directory_uri()."/css/bootstrap.min.css",array(),"1.0");
