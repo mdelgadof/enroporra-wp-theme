@@ -653,3 +653,35 @@ input::-webkit-inner-spin-button {
         grid-template-columns: 1fr;
     }
 }
+
+/* ── Live score badge ─────────────────────────────── */
+.live-badge {
+    display: inline-block;
+    background: #e60000;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-bottom: 6px;
+    position: relative;
+}
+
+.live-badge::before {
+    content: '';
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    background: #fff;
+    border-radius: 50%;
+    margin-right: 5px;
+    vertical-align: middle;
+    animation: ep-live-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes ep-live-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.3; transform: scale(0.7); }
+}
