@@ -14,7 +14,7 @@ function fixtureHTML(EP_Fixture $fixture) {
         $class = "future";
     }
     else if ($fixture->isLive()) {
-        $title = __('En directo','enroporra').', '.$fixture->getLiveMinute().'\'';
+        $title = __('En directo','enroporra').', '.$fixture->getLiveMinuteLabel();
         $subtitle = $fixture->getTournamentLabel();
         $class = "live";
     }
@@ -54,7 +54,10 @@ function fixtureHTML(EP_Fixture $fixture) {
                 '<span class="number">'.__('Acertantes del ganador/empate').': '.$stats["winners"].'</span>';
     }
 	?>
-	<div class="score <?php echo $class ?>">
+	<div class="score <?php echo $class ?>" data-fixture-id="<?php echo $fixture->getId() ?>">
+		<?php if ($fixture->isLive()): ?>
+			<span class="live-badge">EN DIRECTO</span>
+		<?php endif; ?>
 		<div class="score-title"><?php echo $title ?></div>
 		<div class="score-leg"><?php echo $subtitle ?></div>
 		<div class="score-teams">
