@@ -31,6 +31,25 @@ function enroporra_enqueue_styles_scripts() {
 		$slider_urls = array_map(function($f) { return get_stylesheet_directory_uri() . '/images/slider/' . $f; }, $slider_files);
 		wp_localize_script('frontpage-js', 'enroporraSliderImages', $slider_urls);
 	}
+	// Live scores JS — only during stages with active matches
+	try {
+		$ep_competition = EP_Competition::getCurrentCompetition();
+		$ep_stage = $ep_competition ? $ep_competition->getStage() : null;
+		if (in_array($ep_stage, [EP_Competition::GROUP_STAGE_PLAYING, EP_Competition::PLAYOFF_PLAYING])) {
+			wp_enqueue_script(
+				'ep-live-scores',
+				get_template_directory_uri() . '/js/live-scores.js',
+				[],
+				$version,
+				true
+			);
+			wp_localize_script('ep-live-scores', 'enroporraVars', [
+				'ajaxUrl' => admin_url('admin-ajax.php'),
+			]);
+		}
+	} catch (Exception $e) {
+		// No competition active — skip
+	}
 }
 add_action( 'wp_enqueue_scripts', 'enroporra_enqueue_styles_scripts' );
 
