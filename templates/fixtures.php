@@ -30,6 +30,7 @@ function fixtureHTML(EP_Fixture $fixture) {
     $goals1 = ($fixture->isPlayed()) ? $fixture->getGoals(1) : (($fixture->isLive()) ? $fixture->getGoals(1,true) : '');
 	$goals2 = ($fixture->isPlayed()) ? $fixture->getGoals(2) : (($fixture->isLive()) ? $fixture->getGoals(2,true) : '');
     // Prediction published only if bets are close
+    $prediction = '';
     if (in_array($fixture->getCompetition()->getStage(),array(EP_Competition::GROUP_STAGE_PLAYING,EP_Competition::PLAYOFF_PLAYING)) && $fixture->isFuture()) {
         $prediction = '<div class="">' . __( 'Nuestros apostantes dicen', 'enroporra' ) . '</div>';
         foreach ($stats["winners"] as $winner_id => $times)
