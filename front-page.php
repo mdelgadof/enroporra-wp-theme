@@ -33,7 +33,10 @@ if ($competition->getStage()<EP_Competition::AFTER_FINAL_GAME) {
                             <?php } ?>
                                 <div class="scores">
                             <?php
-                                foreach ($nextFixtures as $fixture) fixtureHTML($fixture);
+                                foreach ($nextFixtures as $fixture) {
+                                    if (ep_fixture_is_admin_only($fixture) && !current_user_can('manage_options')) continue;
+                                    fixtureHTML($fixture);
+                                }
                             ?>
                             </div>
                         </div>
@@ -53,7 +56,10 @@ if ($competition->getStage()<EP_Competition::AFTER_FINAL_GAME) {
             <div class="container scores-mobile">
                 <div class="seper"></div>
                 <p class="page_title"><?php _e('Próximos partidos','enroporra') ?></p>
-                <?php foreach ($nextFixtures as $fixture) fixtureHTML($fixture); ?>
+                <?php foreach ($nextFixtures as $fixture) {
+                    if (ep_fixture_is_admin_only($fixture) && !current_user_can('manage_options')) continue;
+                    fixtureHTML($fixture);
+                } ?>
             </div>
             <?php  } ?>
             <?php if ($lastFixtures) { ?>
@@ -61,7 +67,10 @@ if ($competition->getStage()<EP_Competition::AFTER_FINAL_GAME) {
                     <div class="seper"></div>
                     <p class="page_title"><?php _e('Últimos partidos','enroporra') ?></p>
                     <div style="display:flex; flex-wrap: wrap; justify-content: center">
-			            <?php foreach ($lastFixtures as $fixture) fixtureHTML($fixture); ?>
+			            <?php foreach ($lastFixtures as $fixture) {
+                            if (ep_fixture_is_admin_only($fixture) && !current_user_can('manage_options')) continue;
+                            fixtureHTML($fixture);
+                        } ?>
                     </div>
                 </div>
             <?php  } ?>

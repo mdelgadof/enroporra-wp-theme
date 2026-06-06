@@ -53,6 +53,10 @@ function enroporra_enqueue_styles_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'enroporra_enqueue_styles_scripts' );
 
+function ep_fixture_is_admin_only(EP_Fixture $f): bool {
+    return (bool) get_post_meta($f->getId(), 'ep_admin_only', true);
+}
+
 //date_default_timezone_set('europe/madrid');
 
 include get_template_directory()."/templates/fixtures.php";
