@@ -8,7 +8,7 @@ function loginFormHTML($redirectUrl) {
                 <div class="container">
                     <div class="col-md-6">
                         <h3 style="margin-bottom: 20px;"><?php _e('Esta página requiere tu usuario','enroporra'); ?></h3>
-                        <?php if ($_GET["login_error"]) { ?><p class="points-text-inverse"><?php echo $_GET["login_error"] ?></p><?php } ?>
+                        <?php if (!empty($_GET["login_error"])) { ?><p class="points-text-inverse"><?php echo esc_html($_GET["login_error"]) ?></p><?php } ?>
                         <p><input style="width: 100%" type="email" placeholder="<?php _e('Tu email','enroporra') ?>" name="enroporra_login_email" required /> </p>
                         <!--<p><input style="width: 100%" type="password" placeholder="<?php _e('Contraseña (no obligatoria)','enroporra') ?>" autocomplete="current-password" name="enroporra_login_password" /></p>-->
                         <p><input style="width: inherit" type="checkbox" name="enroporra_login_remember" value="1" /> <?php _e('Recordarme en este dispositivo','enroporra') ?></p>
