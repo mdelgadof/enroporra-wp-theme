@@ -656,7 +656,9 @@ input::-webkit-inner-spin-button {
 
 /* ── Live score badge ─────────────────────────────── */
 .live-badge {
-    display: inline-block;
+    display: block;
+    width: fit-content;
+    margin: 0 auto 6px;
     background: #e60000;
     color: #fff;
     font-size: 11px;
@@ -665,7 +667,6 @@ input::-webkit-inner-spin-button {
     text-transform: uppercase;
     padding: 2px 8px;
     border-radius: 3px;
-    margin-bottom: 6px;
     position: relative;
 }
 
