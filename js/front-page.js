@@ -24,7 +24,16 @@ jQuery(document).ready(function() {
     var img = document.getElementById('slider-img');
     var homepage = document.querySelector('.homepage');
     if (img && typeof enroporraSliderImages !== 'undefined' && enroporraSliderImages.length) {
-        var src = enroporraSliderImages[Math.floor(Math.random() * enroporraSliderImages.length)];
+        var shown = JSON.parse(localStorage.getItem('sliderShown') || '[]');
+        var candidates = enroporraSliderImages.filter(function(url) { return shown.indexOf(url) === -1; });
+        if (!candidates.length) {
+            shown = [];
+            localStorage.setItem('sliderShown', '[]');
+            candidates = enroporraSliderImages;
+        }
+        var src = candidates[Math.floor(Math.random() * candidates.length)];
+        shown.push(src);
+        localStorage.setItem('sliderShown', JSON.stringify(shown));
         // Provisional margin antes de que cargue la imagen (estimación 16:9)
         if (homepage) {
             var headerHeight = document.querySelector('section.slider').getBoundingClientRect().top;
