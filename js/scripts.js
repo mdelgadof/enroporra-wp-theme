@@ -41,24 +41,41 @@ jQuery(document).ready(function ($) {
         if ($(this).val()<10) $(this).css('max-width','50px');
     });
 
-    $('#submit_bet1_form').on('click',function(e) {
-        e.preventDefault();
+    function validateBet1Form() {
         if ($('#player_id').val()=='') {
             alert('¡Debes elegir un pichichi!');
-            $('#player_id').focus();
-            return;
+            return false;
         }
         if ($('input[name=enroporra_name]').val()=='') {
             alert('¡Debes rellenar el nombre del apostante!');
             $('input[name=enroporra_name]').focus();
-            return;
+            return false;
         }
         if ($('input[name=enroporra_email]').val()!=$('input[name=enroporra_email2]').val()) {
             alert('¡Los emails no coinciden!');
             $('input[name=enroporra_email2]').focus();
-            return;
+            return false;
         }
-        $('#bet1_form').submit();
+        var emptyResult = null;
+        $('#bet1_form input[type=number].betTeamResult').each(function() {
+            if (emptyResult) return;
+            if ($(this).val() === '') emptyResult = this;
+        });
+        if (emptyResult) {
+            alert('¡Te has dejado algún resultado por rellenar!');
+            $(emptyResult).focus();
+            return false;
+        }
+        return true;
+    }
+
+    $('#submit_bet1_form').on('click',function(e) {
+        e.preventDefault();
+        if (validateBet1Form()) $('#bet1_form').submit();
+    });
+
+    $('#bet1_form').on('submit', function(e) {
+        if (!validateBet1Form()) e.preventDefault();
     });
 
     $('#submit_bet2_form').on('click',function(e) {
