@@ -33,11 +33,12 @@ function fixtureHTML(EP_Fixture $fixture) {
     $prediction = '';
     if (in_array($fixture->getCompetition()->getStage(),array(EP_Competition::GROUP_STAGE_PLAYING,EP_Competition::PLAYOFF_PLAYING)) && $fixture->isFuture()) {
         $prediction = '<div class="">' . __( 'Nuestros apostantes dicen', 'enroporra' ) . '</div>';
-        foreach ($stats["winners"] as $winner_id => $times)
-	        $prediction .= (new EP_Team(intval($winner_id)))->getFlagHTML( 20 ) . ': <span class="number">' . round( $times * 100 / $stats["total"] ) . '%</span> &nbsp;&nbsp;';
-	    /*if ($fixture->getTournament()=="groups") {
-            $prediction.=__( 'Empate', 'enroporra' ) . ': <span class="number">' . round( $stats["winners"]["X"] * 100 / $stats["total"] ) . '%</span> &nbsp;';
-        }*/
+        foreach ($stats["winners"] as $winner_id => $times) {
+            $label = ($winner_id === 'X')
+                ? __('Empate', 'enroporra')
+                : (new EP_Team(intval($winner_id)))->getFlagHTML(20);
+            $prediction .= $label . ': <span class="number">' . round( $times * 100 / $stats["total"] ) . '%</span> &nbsp;&nbsp;';
+        }
         $moreRepeatedResultData = explode("|",array_key_first( $stats["scores"] ));
 	    $moreWeirdResultData = explode("|",array_key_last( $stats["scores"] ));
         if (is_numeric($moreRepeatedResultData[0]) && is_numeric($moreRepeatedResultData[2])) {
