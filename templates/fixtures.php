@@ -45,8 +45,38 @@ function fixtureHTML(EP_Fixture $fixture) {
             $prediction .=
                 '<br />' . __('Resultado más repetido', 'enroporra') . ': <span class="number">' . (new EP_Team($moreRepeatedResultData[0]))->getFlagHTML(20) . $moreRepeatedResultData[1] . (new EP_Team($moreRepeatedResultData[2]))->getFlagHTML(20) . ' (' . round(array_shift($stats["scores"]) * 100 / $stats["total"]) . '%)</span>' .
                 '<br />' .
-                __('Resultado más raro', 'enroporra') . ': <span class="number">' . (new EP_Team($moreWeirdResultData[0]))->getFlagHTML(20) . $moreWeirdResultData[1] . (new EP_Team($moreWeirdResultData[2]))->getFlagHTML(20) . '</span> 
-            ';
+                __('Resultado más raro', 'enroporra') . ': <span class="number">' . (new EP_Team($moreWeirdResultData[0]))->getFlagHTML(20) . $moreWeirdResultData[1] . (new EP_Team($moreWeirdResultData[2]))->getFlagHTML(20) . '</span>';
+
+            // Media de goles pronosticados
+            $sum1 = $sum2 = 0;
+            foreach ($stats["scores"] as $key => $count) {
+                $parts = explode("|", $key);
+                $goals = explode("-", $parts[1]);
+                $sum1 += (int)$goals[0] * $count;
+                $sum2 += (int)$goals[1] * $count;
+            }
+            $prediction .= '<br />' . __('Media pronosticada', 'enroporra') . ': <span class="number">' .
+                $fixture->getTeam(1)->getFlagHTML(20) . ' ' . round($sum1 / $stats["total"], 1) .
+                ' – ' .
+                round($sum2 / $stats["total"], 1) . ' ' . $fixture->getTeam(2)->getFlagHTML(20) . '</span>';
+
+            // Dispersión de predicciones
+            $distinct = count($stats["scores"]);
+            $prediction .= '<br />' . sprintf(
+                __('%d resultados distintos entre %d apostantes', 'enroporra'),
+                $distinct, $stats["total"]
+            );
+
+            // Apostantes con pichichi en juego
+            $pichichi_count = array_sum($stats["players"]);
+            if ($pichichi_count > 0) {
+                $prediction .= '<br />' . sprintf(
+                    _n('%d apostante tiene su pichichi jugando este partido',
+                       '%d apostantes tienen su pichichi jugando este partido',
+                       $pichichi_count, 'enroporra'),
+                    $pichichi_count
+                );
+            }
         }
     }
     if ($fixture->isPlayed()) {
