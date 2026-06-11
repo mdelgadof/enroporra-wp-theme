@@ -31,7 +31,7 @@ function fixtureHTML(EP_Fixture $fixture) {
 	$goals2 = ($fixture->isPlayed()) ? $fixture->getGoals(2) : (($fixture->isLive()) ? $fixture->getGoals(2,true) : '');
     // Prediction published only if bets are close
     $prediction = '';
-    if (in_array($fixture->getCompetition()->getStage(),array(EP_Competition::GROUP_STAGE_PLAYING,EP_Competition::PLAYOFF_PLAYING)) && $fixture->isFuture()) {
+    if (in_array($fixture->getCompetition()->getStage(),array(EP_Competition::GROUP_STAGE_PLAYING,EP_Competition::PLAYOFF_PLAYING)) && ($fixture->isFuture() || $fixture->isLive())) {
         $prediction = '<div class="">' . __( 'Nuestros apostantes dicen', 'enroporra' ) . '</div>';
         foreach ($stats["winners"] as $winner_id => $times) {
             $label = ($winner_id === 'X')
@@ -83,7 +83,7 @@ function fixtureHTML(EP_Fixture $fixture) {
                 <?php } ?>
             </table>
             <div class="underscore-desktop">
-			<?php if ($fixture->isFuture()) {
+			<?php if ($fixture->isFuture() || $fixture->isLive()) {
                 echo $prediction;
 			} else { ?>
                 <div class="score-scorers-wrapper">
