@@ -4,6 +4,7 @@
      */
     $competition = (object) $GLOBALS['ep_competition'];
     $form_nonce_action = 'Create new bet on Enroporra at stage 1 of the current competition';
+    $admin_force = isset($_GET["admin"]) && $_GET["admin"] === "force" && current_user_can("manage_options");
 
     get_header();
 ?>
@@ -16,7 +17,7 @@
             </div>
         </div>
         <?php
-            if ($competition->getStage()==EP_Competition::BEFORE_KICK_OFF && count($_POST)) {
+            if (($competition->getStage()==EP_Competition::BEFORE_KICK_OFF || $admin_force) && count($_POST)) {
                 $fail = false; $bet = array();
 	            try {
 		            $bet = EP_Bet::createBetFromForm($competition);
@@ -69,10 +70,10 @@
                 }
             }
             // Form of part 1 of the bet: Group stage, top scorer and personal data
-        else if ($competition->getStage()==EP_Competition::BEFORE_KICK_OFF) {
+        else if ($competition->getStage()==EP_Competition::BEFORE_KICK_OFF || $admin_force) {
                 $players = $competition->getBetScorers();
         ?>
-        <form id="bet1_form" method="post" action="/apuesta/">
+        <form id="bet1_form" method="post" action="/apuesta/<?php echo $admin_force ? '?admin=force' : '' ?>">
             <?php wp_nonce_field( $form_nonce_action, 'ep_bet1_nonce' ); ?>
             <div class="row grey-info-block text-left">
                 <div class="container">
