@@ -19,7 +19,7 @@
             card.classList.remove('live');
             card.classList.add('past');
         } else if (title && d.minute) {
-            var minuteStr = d.minute === 'HT' ? 'HT' : d.minute + "'";
+            var minuteStr = d.minute === 'HT' ? 'Descanso' : d.minute + "'";
             title.textContent = 'En directo, ' + minuteStr;
         }
     }
