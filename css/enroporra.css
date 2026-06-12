@@ -216,7 +216,7 @@ p.page_title span {
         padding: 25px;
         margin: 0 8px;
     }
-    .score.future .score-teams .score-leg, .underscore-desktop {
+    .score.future .score-teams .score-leg {
         display: none;
     }
     .score-table.future {
@@ -315,9 +315,6 @@ p.page_title span {
     }
     .prediction-mobile {
         display:none;
-    }
-    .underscore-desktop {
-        display:block;
     }
     .hide-mobile {
         display: none;
