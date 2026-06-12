@@ -16,6 +16,7 @@ function fixtureHTML(EP_Fixture $fixture) {
     else if ($fixture->isLive()) {
         $title = __('En directo','enroporra').', '.$fixture->getLiveMinuteLabel();
         $subtitle = $fixture->getTournamentLabel();
+        $stats = $fixture->getBetsStatsPre();
         $class = "live";
     }
     else {
@@ -39,8 +40,8 @@ function fixtureHTML(EP_Fixture $fixture) {
                 : (new EP_Team(intval($winner_id)))->getFlagHTML(20);
             $prediction .= $label . ': <span class="number">' . round( $times * 100 / $stats["total"] ) . '%</span> &nbsp;&nbsp;';
         }
-        $moreRepeatedResultData = explode("|",array_key_first( $stats["scores"] ));
-	    $moreWeirdResultData = explode("|",array_key_last( $stats["scores"] ));
+        $moreRepeatedResultData = !empty($stats["scores"]) ? explode("|",array_key_first( $stats["scores"] )) : [];
+	    $moreWeirdResultData = !empty($stats["scores"]) ? explode("|",array_key_last( $stats["scores"] )) : [];
         if (is_numeric($moreRepeatedResultData[0]) && is_numeric($moreRepeatedResultData[2])) {
             $prediction .=
                 '<br />' . __('Resultado más repetido', 'enroporra') . ': <span class="number">' . (new EP_Team($moreRepeatedResultData[0]))->getFlagHTML(20) . $moreRepeatedResultData[1] . (new EP_Team($moreRepeatedResultData[2]))->getFlagHTML(20) . ' (' . round(array_shift($stats["scores"]) * 100 / $stats["total"]) . '%)</span>' .
