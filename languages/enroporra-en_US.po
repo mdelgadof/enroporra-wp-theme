@@ -345,3 +345,24 @@ msgstr "Tournament top scorer"
 
 msgid "Árbitro de la final"
 msgstr "Final referee"
+
+msgid "Descanso"
+msgstr "Half-time"
+
+msgid "Fase de grupos"
+msgstr "Group stage"
+
+msgid "Partido por el tercer puesto"
+msgstr "Third place match"
+
+msgid "Por conocer"
+msgstr "TBD"
+
+msgid "No se pudo crear el usuario ni la apuesta. Por favor, inténtalo más tarde."
+msgstr "Could not create the user or the bet. Please try again later."
+
+msgid "Has enviado ya una apuesta con estos mismos marcadores. Su número es la %s. Si quieres hacer una nueva pulsa el botón."
+msgstr "You have already submitted a bet with these exact scores. Its number is %s. If you want to place a new one, press the button."
+
+msgid "No se pudo crear la apuesta en Enroporra. Por favor, inténtalo más tarde."
+msgstr "Could not create the bet in Enroporra. Please try again later."

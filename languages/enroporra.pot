@@ -458,3 +458,31 @@ msgstr ""
 #: templates/ranking.php
 msgid "Árbitro de la final"
 msgstr ""
+
+#: model/EP_Fixture.php
+msgid "Descanso"
+msgstr ""
+
+#: model/EP_Fixture.php
+msgid "Fase de grupos"
+msgstr ""
+
+#: model/EP_Fixture.php
+msgid "Partido por el tercer puesto"
+msgstr ""
+
+#: model/EP_Team.php
+msgid "Por conocer"
+msgstr ""
+
+#: model/EP_Bet.php
+msgid "No se pudo crear el usuario ni la apuesta. Por favor, inténtalo más tarde."
+msgstr ""
+
+#: model/EP_Bet.php
+msgid "Has enviado ya una apuesta con estos mismos marcadores. Su número es la %s. Si quieres hacer una nueva pulsa el botón."
+msgstr ""
+
+#: model/EP_Bet.php
+msgid "No se pudo crear la apuesta en Enroporra. Por favor, inténtalo más tarde."
+msgstr ""

@@ -345,3 +345,24 @@ msgstr "Meilleur buteur de la compétition"
 
 msgid "Árbitro de la final"
 msgstr "Arbitre de la finale"
+
+msgid "Descanso"
+msgstr "Mi-temps"
+
+msgid "Fase de grupos"
+msgstr "Phase de groupes"
+
+msgid "Partido por el tercer puesto"
+msgstr "Match pour la troisième place"
+
+msgid "Por conocer"
+msgstr "À déterminer"
+
+msgid "No se pudo crear el usuario ni la apuesta. Por favor, inténtalo más tarde."
+msgstr "Impossible de créer l'utilisateur ou le pronostic. Veuillez réessayer plus tard."
+
+msgid "Has enviado ya una apuesta con estos mismos marcadores. Su número es la %s. Si quieres hacer una nueva pulsa el botón."
+msgstr "Vous avez déjà soumis un pronostic avec ces mêmes scores. Son numéro est le %s. Si vous souhaitez en faire un nouveau, appuyez sur le bouton."
+
+msgid "No se pudo crear la apuesta en Enroporra. Por favor, inténtalo más tarde."
+msgstr "Impossible de créer le pronostic dans Enroporra. Veuillez réessayer plus tard."
