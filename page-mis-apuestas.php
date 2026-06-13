@@ -46,7 +46,7 @@
 	            <?php } ?>
                 </table>
                 <div style="margin-top:60px">
-                    <p>¿Este no es tu correo? Prueba a cambiarlo <a href="<?php echo wp_logout_url('/mis-apuestas'); ?>">haciendo click aquí</a></p>
+                    <p><?php _e('¿Este no es tu correo? Prueba a cambiarlo','enroporra') ?> <a href="<?php echo wp_logout_url('/mis-apuestas'); ?>"><?php _e('haciendo click aquí','enroporra') ?></a></p>
                 </div>
             </div>
         </div>

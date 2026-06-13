@@ -90,7 +90,7 @@ function fixtureHTML(EP_Fixture $fixture) {
 	?>
 	<div class="score <?php echo $class ?>" data-fixture-id="<?php echo $fixture->getId() ?>">
 		<?php if ($fixture->isLive()): ?>
-			<span class="live-badge">EN DIRECTO</span>
+			<span class="live-badge"><?php echo strtoupper(__('En directo','enroporra')) ?></span>
 		<?php endif; ?>
 		<div class="score-title"><?php echo $title ?></div>
 		<div class="score-leg"><?php echo $subtitle ?></div>

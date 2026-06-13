@@ -5,7 +5,7 @@ $competition = $GLOBALS['ep_competition']; ?>
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <h3>Sobre nosotros</h3>
+                <h3><?php _e('Sobre nosotros','enroporra') ?></h3>
                 <p>Somos un grupo de amigos que lleva organizando esta porra desde 1994 con la idea de pasar un buen rato mientras se desarrollan Mundiales y Eurocopas. El 100% de la recaudación de la porra se destina a premios para los ganadores. <br />
 </p>
             </div>

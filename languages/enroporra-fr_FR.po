@@ -366,3 +366,68 @@ msgstr "Vous avez déjà soumis un pronostic avec ces mêmes scores. Son numéro
 
 msgid "No se pudo crear la apuesta en Enroporra. Por favor, inténtalo más tarde."
 msgstr "Impossible de créer le pronostic dans Enroporra. Veuillez réessayer plus tard."
+
+msgid "Clasificación"
+msgstr "Classement"
+
+msgid "Enlaces oficiales UEFA/FIFA"
+msgstr "Liens officiels UEFA/FIFA"
+
+msgid "Sitio oficial"
+msgstr "Site officiel"
+
+msgid "Calendario de partidos"
+msgstr "Calendrier des matchs"
+
+msgid "Goleadores"
+msgstr "Buteurs"
+
+msgid "Escríbenos"
+msgstr "Contactez-nous"
+
+msgid "¿Este no es tu correo? Prueba a cambiarlo"
+msgstr "Ce n'est pas votre e-mail ? Essayez de le changer"
+
+msgid "haciendo click aquí"
+msgstr "en cliquant ici"
+
+msgid "Sobre nosotros"
+msgstr "À propos de nous"
+
+msgid "Por penaltis"
+msgstr "Aux tirs au but"
+
+msgid "Partido jugado"
+msgstr "Match joué"
+
+msgid "punto"
+msgstr "point"
+
+msgid "por empate"
+msgstr "pour le match nul"
+
+msgid "por victoria de"
+msgstr "pour la victoire de"
+
+msgid "puntos"
+msgstr "points"
+
+msgid "por resultado"
+msgstr "pour le score exact"
+
+msgid "goles"
+msgstr "buts"
+
+msgid "gol"
+msgstr "but"
+
+msgid "por"
+msgstr "pour"
+
+msgid "de"
+msgstr "de"
+
+msgid "%d apostante tiene su pichichi jugando este partido"
+msgid_plural "%d apostantes tienen su pichichi jugando este partido"
+msgstr[0] "%d participant a son meilleur buteur qui joue dans ce match"
+msgstr[1] "%d participants ont leur meilleur buteur qui joue dans ce match"

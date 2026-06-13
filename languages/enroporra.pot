@@ -486,3 +486,89 @@ msgstr ""
 #: model/EP_Bet.php
 msgid "No se pudo crear la apuesta en Enroporra. Por favor, inténtalo más tarde."
 msgstr ""
+
+#: header.php
+msgid "Clasificación"
+msgstr ""
+
+#: header.php
+msgid "Enlaces oficiales UEFA/FIFA"
+msgstr ""
+
+#: header.php
+msgid "Sitio oficial"
+msgstr ""
+
+#: header.php
+msgid "Calendario de partidos"
+msgstr ""
+
+#: header.php
+msgid "Goleadores"
+msgstr ""
+
+#: header.php
+msgid "Escríbenos"
+msgstr ""
+
+#: page-mis-apuestas.php
+msgid "¿Este no es tu correo? Prueba a cambiarlo"
+msgstr ""
+
+#: page-mis-apuestas.php
+msgid "haciendo click aquí"
+msgstr ""
+
+#: footer.php
+msgid "Sobre nosotros"
+msgstr ""
+
+#: model/EP_Bet.php
+msgid "Por penaltis"
+msgstr ""
+
+#: model/EP_Bet.php
+msgid "Partido jugado"
+msgstr ""
+
+#: model/EP_Bet.php
+msgid "punto"
+msgstr ""
+
+#: model/EP_Bet.php
+msgid "por empate"
+msgstr ""
+
+#: model/EP_Bet.php
+msgid "por victoria de"
+msgstr ""
+
+#: model/EP_Bet.php
+msgid "puntos"
+msgstr ""
+
+#: model/EP_Bet.php
+msgid "por resultado"
+msgstr ""
+
+#: model/EP_Bet.php
+msgid "goles"
+msgstr ""
+
+#: model/EP_Bet.php
+msgid "gol"
+msgstr ""
+
+#: model/EP_Bet.php
+msgid "por"
+msgstr ""
+
+#: model/EP_Bet.php
+msgid "de"
+msgstr ""
+
+#: templates/fixtures.php
+msgid "%d apostante tiene su pichichi jugando este partido"
+msgid_plural "%d apostantes tienen su pichichi jugando este partido"
+msgstr[0] ""
+msgstr[1] ""

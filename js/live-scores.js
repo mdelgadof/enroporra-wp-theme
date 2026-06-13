@@ -14,13 +14,13 @@
         if (g2 && d.goals2 !== null) g2.textContent = d.goals2;
 
         if (d.status === 'finished') {
-            if (title) title.textContent = 'Terminado';
+            if (title) title.textContent = enroporraVars.i18n.finished;
             if (badge) badge.remove();
             card.classList.remove('live');
             card.classList.add('past');
         } else if (title && d.minute) {
-            var minuteStr = d.minute === 'HT' ? 'Descanso' : d.minute + "'";
-            title.textContent = 'En directo, ' + minuteStr;
+            var minuteStr = d.minute === 'HT' ? enroporraVars.i18n.halfTime : d.minute + "'";
+            title.textContent = enroporraVars.i18n.live + ', ' + minuteStr;
         }
     }
 

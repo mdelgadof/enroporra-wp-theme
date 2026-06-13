@@ -33,20 +33,20 @@ $competition = $GLOBALS['ep_competition'] ?><!DOCTYPE html>
                         </ul>
                     <?php } ?>
                     </li>
-                    <li <?php if ($competition->beforeStart()) { ?>class="dropdown"<?php } ?>><a href="<?php echo $competition->beforeStart() ? "#":"/clasificacion" ?>">Clasificación</a>
+                    <li <?php if ($competition->beforeStart()) { ?>class="dropdown"<?php } ?>><a href="<?php echo $competition->beforeStart() ? "#":"/clasificacion" ?>"><?php _e('Clasificación','enroporra') ?></a>
                         <?php if ($competition->beforeStart()) { ?>
                             <ul>
-                                <li><a href="#">La competición no ha comenzado</a></li>
+                                <li><a href="#"><?php _e('La competición no ha comenzado','enroporra') ?></a></li>
                             </ul>
                         <?php } ?>
                     </li>
-                    <li class="dropdown"><a href="#">Enlaces oficiales UEFA/FIFA</a>
+                    <li class="dropdown"><a href="#"><?php _e('Enlaces oficiales UEFA/FIFA','enroporra') ?></a>
                         <ul>
-                            <li><a href="<?php echo $competition->getOfficialSite() ?>" target="_blank">Sitio oficial</a></li>
-                            <li><a href="<?php echo $competition->getMatchCalendarSite() ?>" target="_blank">Calendario de partidos</a></li>
-                            <li><a href="<?php echo $competition->getTopScorersSite() ?>" target="_blank">Goleadores</a></li>
+                            <li><a href="<?php echo $competition->getOfficialSite() ?>" target="_blank"><?php _e('Sitio oficial','enroporra') ?></a></li>
+                            <li><a href="<?php echo $competition->getMatchCalendarSite() ?>" target="_blank"><?php _e('Calendario de partidos','enroporra') ?></a></li>
+                            <li><a href="<?php echo $competition->getTopScorersSite() ?>" target="_blank"><?php _e('Goleadores','enroporra') ?></a></li>
                         </ul>
-                    <li><a href="mailto:<?php echo $competition->getEmail() ?>">Escríbenos</a></li>
+                    <li><a href="mailto:<?php echo $competition->getEmail() ?>"><?php _e('Escríbenos','enroporra') ?></a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

@@ -366,3 +366,68 @@ msgstr "You have already submitted a bet with these exact scores. Its number is 
 
 msgid "No se pudo crear la apuesta en Enroporra. Por favor, inténtalo más tarde."
 msgstr "Could not create the bet in Enroporra. Please try again later."
+
+msgid "Clasificación"
+msgstr "Standings"
+
+msgid "Enlaces oficiales UEFA/FIFA"
+msgstr "Official UEFA/FIFA links"
+
+msgid "Sitio oficial"
+msgstr "Official site"
+
+msgid "Calendario de partidos"
+msgstr "Match calendar"
+
+msgid "Goleadores"
+msgstr "Top scorers"
+
+msgid "Escríbenos"
+msgstr "Contact us"
+
+msgid "¿Este no es tu correo? Prueba a cambiarlo"
+msgstr "Not your email? Try changing it"
+
+msgid "haciendo click aquí"
+msgstr "by clicking here"
+
+msgid "Sobre nosotros"
+msgstr "About us"
+
+msgid "Por penaltis"
+msgstr "On penalties"
+
+msgid "Partido jugado"
+msgstr "Match played"
+
+msgid "punto"
+msgstr "point"
+
+msgid "por empate"
+msgstr "for the draw"
+
+msgid "por victoria de"
+msgstr "for the win of"
+
+msgid "puntos"
+msgstr "points"
+
+msgid "por resultado"
+msgstr "for the exact score"
+
+msgid "goles"
+msgstr "goals"
+
+msgid "gol"
+msgstr "goal"
+
+msgid "por"
+msgstr "for"
+
+msgid "de"
+msgstr "by"
+
+msgid "%d apostante tiene su pichichi jugando este partido"
+msgid_plural "%d apostantes tienen su pichichi jugando este partido"
+msgstr[0] "%d bettor has their top scorer playing in this match"
+msgstr[1] "%d bettors have their top scorer playing in this match"

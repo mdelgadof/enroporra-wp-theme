@@ -23,13 +23,24 @@ function redirect_sub_to_home_wpse_93843( $redirect_to, $request, $user ) {
 add_filter( 'login_redirect', 'redirect_sub_to_home_wpse_93843', 10, 3 );
 
 function enroporra_enqueue_styles_scripts() {
-	$version = "20260613-1";
+	$version = "20260613-2";
 	wp_enqueue_style('font-dosis', 'https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800',array(),"1.0");
 	wp_enqueue_style('font-open-sans', 'https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800',array(),"1.0");
 	wp_enqueue_style('bootstrap',get_template_directory_uri()."/css/bootstrap.min.css",array(),"1.0");
 	wp_enqueue_style('theme-style',get_template_directory_uri()."/css/style.css",array('bootstrap'),"1.0");
 	wp_enqueue_style('enroporra-style',get_template_directory_uri()."/css/enroporra.css",array('bootstrap','theme-style'),$version);
 	wp_enqueue_script('enroporra-scripts',get_template_directory_uri()."/js/scripts.js",array('jquery'),$version,true);
+	wp_localize_script('enroporra-scripts', 'enroporraI18n', [
+		'weekdays' => [
+			__('Domingo','enroporra'),
+			__('Lunes','enroporra'),
+			__('Martes','enroporra'),
+			__('Miércoles','enroporra'),
+			__('Jueves','enroporra'),
+			__('Viernes','enroporra'),
+			__('Sábado','enroporra'),
+		],
+	]);
 	if (is_front_page()) {
 		wp_enqueue_script('frontpage-js',get_template_directory_uri()."/js/front-page.js",array('jquery'),$version,true);
 		$slider_dir = get_stylesheet_directory() . '/images/slider/';
@@ -53,6 +64,11 @@ function enroporra_enqueue_styles_scripts() {
 			);
 			wp_localize_script('ep-live-scores', 'enroporraVars', [
 				'ajaxUrl' => admin_url('admin-ajax.php'),
+				'i18n' => [
+					'live'     => __('En directo', 'enroporra'),
+					'finished' => __('Terminado', 'enroporra'),
+					'halfTime' => __('Descanso', 'enroporra'),
+				],
 			]);
 		}
 	} catch (Exception $e) {

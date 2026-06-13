@@ -1,7 +1,7 @@
 jQuery(document).ready(function ($) {
 
     // Convert UTC dates to browser local timezone
-    var weekdays = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+    var weekdays = enroporraI18n.weekdays;
     function pad(n) { return n < 10 ? '0' + n : n; }
     function formatLocalDate(date, format) {
         var d = pad(date.getDate()), m = pad(date.getMonth() + 1), y = date.getFullYear();
