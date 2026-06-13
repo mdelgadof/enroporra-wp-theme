@@ -4,6 +4,10 @@ define('ENROPORRA_DEBUG',true);
 
 add_filter( 'show_admin_bar', '__return_false' );
 
+add_action('after_setup_theme', function() {
+	load_theme_textdomain('enroporra', get_template_directory() . '/languages');
+});
+
 function redirect_sub_to_home_wpse_93843( $redirect_to, $request, $user ) {
     if ( isset($user->roles) && is_array( $user->roles ) ) {
         if ( in_array( 'subscriber', $user->roles ) ) {

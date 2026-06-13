@@ -1,0 +1,344 @@
+# English (US) translation for the Enroporra theme.
+# Copyright (C) Enroporra
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Enroporra Theme\n"
+"POT-Creation-Date: 2026-06-13\n"
+"PO-Revision-Date: 2026-06-13\n"
+"Language-Team: English\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Quedan %s días"
+msgstr "%s days to go"
+
+msgid "¡Haz tu apuesta!"
+msgstr "Place your bet!"
+
+msgid "Se admiten apuestas hasta media hora antes del comienzo del partido inaugural"
+msgstr "Bets are accepted until half an hour before the opening match"
+
+msgid "Próximos partidos"
+msgstr "Upcoming matches"
+
+msgid "Últimos partidos"
+msgstr "Latest matches"
+
+msgid "Domingo"
+msgstr "Sunday"
+
+msgid "Lunes"
+msgstr "Monday"
+
+msgid "Martes"
+msgstr "Tuesday"
+
+msgid "Miércoles"
+msgstr "Wednesday"
+
+msgid "Jueves"
+msgstr "Thursday"
+
+msgid "Viernes"
+msgstr "Friday"
+
+msgid "Sábado"
+msgstr "Saturday"
+
+msgid "Bases"
+msgstr "Rules"
+
+msgid "Mis apuestas"
+msgstr "My bets"
+
+msgid "Mis amigos"
+msgstr "My friends"
+
+msgid "La competición no ha comenzado"
+msgstr "The competition hasn't started yet"
+
+msgid "Elegir mis amigos"
+msgstr "Choose my friends"
+
+msgid "Clasificación de mis amigos"
+msgstr "My friends' standings"
+
+msgid "\"Juego para ser feliz, no para ganar nada\" (Andrés Iniesta)"
+msgstr "\"I play to be happy, not to win anything\" (Andrés Iniesta)"
+
+msgid "\"Ganar, eso es lo más importante para mí. Es tan simple como eso\" (Cristiano Ronaldo)"
+msgstr "\"Winning, that is the most important thing for me. It's as simple as that\" (Cristiano Ronaldo)"
+
+msgid "Elige a tus amigos"
+msgstr "Choose your friends"
+
+msgid "Enviar"
+msgstr "Submit"
+
+msgid "Anota tus resultados de la fase de grupos"
+msgstr "Enter your group stage predictions"
+
+msgid "Cada vez que aciertes el ganador del partido o el empate obtendrás puntos. Si además aciertas el resultado exacto ganarás más puntos adicionales."
+msgstr "Every time you correctly predict the match winner or a draw you'll earn points. If you also get the exact score right you'll earn extra points."
+
+msgid "Grupo"
+msgstr "Group"
+
+msgid "Envía tu apuesta"
+msgstr "Submit your bet"
+
+msgid "Se ha producido un problema al rellenar tu apuesta. Por favor, vuelve a intentarlo o contacta con la comisión."
+msgstr "There was a problem submitting your bet. Please try again or contact the committee."
+
+msgid "Se ha producido un error"
+msgstr "An error has occurred"
+
+msgid "tu apuesta"
+msgstr "your bet"
+
+msgid "¡Apuesta insertada!"
+msgstr "Bet submitted!"
+
+msgid "Ya has terminado. No te olvides de nosotros. Aunque te veas muy abajo en la tabla la segunda fase de la Enroporra siempre genera buenas sorpresas. Te deseamos mucha suerte"
+msgstr "You're done. Don't forget about us. Even if you're near the bottom of the table, the second phase of Enroporra always brings good surprises. We wish you lots of luck"
+
+msgid "Esta es la apuesta de %s para la segunda fase"
+msgstr "This is %s's bet for the second phase"
+
+msgid "La URL de tu apuesta no es correcta. Por favor, vuelve a Mis Apuestas"
+msgstr "Your bet URL is not valid. Please go back to My Bets"
+
+msgid "Rellena la segunda parte de tu Enroporra"
+msgstr "Fill in the second part of your Enroporra"
+
+msgid "Elige al árbitro de la final"
+msgstr "Choose the final's referee"
+
+msgid "Acertar ahora el árbitro que pitará el gran partido dentro de unos días te dará puntos extra."
+msgstr "Correctly predicting the referee who will officiate the big match in a few days will earn you extra points."
+
+msgid "Click aquí para elegir al árbitro"
+msgstr "Click here to choose the referee"
+
+msgid "Elige los resultados de los cruces"
+msgstr "Pick your knockout round results"
+
+msgid "Dieciseisavos de final"
+msgstr "Round of 32"
+
+msgid "Octavos de final"
+msgstr "Round of 16"
+
+msgid "Cuartos de final"
+msgstr "Quarter-finals"
+
+msgid "Semifinales"
+msgstr "Semi-finals"
+
+msgid "Final"
+msgstr "Final"
+
+msgid "Apuestas cerradas para la Enroporra"
+msgstr "Bets closed for Enroporra"
+
+msgid "Mira que tuviste tiempo, ¿eh? Pues ahora ya se acabó el plazo de insertar apuestas."
+msgstr "You had plenty of time, didn't you? Well, the deadline for submitting bets has now passed."
+
+msgid "Por favor, inténtalo de nuevo"
+msgstr "Please try again"
+
+msgid "Volver a la apuesta"
+msgstr "Back to bet"
+
+msgid "Tu número es el"
+msgstr "Your number is"
+
+msgid "Este es tu número de apuesta en la Enroporra de este año. Te lo hemos enviado también por email, pero por favor, anótalo y guárdalo bien."
+msgstr "This is your bet number for this year's Enroporra. We've also sent it to you by email, but please write it down and keep it safe."
+
+msgid "Recuerda que hasta que no recibamos los <strong>%d €</strong>, la apuesta no será válida."
+msgstr "Remember that until we receive the <strong>%d €</strong>, your bet will not be valid."
+
+msgid "Estos son los métodos de pago:"
+msgstr "These are the payment methods:"
+
+msgid "Transferencia bancaria"
+msgstr "Bank transfer"
+
+msgid "Titular"
+msgstr "Account holder"
+
+msgid "Banco"
+msgstr "Bank"
+
+msgid "IBAN"
+msgstr "IBAN"
+
+msgid "Concepto"
+msgstr "Reference"
+
+msgid "Apuesta"
+msgstr "Bet"
+
+msgid "Bizum"
+msgstr "Bizum"
+
+msgid "Número"
+msgstr "Number"
+
+msgid "Es posible que lleguemos al límite de bizums mensuales en este número, si ves que no funciona prueba por transferencia."
+msgstr "We may reach the monthly Bizum limit for this number; if it doesn't work, please try a bank transfer."
+
+msgid "Esta es tu apuesta"
+msgstr "This is your bet"
+
+msgid "para la primera fase"
+msgstr "for the group stage"
+
+msgid "Danos tus datos para la apuesta"
+msgstr "Enter your details for the bet"
+
+msgid "Prometemos usarlos <span class=\"strong\">sólo para contactarte</span> en el caso de que seas uno de los ganadores."
+msgstr "We promise to use them <span class=\"strong\">only to contact you</span> if you are one of the winners."
+
+msgid "Tu email"
+msgstr "Your email"
+
+msgid "Tu teléfono (no obligatorio)"
+msgstr "Your phone (optional)"
+
+msgid "Repite tu email"
+msgstr "Repeat your email"
+
+msgid "Contraseña (no obligatoria)"
+msgstr "Password (optional)"
+
+msgid "Nombre y apellidos del/la apostante (sin seudónimos, por favor)*"
+msgstr "Full name of the bettor (no nicknames, please)*"
+
+msgid "Este nombre es el que aparecerá en la clasificación. Aunque el email se puede repetir para gestionar hasta cuatro apuestas, nos gustaría que cada apuesta fuera de una persona distinta."
+msgstr "This name is what will appear in the standings. Although the same email can be used for up to four bets, we'd like each bet to be from a different person."
+
+msgid "Elige a tu pichichi"
+msgstr "Choose your top scorer"
+
+msgid "Cada gol que marque te aportará puntos durante todo el campeonato, y si además es máximo goleador del torneo obtendrás más puntos extra."
+msgstr "Each goal they score will earn you points throughout the tournament, and if they also finish as the top scorer you'll earn even more extra points."
+
+msgid "Click aquí para elegir al jugador"
+msgstr "Click here to choose a player"
+
+msgid "clasificación de mis amigos"
+msgstr "my friends' standings"
+
+msgid "clasificación"
+msgstr "standings"
+
+msgid "Los administradores no pueden hacer login desde aquí"
+msgstr "Administrators cannot log in from here"
+
+msgid "El correo electrónico que has escrito no existe en Enroporra"
+msgstr "The email address you entered does not exist in Enroporra"
+
+msgid "El correo electrónico o la contraseña que has escrito son incorrectos"
+msgstr "The email address or password you entered is incorrect"
+
+msgid "mis apuestas"
+msgstr "my bets"
+
+msgid "Estas son las apuestas registradas con tu correo"
+msgstr "These are the bets registered with your email"
+
+msgid "Nº apuesta"
+msgstr "Bet #"
+
+msgid "Nombre (click para ver la apuesta)"
+msgstr "Name (click to view the bet)"
+
+msgid "Pagada"
+msgstr "Paid"
+
+msgid "Apuesta segunda fase"
+msgstr "Second phase bet"
+
+msgid "No pagada"
+msgstr "Not paid"
+
+msgid "Hacer apuesta de la segunda fase"
+msgstr "Place second phase bet"
+
+msgid "OK, segunda fase rellenada"
+msgstr "OK, second phase completed"
+
+msgid "Penaltis"
+msgstr "Penalties"
+
+msgid "En directo"
+msgstr "Live"
+
+msgid "Terminado"
+msgstr "Finished"
+
+msgid "Nuestros apostantes dicen"
+msgstr "Our bettors say"
+
+msgid "Empate"
+msgstr "Draw"
+
+msgid "Resultado más repetido"
+msgstr "Most common prediction"
+
+msgid "Resultado más raro"
+msgstr "Rarest prediction"
+
+msgid "Media pronosticada"
+msgstr "Average prediction"
+
+msgid "%d resultados distintos entre %d apostantes"
+msgstr "%d different predictions among %d bettors"
+
+msgid "Acertantes del empate"
+msgstr "Draw predictors"
+
+msgid "Acertantes del ganador"
+msgstr "Winner predictors"
+
+msgid "Puntuaron"
+msgstr "Scored points"
+
+msgid "Esta página requiere tu usuario"
+msgstr "This page requires you to log in"
+
+msgid "Recordarme en este dispositivo"
+msgstr "Remember me on this device"
+
+msgid "Entrar"
+msgstr "Log in"
+
+msgid "Porrista"
+msgstr "Bettor"
+
+msgid "Pichichi"
+msgstr "Top scorer"
+
+msgid "Árbitro"
+msgstr "Referee"
+
+msgid "Próximas apuestas"
+msgstr "Upcoming bets"
+
+msgid "Pago verificado"
+msgstr "Payment verified"
+
+msgid "Segunda fase completada"
+msgstr "Second phase completed"
+
+msgid "Pichichi de la competición"
+msgstr "Tournament top scorer"
+
+msgid "Árbitro de la final"
+msgstr "Final referee"

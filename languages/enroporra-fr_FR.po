@@ -1,0 +1,344 @@
+# French translation for the Enroporra theme.
+# Copyright (C) Enroporra
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Enroporra Theme\n"
+"POT-Creation-Date: 2026-06-13\n"
+"PO-Revision-Date: 2026-06-13\n"
+"Language-Team: French\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Quedan %s días"
+msgstr "Il reste %s jours"
+
+msgid "¡Haz tu apuesta!"
+msgstr "Faites votre pronostic !"
+
+msgid "Se admiten apuestas hasta media hora antes del comienzo del partido inaugural"
+msgstr "Les pronostics sont acceptés jusqu'à une demi-heure avant le début du match inaugural"
+
+msgid "Próximos partidos"
+msgstr "Prochains matchs"
+
+msgid "Últimos partidos"
+msgstr "Derniers matchs"
+
+msgid "Domingo"
+msgstr "Dimanche"
+
+msgid "Lunes"
+msgstr "Lundi"
+
+msgid "Martes"
+msgstr "Mardi"
+
+msgid "Miércoles"
+msgstr "Mercredi"
+
+msgid "Jueves"
+msgstr "Jeudi"
+
+msgid "Viernes"
+msgstr "Vendredi"
+
+msgid "Sábado"
+msgstr "Samedi"
+
+msgid "Bases"
+msgstr "Règlement"
+
+msgid "Mis apuestas"
+msgstr "Mes pronostics"
+
+msgid "Mis amigos"
+msgstr "Mes amis"
+
+msgid "La competición no ha comenzado"
+msgstr "La compétition n'a pas encore commencé"
+
+msgid "Elegir mis amigos"
+msgstr "Choisir mes amis"
+
+msgid "Clasificación de mis amigos"
+msgstr "Classement de mes amis"
+
+msgid "\"Juego para ser feliz, no para ganar nada\" (Andrés Iniesta)"
+msgstr "\"Je joue pour être heureux, pas pour gagner quoi que ce soit\" (Andrés Iniesta)"
+
+msgid "\"Ganar, eso es lo más importante para mí. Es tan simple como eso\" (Cristiano Ronaldo)"
+msgstr "\"Gagner, c'est ce qui compte le plus pour moi. C'est aussi simple que ça\" (Cristiano Ronaldo)"
+
+msgid "Elige a tus amigos"
+msgstr "Choisissez vos amis"
+
+msgid "Enviar"
+msgstr "Envoyer"
+
+msgid "Anota tus resultados de la fase de grupos"
+msgstr "Entrez vos pronostics pour la phase de groupes"
+
+msgid "Cada vez que aciertes el ganador del partido o el empate obtendrás puntos. Si además aciertas el resultado exacto ganarás más puntos adicionales."
+msgstr "Chaque fois que vous prévoyez correctement le vainqueur du match ou le match nul, vous obtenez des points. Si vous devinez aussi le score exact, vous gagnerez des points supplémentaires."
+
+msgid "Grupo"
+msgstr "Groupe"
+
+msgid "Envía tu apuesta"
+msgstr "Envoyer mon pronostic"
+
+msgid "Se ha producido un problema al rellenar tu apuesta. Por favor, vuelve a intentarlo o contacta con la comisión."
+msgstr "Un problème s'est produit lors de la soumission de votre pronostic. Veuillez réessayer ou contacter la commission."
+
+msgid "Se ha producido un error"
+msgstr "Une erreur s'est produite"
+
+msgid "tu apuesta"
+msgstr "votre pronostic"
+
+msgid "¡Apuesta insertada!"
+msgstr "Pronostic soumis !"
+
+msgid "Ya has terminado. No te olvides de nosotros. Aunque te veas muy abajo en la tabla la segunda fase de la Enroporra siempre genera buenas sorpresas. Te deseamos mucha suerte"
+msgstr "C'est terminé. Ne nous oubliez pas. Même si vous vous voyez en bas du classement, la deuxième phase de l'Enroporra réserve toujours de bonnes surprises. Nous vous souhaitons bonne chance"
+
+msgid "Esta es la apuesta de %s para la segunda fase"
+msgstr "Voici le pronostic de %s pour la deuxième phase"
+
+msgid "La URL de tu apuesta no es correcta. Por favor, vuelve a Mis Apuestas"
+msgstr "L'URL de votre pronostic n'est pas correcte. Veuillez retourner à Mes pronostics"
+
+msgid "Rellena la segunda parte de tu Enroporra"
+msgstr "Remplissez la deuxième partie de votre Enroporra"
+
+msgid "Elige al árbitro de la final"
+msgstr "Choisissez l'arbitre de la finale"
+
+msgid "Acertar ahora el árbitro que pitará el gran partido dentro de unos días te dará puntos extra."
+msgstr "Prévoir dès maintenant l'arbitre qui officiera le grand match dans quelques jours vous rapportera des points supplémentaires."
+
+msgid "Click aquí para elegir al árbitro"
+msgstr "Cliquez ici pour choisir l'arbitre"
+
+msgid "Elige los resultados de los cruces"
+msgstr "Choisissez les résultats des matchs à élimination directe"
+
+msgid "Dieciseisavos de final"
+msgstr "Trente-deuxièmes de finale"
+
+msgid "Octavos de final"
+msgstr "Huitièmes de finale"
+
+msgid "Cuartos de final"
+msgstr "Quarts de finale"
+
+msgid "Semifinales"
+msgstr "Demi-finales"
+
+msgid "Final"
+msgstr "Finale"
+
+msgid "Apuestas cerradas para la Enroporra"
+msgstr "Pronostics fermés pour l'Enroporra"
+
+msgid "Mira que tuviste tiempo, ¿eh? Pues ahora ya se acabó el plazo de insertar apuestas."
+msgstr "Vous aviez largement le temps, n'est-ce pas ? Eh bien, le délai pour soumettre des pronostics est maintenant écoulé."
+
+msgid "Por favor, inténtalo de nuevo"
+msgstr "Veuillez réessayer"
+
+msgid "Volver a la apuesta"
+msgstr "Retour au pronostic"
+
+msgid "Tu número es el"
+msgstr "Votre numéro est le"
+
+msgid "Este es tu número de apuesta en la Enroporra de este año. Te lo hemos enviado también por email, pero por favor, anótalo y guárdalo bien."
+msgstr "C'est votre numéro de pronostic pour l'Enroporra de cette année. Nous vous l'avons également envoyé par e-mail, mais veuillez le noter et le conserver précieusement."
+
+msgid "Recuerda que hasta que no recibamos los <strong>%d €</strong>, la apuesta no será válida."
+msgstr "Rappel : tant que nous n'aurons pas reçu les <strong>%d €</strong>, votre pronostic ne sera pas valide."
+
+msgid "Estos son los métodos de pago:"
+msgstr "Voici les méthodes de paiement :"
+
+msgid "Transferencia bancaria"
+msgstr "Virement bancaire"
+
+msgid "Titular"
+msgstr "Titulaire"
+
+msgid "Banco"
+msgstr "Banque"
+
+msgid "IBAN"
+msgstr "IBAN"
+
+msgid "Concepto"
+msgstr "Référence"
+
+msgid "Apuesta"
+msgstr "Pronostic"
+
+msgid "Bizum"
+msgstr "Bizum"
+
+msgid "Número"
+msgstr "Numéro"
+
+msgid "Es posible que lleguemos al límite de bizums mensuales en este número, si ves que no funciona prueba por transferencia."
+msgstr "Nous pouvons atteindre la limite mensuelle de Bizum pour ce numéro ; si cela ne fonctionne pas, essayez un virement bancaire."
+
+msgid "Esta es tu apuesta"
+msgstr "Voici votre pronostic"
+
+msgid "para la primera fase"
+msgstr "pour la phase de groupes"
+
+msgid "Danos tus datos para la apuesta"
+msgstr "Entrez vos coordonnées pour le pronostic"
+
+msgid "Prometemos usarlos <span class=\"strong\">sólo para contactarte</span> en el caso de que seas uno de los ganadores."
+msgstr "Nous promettons de les utiliser <span class=\"strong\">uniquement pour vous contacter</span> si vous êtes l'un des gagnants."
+
+msgid "Tu email"
+msgstr "Votre e-mail"
+
+msgid "Tu teléfono (no obligatorio)"
+msgstr "Votre téléphone (facultatif)"
+
+msgid "Repite tu email"
+msgstr "Répétez votre e-mail"
+
+msgid "Contraseña (no obligatoria)"
+msgstr "Mot de passe (facultatif)"
+
+msgid "Nombre y apellidos del/la apostante (sin seudónimos, por favor)*"
+msgstr "Nom et prénom du/de la participant(e) (sans pseudonymes, s'il vous plaît)*"
+
+msgid "Este nombre es el que aparecerá en la clasificación. Aunque el email se puede repetir para gestionar hasta cuatro apuestas, nos gustaría que cada apuesta fuera de una persona distinta."
+msgstr "Ce nom apparaîtra dans le classement. Bien que le même e-mail puisse être utilisé pour gérer jusqu'à quatre pronostics, nous aimerions que chaque pronostic soit celui d'une personne différente."
+
+msgid "Elige a tu pichichi"
+msgstr "Choisissez votre meilleur buteur"
+
+msgid "Cada gol que marque te aportará puntos durante todo el campeonato, y si además es máximo goleador del torneo obtendrás más puntos extra."
+msgstr "Chaque but qu'il marquera vous rapportera des points tout au long du tournoi, et s'il finit également meilleur buteur du tournoi, vous gagnerez encore plus de points supplémentaires."
+
+msgid "Click aquí para elegir al jugador"
+msgstr "Cliquez ici pour choisir un joueur"
+
+msgid "clasificación de mis amigos"
+msgstr "classement de mes amis"
+
+msgid "clasificación"
+msgstr "classement"
+
+msgid "Los administradores no pueden hacer login desde aquí"
+msgstr "Les administrateurs ne peuvent pas se connecter depuis ici"
+
+msgid "El correo electrónico que has escrito no existe en Enroporra"
+msgstr "L'adresse e-mail que vous avez saisie n'existe pas dans Enroporra"
+
+msgid "El correo electrónico o la contraseña que has escrito son incorrectos"
+msgstr "L'adresse e-mail ou le mot de passe que vous avez saisi est incorrect"
+
+msgid "mis apuestas"
+msgstr "mes pronostics"
+
+msgid "Estas son las apuestas registradas con tu correo"
+msgstr "Voici les pronostics enregistrés avec votre e-mail"
+
+msgid "Nº apuesta"
+msgstr "N° pronostic"
+
+msgid "Nombre (click para ver la apuesta)"
+msgstr "Nom (cliquez pour voir le pronostic)"
+
+msgid "Pagada"
+msgstr "Payé"
+
+msgid "Apuesta segunda fase"
+msgstr "Pronostic deuxième phase"
+
+msgid "No pagada"
+msgstr "Non payé"
+
+msgid "Hacer apuesta de la segunda fase"
+msgstr "Faire le pronostic de la deuxième phase"
+
+msgid "OK, segunda fase rellenada"
+msgstr "OK, deuxième phase complétée"
+
+msgid "Penaltis"
+msgstr "Tirs au but"
+
+msgid "En directo"
+msgstr "En direct"
+
+msgid "Terminado"
+msgstr "Terminé"
+
+msgid "Nuestros apostantes dicen"
+msgstr "Nos participants disent"
+
+msgid "Empate"
+msgstr "Nul"
+
+msgid "Resultado más repetido"
+msgstr "Pronostic le plus répété"
+
+msgid "Resultado más raro"
+msgstr "Pronostic le plus rare"
+
+msgid "Media pronosticada"
+msgstr "Moyenne des pronostics"
+
+msgid "%d resultados distintos entre %d apostantes"
+msgstr "%d pronostics différents parmi %d participants"
+
+msgid "Acertantes del empate"
+msgstr "Pronostiqueurs du nul"
+
+msgid "Acertantes del ganador"
+msgstr "Pronostiqueurs du vainqueur"
+
+msgid "Puntuaron"
+msgstr "Ont marqué des points"
+
+msgid "Esta página requiere tu usuario"
+msgstr "Cette page nécessite votre connexion"
+
+msgid "Recordarme en este dispositivo"
+msgstr "Se souvenir de moi sur cet appareil"
+
+msgid "Entrar"
+msgstr "Se connecter"
+
+msgid "Porrista"
+msgstr "Participant"
+
+msgid "Pichichi"
+msgstr "Meilleur buteur"
+
+msgid "Árbitro"
+msgstr "Arbitre"
+
+msgid "Próximas apuestas"
+msgstr "Prochains pronostics"
+
+msgid "Pago verificado"
+msgstr "Paiement vérifié"
+
+msgid "Segunda fase completada"
+msgstr "Deuxième phase complétée"
+
+msgid "Pichichi de la competición"
+msgstr "Meilleur buteur de la compétition"
+
+msgid "Árbitro de la final"
+msgstr "Arbitre de la finale"

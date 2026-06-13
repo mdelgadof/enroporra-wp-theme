@@ -1,0 +1,456 @@
+# Translation template for the Enroporra theme.
+# Copyright (C) Enroporra
+# This file is distributed under the same license as the Enroporra theme.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Enroporra Theme\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-13\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: front-page.php
+msgid "Quedan %s días"
+msgstr ""
+
+#: front-page.php
+msgid "¡Haz tu apuesta!"
+msgstr ""
+
+#: front-page.php
+msgid "Se admiten apuestas hasta media hora antes del comienzo del partido inaugural"
+msgstr ""
+
+#: front-page.php
+msgid "Próximos partidos"
+msgstr ""
+
+#: front-page.php
+msgid "Últimos partidos"
+msgstr ""
+
+#: functions.php
+msgid "Domingo"
+msgstr ""
+
+#: functions.php
+msgid "Lunes"
+msgstr ""
+
+#: functions.php
+msgid "Martes"
+msgstr ""
+
+#: functions.php
+msgid "Miércoles"
+msgstr ""
+
+#: functions.php
+msgid "Jueves"
+msgstr ""
+
+#: functions.php
+msgid "Viernes"
+msgstr ""
+
+#: functions.php
+msgid "Sábado"
+msgstr ""
+
+#: header.php
+msgid "Bases"
+msgstr ""
+
+#: header.php page-mis-apuestas.php
+msgid "Mis apuestas"
+msgstr ""
+
+#: header.php page-amigos.php
+msgid "Mis amigos"
+msgstr ""
+
+#: header.php
+msgid "La competición no ha comenzado"
+msgstr ""
+
+#: header.php
+msgid "Elegir mis amigos"
+msgstr ""
+
+#: header.php page-clasificacion-amigos.php
+msgid "Clasificación de mis amigos"
+msgstr ""
+
+#: page-amigos.php page-apuesta.php page-clasificacion-amigos.php page-clasificacion.php page-mis-apuestas.php single-bet.php
+msgid "\"Juego para ser feliz, no para ganar nada\" (Andrés Iniesta)"
+msgstr ""
+
+#: page-amigos.php page-apuesta.php page-clasificacion-amigos.php page-clasificacion.php page-mis-apuestas.php single-bet.php
+msgid "\"Ganar, eso es lo más importante para mí. Es tan simple como eso\" (Cristiano Ronaldo)"
+msgstr ""
+
+#: page-amigos.php
+msgid "Elige a tus amigos"
+msgstr ""
+
+#: page-amigos.php
+msgid "Enviar"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Anota tus resultados de la fase de grupos"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Cada vez que aciertes el ganador del partido o el empate obtendrás puntos. Si además aciertas el resultado exacto ganarás más puntos adicionales."
+msgstr ""
+
+#: page-apuesta.php
+msgid "Grupo"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Envía tu apuesta"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Se ha producido un problema al rellenar tu apuesta. Por favor, vuelve a intentarlo o contacta con la comisión."
+msgstr ""
+
+#: page-apuesta.php
+msgid "Se ha producido un error"
+msgstr ""
+
+#: page-apuesta.php
+msgid "tu apuesta"
+msgstr ""
+
+#: page-apuesta.php
+msgid "¡Apuesta insertada!"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Ya has terminado. No te olvides de nosotros. Aunque te veas muy abajo en la tabla la segunda fase de la Enroporra siempre genera buenas sorpresas. Te deseamos mucha suerte"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Esta es la apuesta de %s para la segunda fase"
+msgstr ""
+
+#: page-apuesta.php
+msgid "La URL de tu apuesta no es correcta. Por favor, vuelve a Mis Apuestas"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Rellena la segunda parte de tu Enroporra"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Elige al árbitro de la final"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Acertar ahora el árbitro que pitará el gran partido dentro de unos días te dará puntos extra."
+msgstr ""
+
+#: page-apuesta.php
+msgid "Click aquí para elegir al árbitro"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Elige los resultados de los cruces"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Dieciseisavos de final"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Octavos de final"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Cuartos de final"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Semifinales"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Final"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Apuestas cerradas para la Enroporra"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Mira que tuviste tiempo, ¿eh? Pues ahora ya se acabó el plazo de insertar apuestas."
+msgstr ""
+
+#: page-apuesta.php
+msgid "Por favor, inténtalo de nuevo"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Volver a la apuesta"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Tu número es el"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Este es tu número de apuesta en la Enroporra de este año. Te lo hemos enviado también por email, pero por favor, anótalo y guárdalo bien."
+msgstr ""
+
+#: page-apuesta.php
+msgid "Recuerda que hasta que no recibamos los <strong>%d €</strong>, la apuesta no será válida."
+msgstr ""
+
+#: page-apuesta.php
+msgid "Estos son los métodos de pago:"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Transferencia bancaria"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Titular"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Banco"
+msgstr ""
+
+#: page-apuesta.php
+msgid "IBAN"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Concepto"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Apuesta"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Bizum"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Número"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Es posible que lleguemos al límite de bizums mensuales en este número, si ves que no funciona prueba por transferencia."
+msgstr ""
+
+#: page-apuesta.php
+msgid "Esta es tu apuesta"
+msgstr ""
+
+#: page-apuesta.php
+msgid "para la primera fase"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Danos tus datos para la apuesta"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Prometemos usarlos <span class=\"strong\">sólo para contactarte</span> en el caso de que seas uno de los ganadores."
+msgstr ""
+
+#: page-apuesta.php
+msgid "Tu email"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Tu teléfono (no obligatorio)"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Repite tu email"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Contraseña (no obligatoria)"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Nombre y apellidos del/la apostante (sin seudónimos, por favor)*"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Este nombre es el que aparecerá en la clasificación. Aunque el email se puede repetir para gestionar hasta cuatro apuestas, nos gustaría que cada apuesta fuera de una persona distinta."
+msgstr ""
+
+#: page-apuesta.php
+msgid "Elige a tu pichichi"
+msgstr ""
+
+#: page-apuesta.php
+msgid "Cada gol que marque te aportará puntos durante todo el campeonato, y si además es máximo goleador del torneo obtendrás más puntos extra."
+msgstr ""
+
+#: page-apuesta.php templates/fixtures.php
+msgid "Click aquí para elegir al jugador"
+msgstr ""
+
+#: page-clasificacion-amigos.php
+msgid "clasificación de mis amigos"
+msgstr ""
+
+#: page-clasificacion.php
+msgid "clasificación"
+msgstr ""
+
+#: page-login.php
+msgid "Los administradores no pueden hacer login desde aquí"
+msgstr ""
+
+#: page-login.php
+msgid "El correo electrónico que has escrito no existe en Enroporra"
+msgstr ""
+
+#: page-login.php
+msgid "El correo electrónico o la contraseña que has escrito son incorrectos"
+msgstr ""
+
+#: page-mis-apuestas.php
+msgid "mis apuestas"
+msgstr ""
+
+#: page-mis-apuestas.php
+msgid "Estas son las apuestas registradas con tu correo"
+msgstr ""
+
+#: page-mis-apuestas.php
+msgid "Nº apuesta"
+msgstr ""
+
+#: page-mis-apuestas.php
+msgid "Nombre (click para ver la apuesta)"
+msgstr ""
+
+#: page-mis-apuestas.php
+msgid "Pagada"
+msgstr ""
+
+#: page-mis-apuestas.php
+msgid "Apuesta segunda fase"
+msgstr ""
+
+#: page-mis-apuestas.php
+msgid "No pagada"
+msgstr ""
+
+#: page-mis-apuestas.php
+msgid "Hacer apuesta de la segunda fase"
+msgstr ""
+
+#: page-mis-apuestas.php
+msgid "OK, segunda fase rellenada"
+msgstr ""
+
+#: templates/fixtures.php
+msgid "Penaltis"
+msgstr ""
+
+#: templates/fixtures.php
+msgid "En directo"
+msgstr ""
+
+#: templates/fixtures.php
+msgid "Terminado"
+msgstr ""
+
+#: templates/fixtures.php
+msgid "Nuestros apostantes dicen"
+msgstr ""
+
+#: templates/fixtures.php
+msgid "Empate"
+msgstr ""
+
+#: templates/fixtures.php
+msgid "Resultado más repetido"
+msgstr ""
+
+#: templates/fixtures.php
+msgid "Resultado más raro"
+msgstr ""
+
+#: templates/fixtures.php
+msgid "Media pronosticada"
+msgstr ""
+
+#: templates/fixtures.php
+msgid "%d resultados distintos entre %d apostantes"
+msgstr ""
+
+#: templates/fixtures.php
+msgid "Acertantes del empate"
+msgstr ""
+
+#: templates/fixtures.php
+msgid "Acertantes del ganador"
+msgstr ""
+
+#: templates/fixtures.php
+msgid "Puntuaron"
+msgstr ""
+
+#: templates/login.php
+msgid "Esta página requiere tu usuario"
+msgstr ""
+
+#: templates/login.php
+msgid "Recordarme en este dispositivo"
+msgstr ""
+
+#: templates/login.php
+msgid "Entrar"
+msgstr ""
+
+#: templates/ranking.php
+msgid "Porrista"
+msgstr ""
+
+#: templates/ranking.php
+msgid "Pichichi"
+msgstr ""
+
+#: templates/ranking.php
+msgid "Árbitro"
+msgstr ""
+
+#: templates/ranking.php
+msgid "Próximas apuestas"
+msgstr ""
+
+#: templates/ranking.php
+msgid "Pago verificado"
+msgstr ""
+
+#: templates/ranking.php
+msgid "Segunda fase completada"
+msgstr ""
+
+#: templates/ranking.php
+msgid "Pichichi de la competición"
+msgstr ""
+
+#: templates/ranking.php
+msgid "Árbitro de la final"
+msgstr ""
