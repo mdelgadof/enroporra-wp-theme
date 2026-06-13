@@ -4,6 +4,11 @@ define('ENROPORRA_DEBUG',true);
 
 add_filter( 'show_admin_bar', '__return_false' );
 
+add_filter('locale', function($locale) {
+	$ep = $_COOKIE['ep_locale'] ?? '';
+	return in_array($ep, ['en_US', 'fr_FR'], true) ? $ep : $locale;
+}, 1);
+
 add_action('after_setup_theme', function() {
 	$locale = determine_locale();
 	$mo = get_template_directory() . '/languages/enroporra-' . $locale . '.mo';
@@ -23,7 +28,7 @@ function redirect_sub_to_home_wpse_93843( $redirect_to, $request, $user ) {
 add_filter( 'login_redirect', 'redirect_sub_to_home_wpse_93843', 10, 3 );
 
 function enroporra_enqueue_styles_scripts() {
-	$version = "20260613-2";
+	$version = "20260613-3";
 	wp_enqueue_style('font-dosis', 'https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800',array(),"1.0");
 	wp_enqueue_style('font-open-sans', 'https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800',array(),"1.0");
 	wp_enqueue_style('bootstrap',get_template_directory_uri()."/css/bootstrap.min.css",array(),"1.0");
@@ -40,6 +45,9 @@ function enroporra_enqueue_styles_scripts() {
 			__('Viernes','enroporra'),
 			__('Sábado','enroporra'),
 		],
+		'uiLocale' => (isset($_COOKIE['ep_locale']) && in_array($_COOKIE['ep_locale'], ['en_US', 'fr_FR'], true))
+			? $_COOKIE['ep_locale']
+			: 'es_ES',
 	]);
 	if (is_front_page()) {
 		wp_enqueue_script('frontpage-js',get_template_directory_uri()."/js/front-page.js",array('jquery'),$version,true);

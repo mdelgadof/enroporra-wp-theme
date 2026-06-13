@@ -1,3 +1,32 @@
+function epSetLocale(locale) {
+    if (locale === 'es_ES') {
+        document.cookie = 'ep_locale=; path=/; max-age=0; SameSite=Lax';
+    } else {
+        document.cookie = 'ep_locale=' + locale + '; path=/; max-age=31536000; SameSite=Lax';
+    }
+    location.reload();
+}
+
+(function () {
+    if (localStorage.getItem('ep_lang_popup_shown')) return;
+    var uiLocale = (typeof enroporraI18n !== 'undefined') ? (enroporraI18n.uiLocale || 'es_ES') : 'es_ES';
+    if (uiLocale !== 'es_ES') return;
+    var lang = ((navigator.language || navigator.userLanguage || '').split('-')[0]).toLowerCase();
+    var suggest = lang === 'en' ? 'en_US' : lang === 'fr' ? 'fr_FR' : null;
+    if (!suggest) return;
+    var t = {
+        en_US: { msg: 'Would you like to view this site in English?', yes: 'Yes, in English', no: 'No thanks' },
+        fr_FR: { msg: 'Souhaitez-vous voir ce site en français ?', yes: 'Oui, en français', no: 'Non merci' }
+    }[suggest];
+    var el = document.createElement('div');
+    el.id = 'ep-lang-popup';
+    el.innerHTML = '<span class="ep-lang-popup-msg">' + t.msg + '</span>' +
+        '<button class="ep-lang-popup-yes" onclick="epSetLocale(\'' + suggest + '\');localStorage.setItem(\'ep_lang_popup_shown\',\'1\')">' + t.yes + '</button>' +
+        '<a href="#" class="ep-lang-popup-no" onclick="localStorage.setItem(\'ep_lang_popup_shown\',\'1\');this.parentNode.remove();return false;">' + t.no + '</a>';
+    document.body.appendChild(el);
+    localStorage.setItem('ep_lang_popup_shown', '1');
+}());
+
 jQuery(document).ready(function ($) {
 
     // Convert UTC dates to browser local timezone

@@ -1,7 +1,13 @@
 <?php
 /** @var EP_Competition $competition */
-$competition = $GLOBALS['ep_competition'] ?><!DOCTYPE html>
-<html lang="es">
+$competition = $GLOBALS['ep_competition'];
+$_locale_map  = ['en_US' => 'en', 'fr_FR' => 'fr'];
+$_html_lang   = $_locale_map[determine_locale()] ?? 'es';
+$_ui_locale   = (isset($_COOKIE['ep_locale']) && in_array($_COOKIE['ep_locale'], ['en_US', 'fr_FR'], true))
+    ? $_COOKIE['ep_locale'] : 'es_ES';
+$_flags_url   = content_url('plugins/enroporra/images/flags/');
+?><!DOCTYPE html>
+<html lang="<?= $_html_lang ?>">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enroporra <?php echo $competition->getName() ?></title>
@@ -47,6 +53,11 @@ $competition = $GLOBALS['ep_competition'] ?><!DOCTYPE html>
                             <li><a href="<?php echo $competition->getTopScorersSite() ?>" target="_blank"><?php _e('Goleadores','enroporra') ?></a></li>
                         </ul>
                     <li><a href="mailto:<?php echo $competition->getEmail() ?>"><?php _e('Escríbenos','enroporra') ?></a></li>
+                    <li class="lang-switcher">
+                        <a href="#" onclick="epSetLocale('es_ES');return false;" title="Español"><img src="<?= $_flags_url ?>es.png" class="lang-flag<?= $_ui_locale==='es_ES'?' active':'' ?>" alt="ES"></a>
+                        <a href="#" onclick="epSetLocale('en_US');return false;" title="English"><img src="<?= $_flags_url ?>en.png" class="lang-flag<?= $_ui_locale==='en_US'?' active':'' ?>" alt="EN"></a>
+                        <a href="#" onclick="epSetLocale('fr_FR');return false;" title="Français"><img src="<?= $_flags_url ?>fr.png" class="lang-flag<?= $_ui_locale==='fr_FR'?' active':'' ?>" alt="FR"></a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
