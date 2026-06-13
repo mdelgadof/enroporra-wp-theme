@@ -55,7 +55,7 @@ $_flags_url   = content_url('plugins/enroporra/images/flags/');
                     <li><a href="mailto:<?php echo $competition->getEmail() ?>"><?php _e('Escríbenos','enroporra') ?></a></li>
                     <li class="lang-switcher">
                         <a href="#" onclick="epSetLocale('es_ES');return false;" title="Español"><img src="<?= $_flags_url ?>es.png" class="lang-flag<?= $_ui_locale==='es_ES'?' active':'' ?>" alt="ES"></a>
-                        <a href="#" onclick="epSetLocale('en_US');return false;" title="English"><img src="<?= $_flags_url ?>en.png" class="lang-flag<?= $_ui_locale==='en_US'?' active':'' ?>" alt="EN"></a>
+                        <a href="#" onclick="epSetLocale('en_US');return false;" title="English"><img src="<?= $_flags_url ?>us.png" class="lang-flag<?= $_ui_locale==='en_US'?' active':'' ?>" alt="EN"></a>
                         <a href="#" onclick="epSetLocale('fr_FR');return false;" title="Français"><img src="<?= $_flags_url ?>fr.png" class="lang-flag<?= $_ui_locale==='fr_FR'?' active':'' ?>" alt="FR"></a>
                     </li>
                 </ul>
