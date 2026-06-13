@@ -572,3 +572,223 @@ msgid "%d apostante tiene su pichichi jugando este partido"
 msgid_plural "%d apostantes tienen su pichichi jugando este partido"
 msgstr[0] ""
 msgstr[1] ""
+
+# Team names
+msgid "Albania"
+msgstr ""
+
+msgid "Alemania"
+msgstr ""
+
+msgid "Arabia Saudí"
+msgstr ""
+
+msgid "Argelia"
+msgstr ""
+
+msgid "Argentina"
+msgstr ""
+
+msgid "Australia"
+msgstr ""
+
+msgid "Austria"
+msgstr ""
+
+msgid "Bélgica"
+msgstr ""
+
+msgid "Bosnia y Herz."
+msgstr ""
+
+msgid "Brasil"
+msgstr ""
+
+msgid "Bulgaria"
+msgstr ""
+
+msgid "Cabo Verde"
+msgstr ""
+
+msgid "Camerún"
+msgstr ""
+
+msgid "Canadá"
+msgstr ""
+
+msgid "Catar"
+msgstr ""
+
+msgid "China"
+msgstr ""
+
+msgid "Colombia"
+msgstr ""
+
+msgid "Corea del Sur"
+msgstr ""
+
+msgid "Costa Rica"
+msgstr ""
+
+msgid "Costa de Marfil"
+msgstr ""
+
+msgid "Croacia"
+msgstr ""
+
+msgid "Curação"
+msgstr ""
+
+msgid "Dinamarca"
+msgstr ""
+
+msgid "Ecuador"
+msgstr ""
+
+msgid "Egipto"
+msgstr ""
+
+msgid "EE. UU."
+msgstr ""
+
+msgid "El Salvador"
+msgstr ""
+
+msgid "Emiratos Árabes Unidos"
+msgstr ""
+
+msgid "Escocia"
+msgstr ""
+
+msgid "Eslovaquia"
+msgstr ""
+
+msgid "Eslovenia"
+msgstr ""
+
+msgid "España"
+msgstr ""
+
+msgid "Francia"
+msgstr ""
+
+msgid "Gales"
+msgstr ""
+
+msgid "Gambia"
+msgstr ""
+
+msgid "Georgia"
+msgstr ""
+
+msgid "Ghana"
+msgstr ""
+
+msgid "Guatemala"
+msgstr ""
+
+msgid "Haití"
+msgstr ""
+
+msgid "Honduras"
+msgstr ""
+
+msgid "Hungría"
+msgstr ""
+
+msgid "Inglaterra"
+msgstr ""
+
+msgid "Irán"
+msgstr ""
+
+msgid "Iraq"
+msgstr ""
+
+msgid "Italia"
+msgstr ""
+
+msgid "Japón"
+msgstr ""
+
+msgid "Jordania"
+msgstr ""
+
+msgid "Marruecos"
+msgstr ""
+
+msgid "México"
+msgstr ""
+
+msgid "Noruega"
+msgstr ""
+
+msgid "Nueva Zelanda"
+msgstr ""
+
+msgid "Países Bajos"
+msgstr ""
+
+msgid "Panamá"
+msgstr ""
+
+msgid "Paraguay"
+msgstr ""
+
+msgid "Perú"
+msgstr ""
+
+msgid "Polonia"
+msgstr ""
+
+msgid "Portugal"
+msgstr ""
+
+msgid "R.D. Congo"
+msgstr ""
+
+msgid "Rep. Checa"
+msgstr ""
+
+msgid "Ruanda"
+msgstr ""
+
+msgid "Rumanía"
+msgstr ""
+
+msgid "Senegal"
+msgstr ""
+
+msgid "Serbia"
+msgstr ""
+
+msgid "Sudáfrica"
+msgstr ""
+
+msgid "Suecia"
+msgstr ""
+
+msgid "Suiza"
+msgstr ""
+
+msgid "Túnez"
+msgstr ""
+
+msgid "Turquía"
+msgstr ""
+
+msgid "Ucrania"
+msgstr ""
+
+msgid "Uruguay"
+msgstr ""
+
+msgid "Uzbekistán"
+msgstr ""
+
+msgid "Venezuela"
+msgstr ""
+
+msgid "Zambia"
+msgstr ""

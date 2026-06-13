@@ -431,3 +431,223 @@ msgid "%d apostante tiene su pichichi jugando este partido"
 msgid_plural "%d apostantes tienen su pichichi jugando este partido"
 msgstr[0] "%d participant a son meilleur buteur qui joue dans ce match"
 msgstr[1] "%d participants ont leur meilleur buteur qui joue dans ce match"
+
+# Team names
+msgid "Albania"
+msgstr "Albanie"
+
+msgid "Alemania"
+msgstr "Allemagne"
+
+msgid "Arabia Saudí"
+msgstr "Arabie Saoudite"
+
+msgid "Argelia"
+msgstr "Algérie"
+
+msgid "Argentina"
+msgstr "Argentine"
+
+msgid "Australia"
+msgstr "Australie"
+
+msgid "Austria"
+msgstr "Autriche"
+
+msgid "Bélgica"
+msgstr "Belgique"
+
+msgid "Bosnia y Herz."
+msgstr "Bosnie & Herz."
+
+msgid "Brasil"
+msgstr "Brésil"
+
+msgid "Bulgaria"
+msgstr "Bulgarie"
+
+msgid "Cabo Verde"
+msgstr "Cap-Vert"
+
+msgid "Camerún"
+msgstr "Cameroun"
+
+msgid "Canadá"
+msgstr "Canada"
+
+msgid "Catar"
+msgstr "Qatar"
+
+msgid "China"
+msgstr "Chine"
+
+msgid "Colombia"
+msgstr "Colombie"
+
+msgid "Corea del Sur"
+msgstr "Corée du Sud"
+
+msgid "Costa Rica"
+msgstr "Costa Rica"
+
+msgid "Costa de Marfil"
+msgstr "Côte d'Ivoire"
+
+msgid "Croacia"
+msgstr "Croatie"
+
+msgid "Curação"
+msgstr "Curaçao"
+
+msgid "Dinamarca"
+msgstr "Danemark"
+
+msgid "Ecuador"
+msgstr "Équateur"
+
+msgid "Egipto"
+msgstr "Égypte"
+
+msgid "EE. UU."
+msgstr "États-Unis"
+
+msgid "El Salvador"
+msgstr "Salvador"
+
+msgid "Emiratos Árabes Unidos"
+msgstr "Émirats Arabes Unis"
+
+msgid "Escocia"
+msgstr "Écosse"
+
+msgid "Eslovaquia"
+msgstr "Slovaquie"
+
+msgid "Eslovenia"
+msgstr "Slovénie"
+
+msgid "España"
+msgstr "Espagne"
+
+msgid "Francia"
+msgstr "France"
+
+msgid "Gales"
+msgstr "Pays de Galles"
+
+msgid "Gambia"
+msgstr "Gambie"
+
+msgid "Georgia"
+msgstr "Géorgie"
+
+msgid "Ghana"
+msgstr "Ghana"
+
+msgid "Guatemala"
+msgstr "Guatemala"
+
+msgid "Haití"
+msgstr "Haïti"
+
+msgid "Honduras"
+msgstr "Honduras"
+
+msgid "Hungría"
+msgstr "Hongrie"
+
+msgid "Inglaterra"
+msgstr "Angleterre"
+
+msgid "Irán"
+msgstr "Iran"
+
+msgid "Iraq"
+msgstr "Irak"
+
+msgid "Italia"
+msgstr "Italie"
+
+msgid "Japón"
+msgstr "Japon"
+
+msgid "Jordania"
+msgstr "Jordanie"
+
+msgid "Marruecos"
+msgstr "Maroc"
+
+msgid "México"
+msgstr "Mexique"
+
+msgid "Noruega"
+msgstr "Norvège"
+
+msgid "Nueva Zelanda"
+msgstr "Nouvelle-Zélande"
+
+msgid "Países Bajos"
+msgstr "Pays-Bas"
+
+msgid "Panamá"
+msgstr "Panama"
+
+msgid "Paraguay"
+msgstr "Paraguay"
+
+msgid "Perú"
+msgstr "Pérou"
+
+msgid "Polonia"
+msgstr "Pologne"
+
+msgid "Portugal"
+msgstr "Portugal"
+
+msgid "R.D. Congo"
+msgstr "R.D. Congo"
+
+msgid "Rep. Checa"
+msgstr "Rép. Tchèque"
+
+msgid "Ruanda"
+msgstr "Rwanda"
+
+msgid "Rumanía"
+msgstr "Roumanie"
+
+msgid "Senegal"
+msgstr "Sénégal"
+
+msgid "Serbia"
+msgstr "Serbie"
+
+msgid "Sudáfrica"
+msgstr "Afrique du Sud"
+
+msgid "Suecia"
+msgstr "Suède"
+
+msgid "Suiza"
+msgstr "Suisse"
+
+msgid "Túnez"
+msgstr "Tunisie"
+
+msgid "Turquía"
+msgstr "Turquie"
+
+msgid "Ucrania"
+msgstr "Ukraine"
+
+msgid "Uruguay"
+msgstr "Uruguay"
+
+msgid "Uzbekistán"
+msgstr "Ouzbékistan"
+
+msgid "Venezuela"
+msgstr "Venezuela"
+
+msgid "Zambia"
+msgstr "Zambie"
