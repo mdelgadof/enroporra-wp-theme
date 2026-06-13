@@ -5,7 +5,11 @@ define('ENROPORRA_DEBUG',true);
 add_filter( 'show_admin_bar', '__return_false' );
 
 add_action('after_setup_theme', function() {
-	load_theme_textdomain('enroporra', get_template_directory() . '/languages');
+	$locale = determine_locale();
+	$mo = get_template_directory() . '/languages/enroporra-' . $locale . '.mo';
+	if (file_exists($mo)) {
+		load_textdomain('enroporra', $mo);
+	}
 });
 
 function redirect_sub_to_home_wpse_93843( $redirect_to, $request, $user ) {
