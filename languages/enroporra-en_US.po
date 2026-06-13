@@ -301,6 +301,9 @@ msgstr "Average prediction"
 msgid "%d resultados distintos entre %d apostantes"
 msgstr "%d different predictions among %d bettors"
 
+msgid "Acertantes del resultado"
+msgstr "Exact score predictors"
+
 msgid "Acertantes del empate"
 msgstr "Draw predictors"
 

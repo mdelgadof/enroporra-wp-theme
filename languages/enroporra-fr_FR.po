@@ -301,6 +301,9 @@ msgstr "Moyenne des pronostics"
 msgid "%d resultados distintos entre %d apostantes"
 msgstr "%d pronostics différents parmi %d participants"
 
+msgid "Acertantes del resultado"
+msgstr "Pronostiqueurs du score exact"
+
 msgid "Acertantes del empate"
 msgstr "Pronostiqueurs du nul"
 

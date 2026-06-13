@@ -400,6 +400,10 @@ msgid "%d resultados distintos entre %d apostantes"
 msgstr ""
 
 #: templates/fixtures.php
+msgid "Acertantes del resultado"
+msgstr ""
+
+#: templates/fixtures.php
 msgid "Acertantes del empate"
 msgstr ""
 

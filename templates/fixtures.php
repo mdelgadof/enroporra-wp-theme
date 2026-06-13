@@ -84,7 +84,7 @@ function fixtureHTML(EP_Fixture $fixture) {
         $stats = $fixture->getBetsStatsPost();
         $winner_label = ($fixture->getWinner() === "X") ? __('Acertantes del empate','enroporra') : __('Acertantes del ganador','enroporra');
         $results = '<br /><div class="">' . __('Puntuaron','enroporra') . '</div>' .
-                '<span class="number">'.__('Acertantes del resultado').': '.$stats["results"].'</span><br />'.
+                '<span class="number">'.__('Acertantes del resultado','enroporra').': '.$stats["results"].'</span><br />'.
                 '<span class="number">'.$winner_label.': '.$stats["winners"].'</span>';
     }
 	?>
