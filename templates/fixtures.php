@@ -92,8 +92,7 @@ function fixtureHTML(EP_Fixture $fixture) {
         $stats = $fixture->getBetsStatsPost();
         $winner_label = ($fixture->getWinner() === "X") ? __('Acertantes del empate','enroporra') : __('Acertantes del ganador','enroporra');
         $exactResultsText = '<span class="number">'.__('Acertantes del resultado','enroporra').': '.$stats["results"].'</span>';
-        $cached_total = intval($fixture->getBetsStatsTotal());
-        if ($cached_total > 0 && $stats["results"] > 0 && ($stats["results"] / $cached_total) <= 0.01) {
+        if ($stats["total"] > 0 && $stats["results"] > 0 && ($stats["results"] / $stats["total"]) <= 0.01) {
             foreach ($fixture->getBetsExactResultBets()['bets'] as $exactBet) {
                 $exactResultsText .= '<br /><a href="'.$exactBet->getUrl().'">'.$exactBet->getName().'</a>';
             }
