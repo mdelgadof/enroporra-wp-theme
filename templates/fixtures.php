@@ -94,7 +94,7 @@ function fixtureHTML(EP_Fixture $fixture) {
         $exactResultsText = '<span class="number">'.__('Acertantes del resultado','enroporra').': '.$stats["results"].'</span>';
         if ($stats["total"] > 0 && $stats["results"] > 0 && ($stats["results"] / $stats["total"]) <= 0.01) {
             foreach ($fixture->getBetsExactResultBets()['bets'] as $exactBet) {
-                $exactResultsText .= '<br /><a href="'.$exactBet->getUrl().'">'.$exactBet->getName().'</a>';
+                $exactResultsText .= '<br /><span class="number"><a href="'.$exactBet->getUrl().'">'.$exactBet->getName().'</a></span>';
             }
         }
         $results = '<br /><div class="">' . __('Puntuaron','enroporra') . '</div>' .
