@@ -41,7 +41,22 @@ function fixtureHTML(EP_Fixture $fixture) {
             $prediction .= $label . ': <span class="number">' . round( $times * 100 / $stats["total"] ) . '%</span> &nbsp;&nbsp;';
         }
         $moreRepeatedResultData = !empty($stats["scores"]) ? explode("|",array_key_first( $stats["scores"] )) : [];
-	    $moreWeirdResultData = !empty($stats["scores"]) ? explode("|",array_key_last( $stats["scores"] )) : [];
+        $moreWeirdResultData = [];
+        if (!empty($stats["scores"])) {
+            $minCount = min($stats["scores"]);
+            $maxGoals = -1;
+            foreach ($stats["scores"] as $_key => $_count) {
+                if ($_count === $minCount) {
+                    $_parts = explode("|", $_key);
+                    $_goals = explode("-", $_parts[1]);
+                    $_totalGoals = (int)$_goals[0] + (int)$_goals[1];
+                    if ($_totalGoals > $maxGoals) {
+                        $maxGoals = $_totalGoals;
+                        $moreWeirdResultData = explode("|", $_key);
+                    }
+                }
+            }
+        }
         if (is_numeric($moreRepeatedResultData[0]) && is_numeric($moreRepeatedResultData[2])) {
             $prediction .=
                 '<br />' . __('Resultado más repetido', 'enroporra') . ': <span class="number">' . (new EP_Team($moreRepeatedResultData[0]))->getFlagHTML(20) . $moreRepeatedResultData[1] . (new EP_Team($moreRepeatedResultData[2]))->getFlagHTML(20) . ' (' . round(array_shift($stats["scores"]) * 100 / $stats["total"]) . '%)</span>' .
@@ -61,13 +76,6 @@ function fixtureHTML(EP_Fixture $fixture) {
                 ' – ' .
                 round($sum2 / $stats["total"], 1) . ' ' . $fixture->getTeam(2)->getFlagHTML(20) . '</span>';
 
-            // Dispersión de predicciones
-            $distinct = count($stats["scores"]);
-            $prediction .= '<br />' . sprintf(
-                __('%d resultados distintos entre %d apostantes', 'enroporra'),
-                $distinct, $stats["total"]
-            );
-
             // Apostantes con pichichi en juego
             $pichichi_count = array_sum($stats["players"]);
             if ($pichichi_count > 0) {
@@ -83,8 +91,17 @@ function fixtureHTML(EP_Fixture $fixture) {
     if ($fixture->isPlayed()) {
         $stats = $fixture->getBetsStatsPost();
         $winner_label = ($fixture->getWinner() === "X") ? __('Acertantes del empate','enroporra') : __('Acertantes del ganador','enroporra');
+        $exactResultsText = '<span class="number">'.__('Acertantes del resultado','enroporra').': '.$stats["results"].'</span>';
+        if ($stats["results"] > 0) {
+            $exactData = $fixture->getBetsExactResultBets();
+            if ($exactData['total'] > 0 && ($stats["results"] / $exactData['total']) <= 0.01) {
+                foreach ($exactData['bets'] as $exactBet) {
+                    $exactResultsText .= '<br /><a href="'.$exactBet->getUrl().'">'.$exactBet->getName().'</a>';
+                }
+            }
+        }
         $results = '<br /><div class="">' . __('Puntuaron','enroporra') . '</div>' .
-                '<span class="number">'.__('Acertantes del resultado','enroporra').': '.$stats["results"].'</span><br />'.
+                $exactResultsText.'<br />'.
                 '<span class="number">'.$winner_label.': '.$stats["winners"].'</span>';
     }
 	?>
