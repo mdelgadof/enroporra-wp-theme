@@ -209,7 +209,7 @@
             <?php
             }
             else {
-                $referees = EP_Referee::getAllReferees();
+                $referees = $competition->getReferees();
                 $labelForm  = ($_GET["admin"]=="second_stage") ? "?admin=second_stage" : "";
             ?>
                 <form id="bet2_form" method="post" action="/apuesta/<?php echo $labelForm ?>">
