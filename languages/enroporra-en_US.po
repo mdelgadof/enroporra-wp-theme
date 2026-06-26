@@ -493,6 +493,9 @@ msgstr "Costa Rica"
 msgid "Costa de Marfil"
 msgstr "Ivory Coast"
 
+msgid "Chile"
+msgstr "Chile"
+
 msgid "Croacia"
 msgstr "Croatia"
 
@@ -544,6 +547,9 @@ msgstr "Georgia"
 msgid "Ghana"
 msgstr "Ghana"
 
+msgid "Gabón"
+msgstr "Gabon"
+
 msgid "Guatemala"
 msgstr "Guatemala"
 
@@ -571,8 +577,14 @@ msgstr "Italy"
 msgid "Japón"
 msgstr "Japan"
 
+msgid "Jamaica"
+msgstr "Jamaica"
+
 msgid "Jordania"
 msgstr "Jordan"
+
+msgid "Mauritania"
+msgstr "Mauritania"
 
 msgid "Marruecos"
 msgstr "Morocco"
