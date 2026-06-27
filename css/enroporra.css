@@ -704,3 +704,48 @@ ul.menu li.lang-switcher a { padding: 0 3px !important; background: none !import
 }
 .ep-lang-popup-no { color: #aaa; font-size: 13px; white-space: nowrap; text-decoration: none !important; }
 .ep-lang-popup-no:hover { color: #fff !important; }
+
+/* ── Playoff phase overlay ─────────────────────────── */
+.playoff-overlay {
+    background: #fff;
+    border: 2px solid #e74c3c;
+    border-radius: 6px;
+    padding: 30px 35px;
+    margin: 20px auto;
+    max-width: 800px;
+}
+.playoff-overlay h3 {
+    color: #e74c3c;
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 18px;
+}
+.playoff-overlay p {
+    color: #333;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+.playoff-overlay ul {
+    margin: 8px 0 12px 20px;
+    padding: 0;
+    color: #333;
+    font-size: 15px;
+}
+.playoff-overlay ul li { margin-bottom: 5px; }
+.playoff-overlay__btn-wrap { margin-top: 20px; text-align: center; }
+.playoff-overlay__btn {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 10px 30px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.playoff-overlay__btn:hover { background-color: #c0392b; }
+@media (max-width: 767px) {
+    .playoff-overlay { padding: 20px 18px; }
+}

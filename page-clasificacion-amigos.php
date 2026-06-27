@@ -29,6 +29,36 @@
                 <p class="small-paragraph"><?php (time()%2==0) ? _e('"Juego para ser feliz, no para ganar nada" (Andrés Iniesta)','enroporra') : _e('"Ganar, eso es lo más importante para mí. Es tan simple como eso" (Cristiano Ronaldo)','enroporra'); ?></p>
             </div>
         </div>
+        <?php if (time() < strtotime('2026-06-28 18:30:00 UTC')): ?>
+        <div id="playoff-overlay-wrapper" class="row text-left no-margin nothing">
+            <div class="container black-text">
+                <?php include get_template_directory() . '/templates/playoff-overlay.php'; ?>
+            </div>
+        </div>
+        <div id="ranking-content" style="display:none">
+            <?php if (!is_user_logged_in()) {
+                global $wp;
+                loginFormHTML(home_url( $wp->request ));
+            } else { ?>
+            <div class="row text-left no-margin nothing">
+                <div class="container container-ranking black-text">
+                    <?php rankingHTML($competition, $betsTable, $userBets); ?>
+                </div>
+            </div>
+            <?php } ?>
+        </div>
+        <script>
+        function dismissPlayoffOverlay() {
+            document.getElementById('playoff-overlay-wrapper').style.display = 'none';
+            document.getElementById('ranking-content').style.display = 'block';
+            localStorage.setItem('playoff-overlay-dismissed', '1');
+        }
+        if (localStorage.getItem('playoff-overlay-dismissed')) {
+            document.getElementById('playoff-overlay-wrapper').style.display = 'none';
+            document.getElementById('ranking-content').style.display = 'block';
+        }
+        </script>
+        <?php else: ?>
         <?php if (!is_user_logged_in()) {
             global $wp;
             loginFormHTML(home_url( $wp->request ));
@@ -39,6 +69,7 @@
             </div>
         </div>
         <?php } ?>
+        <?php endif; ?>
     </section>
 <?php
 get_footer();

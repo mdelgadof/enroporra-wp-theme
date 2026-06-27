@@ -663,3 +663,39 @@ msgstr "Venezuela"
 
 msgid "Zambia"
 msgstr "Zambie"
+
+msgid "¡Este año tenemos menos tiempo!"
+msgstr "Cette année, nous avons moins de temps !"
+
+msgid "El Mundial 2026 termina ya su primera fase. El último partido de la fase de grupos termina esta noche más o menos a las 6AM hora española (5AM en Canarias, 12AM en EEUU) y es entonces cuando sabremos todos los cruces y podremos empezar a rellenar la apuesta de la segunda fase. Pero los dieciseisavos también arrancan mañana mismo, 28 de junio a las 9PM (8PM Canarias, 3PM en EE.UU.). Son solo 14 horas y media para rellenar la segunda fase, así que estad atentos y rellenad mañana domingo sin falta vuestra apuesta, ¡queda todo por decidir!"
+msgstr "La Coupe du Monde 2026 touche à la fin de sa phase de groupes. Le dernier match de groupes se termine cette nuit vers 6h du matin (heure espagnole) (5h aux Canaries, minuit aux États-Unis) et c'est alors que nous connaîtrons tous les affrontements et pourrons commencer à remplir le pronostic de la deuxième phase. Mais les seizièmes de finale débutent également demain, le 28 juin à 21h (heure espagnole) (20h aux Canaries, 15h aux États-Unis). Il ne reste que 14h30 pour remplir la deuxième phase — restez attentifs et remplissez votre pronostic ce dimanche sans faute, tout reste à jouer !"
+
+msgid "Lo intentamos negociar con la FIFA. Les enviamos un dossier, reservamos una sala de conferencias y hasta les preparamos un PowerPoint con transiciones muy chulas. Nos dijeron que el formato ya estaba decidido y que, con todo el respeto, no éramos exactamente su audiencia prioritaria."
+msgstr "Nous avons essayé de négocier avec la FIFA. Nous leur avons envoyé un dossier, réservé une salle de conférence et même préparé un PowerPoint avec des transitions très classes. Ils nous ont répondu que le format était déjà décidé et que, avec tout le respect, nous n'étions pas exactement leur public cible."
+
+msgid "Os recordamos cómo puntúan los dieciseisavos:"
+msgstr "Rappel sur la façon dont les seizièmes de finale sont notés :"
+
+msgid "1 punto por acertar el equipo ganador"
+msgstr "1 point pour avoir correctement prédit l'équipe gagnante"
+
+msgid "+1,5 puntos extra si además aciertas el resultado exacto"
+msgstr "+1,5 point supplémentaire si vous devinez également le score exact"
+
+msgid "Es decir, como en la fase de grupos. El resto de rondas puntúan igual que otros años."
+msgstr "C'est-à-dire, comme en phase de groupes. Les autres tours sont notés comme les années précédentes."
+
+msgid "Y al final del torneo, recuerda los bonos de esta edición:"
+msgstr "Et à la fin du tournoi, n'oubliez pas les bonus de cette édition :"
+
+msgid "+5 puntos por haber acertado el árbitro de la final"
+msgstr "+5 points pour avoir correctement prédit l'arbitre de la finale"
+
+msgid "+7,5 puntos extra si tu pichichi resulta ser el máximo goleador del Mundial"
+msgstr "+7,5 points supplémentaires si votre buteur préféré est le meilleur buteur du tournoi"
+
+msgid "Consulta las <a href=\"%s\">bases completas aquí</a>."
+msgstr "Consultez les <a href=\"%s\">règles complètes ici</a>."
+
+msgid "Entendido"
+msgstr "Compris"
