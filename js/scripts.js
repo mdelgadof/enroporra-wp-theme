@@ -121,7 +121,7 @@ jQuery(document).ready(function ($) {
         // Check empty results
         $('#bet2_form input[type=number]').each(function() {
             if (results_fail) return;
-            if (typeof $(this).val()===undefined || $(this).val() == "") {
+            if ($(this).val() == "") {
                 alert('¡Te has dejado algún resultado por rellenar!');
                 $(this).focus();
                 results_fail = true;
@@ -160,7 +160,12 @@ jQuery(document).ready(function ($) {
 
             var self_result = parseInt($(this).val());
             var opponent_result = parseInt($('#' + team_div.data('opponent-id') + ' .bet2-team-result input').val());
-            if (isNaN(self_result) || isNaN(opponent_result)) return;
+            if (isNaN(self_result) || isNaN(opponent_result)) {
+                $('#' + match_div.attr('id') + ' .bet2-resolve-draw').removeClass('bet2-resolve-draw-flex');
+                $('#' + match_div.attr('id') + ' .bet2-penalties-winner').html('&nbsp;').css('border', '');
+                $('input[name=' + match_div.data('fixture-number') + '_winner]').val('');
+                return;
+            }
 
             var self_name = $('#' + team_div.attr('id') + ' .bet2-team-name').html();
             var opponent_name = $('#' + team_div.data('opponent-id') + ' .bet2-team-name').html();
@@ -177,6 +182,8 @@ jQuery(document).ready(function ($) {
                 $('#' + winner_place.attr('id') + ' .bet2-team-id').val(self_id);
                 $('#' + winner_place.attr('id')).data('team-id',self_id);
                 $('#' + match_div.attr('id') + ' .bet2-resolve-draw').removeClass('bet2-resolve-draw-flex');
+                $('#' + match_div.attr('id') + ' .bet2-penalties-winner').html('&nbsp;').css('border', '');
+                $('input[name=' + match_div.data('fixture-number') + '_winner]').val('');
                 $('#' + next_match.attr('id') + ' .bet2-penalties-flag-'+winner_next_number).html(self_little_flag);
             }
             else if (self_result < opponent_result) {
@@ -184,6 +191,8 @@ jQuery(document).ready(function ($) {
                 $('#' + winner_place.attr('id') + ' .bet2-team-id').val(opponent_id);
                 $('#' + winner_place.attr('id')).data('team-id',opponent_id);
                 $('#' + match_div.attr('id') + ' .bet2-resolve-draw').removeClass('bet2-resolve-draw-flex');
+                $('#' + match_div.attr('id') + ' .bet2-penalties-winner').html('&nbsp;').css('border', '');
+                $('input[name=' + match_div.data('fixture-number') + '_winner]').val('');
                 $('#' + next_match.attr('id') + ' .bet2-penalties-flag-'+winner_next_number).html(opponent_little_flag);
             }
             else {
