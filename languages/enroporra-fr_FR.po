@@ -128,7 +128,7 @@ msgid "Elige los resultados de los cruces"
 msgstr "Choisissez les résultats des matchs à élimination directe"
 
 msgid "Dieciseisavos de final"
-msgstr "Trente-deuxièmes de finale"
+msgstr "Seizièmes de finale"
 
 msgid "Octavos de final"
 msgstr "Huitièmes de finale"
