@@ -34,7 +34,11 @@ function fixtureHTML(EP_Fixture $fixture) {
     $prediction = '';
     if (in_array($fixture->getCompetition()->getStage(),array(EP_Competition::GROUP_STAGE_PLAYING,EP_Competition::PLAYOFF_PLAYING)) && ($fixture->isFuture() || $fixture->isLive())) {
         $prediction = '<div class="">' . __( 'Nuestros apostantes dicen', 'enroporra' ) . '</div>';
-        foreach ($stats["winners"] as $winner_id => $times) {
+        $t1id = $fixture->getTeam(1)->getId();
+        $t2id = $fixture->getTeam(2)->getId();
+        foreach ([$t1id, 'X', $t2id] as $winner_id) {
+            if (!isset($stats["winners"][$winner_id])) continue;
+            $times = $stats["winners"][$winner_id];
             $label = ($winner_id === 'X')
                 ? __('Empate', 'enroporra')
                 : (new EP_Team(intval($winner_id)))->getFlagHTML(20);
