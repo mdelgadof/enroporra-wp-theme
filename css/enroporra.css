@@ -561,6 +561,9 @@ input::-webkit-inner-spin-button {
     margin-bottom: 0;
     min-width: 0;
 }
+.bet2-matchtitle strong {
+    display: block;
+}
 .bet2-team {
     display: flex;
     justify-content: space-between;
