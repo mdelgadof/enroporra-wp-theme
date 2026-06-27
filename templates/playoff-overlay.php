@@ -22,7 +22,7 @@
     </ul>
     <p><?php
         /* translators: %s = URL to the rules page */
-        $rules_attachment_id = get_post_meta( $GLOBALS['ep_competition']->ID, 'rules', true );
+        $rules_attachment_id = get_post_meta( $GLOBALS['ep_competition']->getId(), 'rules', true );
         printf( __( 'Consulta las <a href="%s">bases completas aquí</a>.', 'enroporra' ), esc_url( wp_get_attachment_url( $rules_attachment_id ) ) );
     ?></p>
     <div class="playoff-overlay__btn-wrap">
