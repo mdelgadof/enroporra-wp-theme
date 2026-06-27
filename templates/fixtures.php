@@ -36,10 +36,10 @@ function fixtureHTML(EP_Fixture $fixture) {
         $prediction = '<div class="">' . __( 'Nuestros apostantes dicen', 'enroporra' ) . '</div>';
         $t1id = $fixture->getTeam(1)->getId();
         $t2id = $fixture->getTeam(2)->getId();
-        $no_clasificados = 0;
+        $unqualified_count = 0;
         foreach ($stats["winners"] as $winner_id => $times) {
             if ($winner_id !== $t1id && $winner_id !== 'X' && $winner_id !== $t2id) {
-                $no_clasificados += $times;
+                $unqualified_count += $times;
             }
         }
         foreach ([$t1id, 'X', $t2id] as $winner_id) {
@@ -50,8 +50,8 @@ function fixtureHTML(EP_Fixture $fixture) {
                 : (new EP_Team(intval($winner_id)))->getFlagHTML(20);
             $prediction .= $label . ': <span class="number">' . round( $times * 100 / $stats["total"] ) . '%</span> &nbsp;&nbsp;';
         }
-        if ($no_clasificados > 0) {
-            $prediction .= __('No clasificados', 'enroporra') . ': <span class="number">' . round( $no_clasificados * 100 / $stats["total"] ) . '%</span> &nbsp;&nbsp;';
+        if ($unqualified_count > 0) {
+            $prediction .= __('No clasificados', 'enroporra') . ': <span class="number">' . round( $unqualified_count * 100 / $stats["total"] ) . '%</span> &nbsp;&nbsp;';
         }
         $moreRepeatedResultData = !empty($stats["scores"]) ? explode("|",array_key_first( $stats["scores"] )) : [];
         $moreWeirdResultData = [];
