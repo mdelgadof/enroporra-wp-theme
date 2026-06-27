@@ -699,3 +699,6 @@ msgstr "Consultez les <a href=\"%s\">règles complètes ici</a>."
 
 msgid "Entendido"
 msgstr "Compris"
+
+msgid "No clasificados"
+msgstr "Non qualifiés"

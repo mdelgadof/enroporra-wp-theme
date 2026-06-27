@@ -699,3 +699,6 @@ msgstr "Check out the <a href=\"%s\">full rules here</a>."
 
 msgid "Entendido"
 msgstr "Got it"
+
+msgid "No clasificados"
+msgstr "Did not qualify"
