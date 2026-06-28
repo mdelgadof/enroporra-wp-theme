@@ -193,8 +193,9 @@
 	        }
         } // END submission of second stage
         else if ( ($competition->getStage()==EP_Competition::BEFORE_PLAYOFF || ($_GET["admin"] ?? null)=="second_stage") && is_user_logged_in() ){
+	        $error_msg = '';
 	        try {
-		        $bet = new EP_Bet( $_GET["id"] );
+		        $bet = new EP_Bet( $_GET["id"] ?? 0 );
 		        $user = new EP_User(get_current_user_id());
 		        if ($bet->getOwner()->getId()!=$user->getId() && !$user->isAdmin())
                     throw new Exception();
