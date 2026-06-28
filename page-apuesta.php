@@ -125,7 +125,7 @@
             </div>
         </form>
         <?php }
-        else if ( ($competition->getStage()==EP_Competition::BEFORE_PLAYOFF || $_GET["admin"]=="second_stage") && count($_POST) && is_user_logged_in()) {
+        else if ( ($competition->getStage()==EP_Competition::BEFORE_PLAYOFF || ($_GET["admin"] ?? null)=="second_stage") && count($_POST) && is_user_logged_in()) {
             $error_msg = '';
 	        try {
 		        $bet = new EP_Bet( $_POST["bet_id"] );
@@ -192,7 +192,7 @@
                 <?php
 	        }
         } // END submission of second stage
-        else if ( ($competition->getStage()==EP_Competition::BEFORE_PLAYOFF || $_GET["admin"]=="second_stage") && is_user_logged_in() ){
+        else if ( ($competition->getStage()==EP_Competition::BEFORE_PLAYOFF || ($_GET["admin"] ?? null)=="second_stage") && is_user_logged_in() ){
 	        try {
 		        $bet = new EP_Bet( $_GET["id"] );
 		        $user = new EP_User(get_current_user_id());
@@ -210,7 +210,7 @@
             }
             else {
                 $referees = $competition->getReferees();
-                $labelForm  = ($_GET["admin"]=="second_stage") ? "?admin=second_stage" : "";
+                $labelForm  = (($_GET["admin"] ?? null)=="second_stage") ? "?admin=second_stage" : "";
             ?>
                 <form id="bet2_form" method="post" action="/apuesta/<?php echo $labelForm ?>">
                     <input type="hidden" name="bet_id" value="<?php echo $bet->getId() ?>" />
