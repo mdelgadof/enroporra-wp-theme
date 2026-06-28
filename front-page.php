@@ -53,6 +53,26 @@ if ($competition->getStage()<EP_Competition::AFTER_FINAL_GAME) {
 		        <?php echo $days_left_text ?>
             </div>
             <?php } else if ($competition->getStage()<EP_Competition::AFTER_FINAL_GAME && $nextFixtures) { ?>
+            <?php if ($competition->getStage() == EP_Competition::BEFORE_PLAYOFF): ?>
+            <?php
+                $firstPlayoff     = $competition->getFirstPlayoffFixture();
+                $deadlineTs       = strtotime($firstPlayoff->getRawDate() . ' UTC') - 30 * 60;
+                $deadlineIso      = gmdate('Y-m-d\TH:i:s', $deadlineTs) . 'Z';
+                $deadlineFallback = date('d/m/Y H:i', $deadlineTs);
+                $deadlineHTML     = '<time class="local-date" data-utc="' . $deadlineIso . '" data-format="datetime">' . $deadlineFallback . '</time>';
+                $emailLink        = '<a href="mailto:' . esc_attr($competition->getEmail()) . '">' . esc_html($competition->getEmail()) . '</a>';
+                $twitterHandle    = esc_html($competition->getTwitter());
+                $twitterLink      = '<a href="https://x.com/' . esc_attr($competition->getTwitter()) . '" target="_blank">@' . $twitterHandle . '</a>';
+            ?>
+            <div class="container">
+                <div class="seper"></div>
+                <h1 class="page_title"><?php _e('Rellena tu segunda fase', 'enroporra') ?>, <span><?php _e('hay poco tiempo', 'enroporra') ?></span>.</h1>
+                <p><?php printf(__('Tienes hasta el %s para rellenar tu apuesta de la segunda fase.', 'enroporra'), $deadlineHTML) ?></p>
+                <p><a class="btn btn-primary btn-lg" href="/mis-apuestas/" role="button"><?php _e('Ir a mis apuestas', 'enroporra') ?></a></p>
+                <p><?php printf(__('Os recordamos nuestros canales de comunicación, el email %1$s y nuestra cuenta de Twitter/X %2$s', 'enroporra'), $emailLink, $twitterLink) ?></p>
+                <p><?php _e('Muchas gracias por estar ahí, un año más.', 'enroporra') ?><br /><?php _e('La comisión.', 'enroporra') ?></p>
+            </div>
+            <?php endif; ?>
             <div class="container scores-mobile">
                 <div class="seper"></div>
                 <p class="page_title"><?php _e('Próximos partidos','enroporra') ?></p>
@@ -74,26 +94,6 @@ if ($competition->getStage()<EP_Competition::AFTER_FINAL_GAME) {
                     </div>
                 </div>
             <?php  } ?>
-            <?php if ($competition->getStage() == EP_Competition::BEFORE_PLAYOFF): ?>
-            <?php
-                $firstPlayoff     = $competition->getFirstPlayoffFixture();
-                $deadlineTs       = strtotime($firstPlayoff->getRawDate() . ' UTC') - 30 * 60;
-                $deadlineIso      = gmdate('Y-m-d\TH:i:s', $deadlineTs) . 'Z';
-                $deadlineFallback = date('d/m/Y H:i', $deadlineTs);
-                $deadlineHTML     = '<time class="local-date" data-utc="' . $deadlineIso . '" data-format="datetime">' . $deadlineFallback . '</time>';
-                $emailLink        = '<a href="mailto:' . esc_attr($competition->getEmail()) . '">' . esc_html($competition->getEmail()) . '</a>';
-                $twitterHandle    = esc_html($competition->getTwitter());
-                $twitterLink      = '<a href="https://x.com/' . esc_attr($competition->getTwitter()) . '" target="_blank">@' . $twitterHandle . '</a>';
-            ?>
-            <div class="container">
-                <div class="seper"></div>
-                <h1 class="page_title"><?php _e('Rellena tu segunda fase', 'enroporra') ?>, <span><?php _e('hay poco tiempo', 'enroporra') ?></span>.</h1>
-                <p><?php printf(__('Tienes hasta el %s para rellenar tu apuesta de la segunda fase.', 'enroporra'), $deadlineHTML) ?></p>
-                <p><a class="btn btn-primary btn-lg" href="/mis-apuestas/" role="button"><?php _e('Ir a mis apuestas', 'enroporra') ?></a></p>
-                <p><?php printf(__('Os recordamos nuestros canales de comunicación, el email %1$s y nuestra cuenta de Twitter/X %2$s', 'enroporra'), $emailLink, $twitterLink) ?></p>
-                <p><?php _e('Muchas gracias por estar ahí, un año más.', 'enroporra') ?><br /><?php _e('La comisión.', 'enroporra') ?></p>
-            </div>
-            <?php endif; ?>
         </div>
         <!--<div class="row three__blocks  text-left no_padding no-margin">
             <div class="container">
