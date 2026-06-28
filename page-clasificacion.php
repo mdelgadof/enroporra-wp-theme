@@ -26,7 +26,7 @@
 			<p class="small-paragraph"><?php (time()%2==0) ? _e('"Juego para ser feliz, no para ganar nada" (Andrés Iniesta)','enroporra') : _e('"Ganar, eso es lo más importante para mí. Es tan simple como eso" (Cristiano Ronaldo)','enroporra'); ?></p>
 		</div>
 	</div>
-	<?php if (time() < strtotime('2026-06-28 18:30:00 UTC')): ?>
+	<?php if (time() < strtotime('2026-06-28 19:00:00 UTC')): ?>
 	<div id="playoff-overlay-wrapper" class="row text-left no-margin nothing">
 		<div class="container black-text">
 			<?php include get_template_directory() . '/templates/playoff-overlay.php'; ?>
