@@ -28,6 +28,27 @@ msgstr "Upcoming matches"
 msgid "Últimos partidos"
 msgstr "Latest matches"
 
+msgid "Rellena tu segunda fase"
+msgstr "Fill in your second round"
+
+msgid "hay poco tiempo"
+msgstr "time is running out"
+
+msgid "Tienes hasta el %s para rellenar tu apuesta de la segunda fase."
+msgstr "You have until %s to fill in your second round bet."
+
+msgid "Ir a mis apuestas"
+msgstr "Go to my bets"
+
+msgid "Os recordamos nuestros canales de comunicación, el email %1$s y nuestra cuenta de Twitter/X %2$s"
+msgstr "A reminder of our communication channels: email %1$s and our Twitter/X account %2$s"
+
+msgid "Muchas gracias por estar ahí, un año más."
+msgstr "Thank you for being here, another year."
+
+msgid "La comisión."
+msgstr "The committee."
+
 msgid "Domingo"
 msgstr "Sunday"
 

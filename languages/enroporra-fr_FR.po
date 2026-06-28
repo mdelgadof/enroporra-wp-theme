@@ -28,6 +28,27 @@ msgstr "Prochains matchs"
 msgid "Últimos partidos"
 msgstr "Derniers matchs"
 
+msgid "Rellena tu segunda fase"
+msgstr "Remplis ta deuxième phase"
+
+msgid "hay poco tiempo"
+msgstr "le temps presse"
+
+msgid "Tienes hasta el %s para rellenar tu apuesta de la segunda fase."
+msgstr "Tu as jusqu'au %s pour remplir ton pari de la deuxième phase."
+
+msgid "Ir a mis apuestas"
+msgstr "Aller à mes paris"
+
+msgid "Os recordamos nuestros canales de comunicación, el email %1$s y nuestra cuenta de Twitter/X %2$s"
+msgstr "Rappel de nos canaux de communication : email %1$s et notre compte Twitter/X %2$s"
+
+msgid "Muchas gracias por estar ahí, un año más."
+msgstr "Merci d'être là, encore une année."
+
+msgid "La comisión."
+msgstr "La commission."
+
 msgid "Domingo"
 msgstr "Dimanche"
 

@@ -35,6 +35,34 @@ msgstr ""
 msgid "Últimos partidos"
 msgstr ""
 
+#: front-page.php
+msgid "Rellena tu segunda fase"
+msgstr ""
+
+#: front-page.php
+msgid "hay poco tiempo"
+msgstr ""
+
+#: front-page.php
+msgid "Tienes hasta el %s para rellenar tu apuesta de la segunda fase."
+msgstr ""
+
+#: front-page.php
+msgid "Ir a mis apuestas"
+msgstr ""
+
+#: front-page.php
+msgid "Os recordamos nuestros canales de comunicación, el email %1$s y nuestra cuenta de Twitter/X %2$s"
+msgstr ""
+
+#: front-page.php
+msgid "Muchas gracias por estar ahí, un año más."
+msgstr ""
+
+#: front-page.php
+msgid "La comisión."
+msgstr ""
+
 #: functions.php
 msgid "Domingo"
 msgstr ""
