@@ -3,20 +3,27 @@
      * @var EP_Competition $competition
      */
     $competition = $GLOBALS['ep_competition'];
-    $betsTableAll = $competition->getTableBet();
-    $betsTable = array();
+    $rankingCache = get_option('ep_ranking_' . $competition->getId());
     $WPuser = wp_get_current_user();
     if ($WPuser->ID) {
         $user = new EP_User($WPuser->ID);
         $friendsBets = $user->getBetFriendsIds();
-        $userBets = $user->getBets($competition,EP_User::INTEGER);
-        foreach ($betsTableAll as $bet) {
-            if (in_array($bet["bet"]->getId(),$friendsBets) || in_array($bet["bet"]->getId(),$userBets))
-                $betsTable[] = $bet;
+        $userBets = $user->getBets($competition, EP_User::INTEGER);
+        if ($rankingCache) {
+            $filteredRows = array_values(array_filter($rankingCache['rows'], function($row) use ($friendsBets, $userBets) {
+                return in_array($row['id'], $friendsBets) || in_array($row['id'], $userBets);
+            }));
+            $friendsCache = array_merge($rankingCache, ['rows' => $filteredRows]);
+        } else {
+            $betsTableAll = $competition->getTableBet();
+            $betsTable    = array_values(array_filter($betsTableAll, fn($b) =>
+                in_array($b['bet']->getId(), $friendsBets) || in_array($b['bet']->getId(), $userBets)
+            ));
         }
-    }
-    else {
-        $friendsBets = $userBets = array();
+    } else {
+        $friendsBets = $userBets = [];
+        $friendsCache = null;
+        $betsTable = [];
     }
 
     get_header();
@@ -42,7 +49,11 @@
             } else { ?>
             <div class="row text-left no-margin nothing">
                 <div class="container container-ranking black-text">
-                    <?php rankingHTML($competition, $betsTable, $userBets); ?>
+                    <?php if ($rankingCache) {
+                        rankingHTMLCached($competition, $friendsCache, $userBets);
+                    } else {
+                        rankingHTML($competition, $betsTable, $userBets);
+                    } ?>
                 </div>
             </div>
             <?php } ?>
@@ -65,7 +76,11 @@
         } else { ?>
         <div class="row text-left no-margin nothing">
             <div class="container container-ranking black-text">
-	            <?php rankingHTML($competition, $betsTable, $userBets); ?>
+                <?php if ($rankingCache) {
+                    rankingHTMLCached($competition, $friendsCache, $userBets);
+                } else {
+                    rankingHTML($competition, $betsTable, $userBets);
+                } ?>
             </div>
         </div>
         <?php } ?>

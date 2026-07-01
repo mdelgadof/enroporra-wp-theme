@@ -62,3 +62,78 @@ function rankingHTML(EP_Competition $competition, array $betsTable, array $userB
     </table>
     <?php
 }
+
+/**
+ * Renderiza el ranking desde el caché precomputado (wp_option).
+ * Misma salida HTML que rankingHTML() pero sin queries de post_meta por apuesta.
+ */
+function rankingHTMLCached(EP_Competition $competition, array $cache, array $userBets, array $friendsBets = []): void {
+    $currentUser      = new EP_User(get_current_user_id());
+    $admin            = ($currentUser && $currentUser->isAdmin());
+    $currentUserId    = get_current_user_id();
+    $stage            = $competition->getStage();
+    $topScorerIds     = $cache['top_scorer_ids'] ?? [];
+    $compRefereeId    = $cache['competition_referee_id'] ?? null;
+    $nextFixturesData = $cache['next_fixtures_data'] ?? [];
+    ?>
+    <table>
+        <thead>
+        <th><?php _e("Porrista","enroporra"); ?></th>
+        <th class="hide-mobile" style="padding-left:20px"><?php _e("Pichichi","enroporra") ?></th>
+        <?php if ($stage >= EP_Competition::PLAYOFF_PLAYING || $admin) { ?><th class="hide-mobile" style="padding-left:20px"><?php _e("Árbitro","enroporra") ?></th><?php } ?>
+        <th class="hide-mobile" style="padding-left:20px"><?php _e("Próximas apuestas","enroporra") ?></th>
+        </thead>
+        <tbody>
+        <tr><td colspan=4><hr></td></tr>
+        <?php
+        $positionBefore = 0;
+        foreach ($cache['rows'] as $row) {
+            $color = ($positionBefore === $row['position']) ? 'grey' : 'black';
+            $size  = ($row['position'] <= 5) ? 'big' : 'normal';
+
+            $verified = $row['playoff_fulfilled']
+                ? "<img src='".get_template_directory_uri()."/images/icons/verified.png' class='verified-{$size}' title='".__("Segunda fase completada","enroporra")."' />"
+                : '';
+
+            $classTr = in_array($row['id'], $userBets) ? 'my-bet'
+                     : (in_array($row['id'], $friendsBets) ? 'my-friend' : '');
+
+            $playerGoalsString = $row['player_goals'] ? ' (' . $row['player_goals'] . ')' : '';
+            $verifiedPlayer    = ($row['player_id'] && in_array($row['player_id'], $topScorerIds))
+                ? "<img src='".get_template_directory_uri()."/images/icons/verified.png' class='verified-{$size}' title='".__('Pichichi de la competición','enroporra')."' />"
+                : '';
+
+            echo "<tr class='{$classTr}'><td><div class='{$size}-text black-link'><b class='{$color}-text'>{$row['position']}</b> <a href='{$row['url']}'>{$row['name']}</a>{$verified} <span class='points-text'>{$row['points']}</span></div></td>";
+            echo "<td class='hide-mobile' style='padding-left:20px'>{$row['player_name']}{$playerGoalsString}{$verifiedPlayer}</td>";
+
+            if ($stage >= EP_Competition::PLAYOFF_PLAYING || $admin) {
+                $isRefereeHit    = ($row['referee_id'] && $row['referee_id'] === $compRefereeId);
+                $verifiedReferee = $isRefereeHit
+                    ? "<img src='".get_template_directory_uri()."/images/icons/verified.png' class='verified-{$size}' title='".__('Árbitro de la final','enroporra')."' />"
+                    : '';
+                echo "<td class='hide-mobile' style='padding-left:20px'>" . ($row['referee_name'] ?? '') . $verifiedReferee . "</td>";
+            }
+
+            echo "<td class='hide-mobile' style='padding-left:20px'>";
+            $isViewing = ($row['owner_id'] === $currentUserId);
+            foreach ($nextFixturesData as $fixtureData) {
+                if ($fixtureData['tournament'] !== 'groups'
+                    && $stage < EP_Competition::PLAYOFF_PLAYING
+                    && !$isViewing
+                    && !$admin) {
+                    continue;
+                }
+                $betNext = $row['next_bets'][$fixtureData['number']] ?? null;
+                if (!$betNext) continue;
+                echo $betNext['t1_flag'] . ' ' . $betNext['s1'] . '-' . $betNext['s2'] . ' ' . $betNext['t2_flag'] . '&nbsp;&nbsp;&nbsp;';
+            }
+            echo "</td>";
+            echo "</tr><tr><td colspan=4><hr></td></tr>";
+
+            $positionBefore = $row['position'];
+        }
+        ?>
+        </tbody>
+    </table>
+    <?php
+}

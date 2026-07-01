@@ -3,7 +3,8 @@
      * @var EP_Competition $competition
      */
     $competition = (object) $GLOBALS['ep_competition'];
-    $betsTable = $competition->getTableBet();
+    $rankingCache = get_option('ep_ranking_' . $competition->getId());
+    $betsTable = $rankingCache ? null : $competition->getTableBet();
     $WPuser = wp_get_current_user();
     if ($WPuser->ID) {
         $user = new EP_User($WPuser->ID);
@@ -35,7 +36,11 @@
 	<div id="ranking-content" style="display:none">
 		<div class="row text-left no-margin nothing">
 			<div class="container container-ranking black-text">
-	            <?php rankingHTML($competition, $betsTable, $userBets,  $friendsBets); ?>
+	            <?php if ($rankingCache) {
+	                rankingHTMLCached($competition, $rankingCache, $userBets, $friendsBets);
+	            } else {
+	                rankingHTML($competition, $betsTable, $userBets, $friendsBets);
+	            } ?>
 	        </div>
 	    </div>
 	</div>
@@ -53,7 +58,11 @@
 	<?php else: ?>
 	<div class="row text-left no-margin nothing">
 		<div class="container container-ranking black-text">
-            <?php rankingHTML($competition, $betsTable, $userBets,  $friendsBets); ?>
+            <?php if ($rankingCache) {
+                rankingHTMLCached($competition, $rankingCache, $userBets, $friendsBets);
+            } else {
+                rankingHTML($competition, $betsTable, $userBets, $friendsBets);
+            } ?>
         </div>
     </div>
 	<?php endif; ?>
