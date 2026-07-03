@@ -63,8 +63,8 @@ function rankingHTML(EP_Competition $competition, array $betsTable, array $userB
                     $winnerTeamId = isset($betNext['t' . $winner]) ? $betNext['t' . $winner]->getId() : 0;
                     $isDead = $winnerTeamId && !in_array($winnerTeamId, $realTeams);
                 }
-                $deadStyle = $isDead ? ' style="color:red"' : '';
-                echo '<span' . $deadStyle . '>' . $betNext["t1"]->getFlagHTML(20) . ' ' . $betNext["s1"] . '-' . $betNext["s2"] . ' ' . $betNext["t2"]->getFlagHTML(20) . '</span>&nbsp;&nbsp;&nbsp;';
+                $deadClass = $isDead ? ' class="dead-bet"' : '';
+                echo '<span' . $deadClass . '>' . $betNext["t1"]->getFlagHTML(20) . ' ' . $betNext["s1"] . '-' . $betNext["s2"] . ' ' . $betNext["t2"]->getFlagHTML(20) . '</span>&nbsp;&nbsp;&nbsp;';
             }
 
             echo "</td>";
@@ -140,8 +140,8 @@ function rankingHTMLCached(EP_Competition $competition, array $cache, array $use
                 }
                 $betNext = $row['next_bets'][$fixtureData['number']] ?? null;
                 if (!$betNext) continue;
-                $deadStyle = ($betNext['is_dead'] ?? false) ? ' style="color:red"' : '';
-                echo '<span' . $deadStyle . '>' . $betNext['t1_flag'] . ' ' . $betNext['s1'] . '-' . $betNext['s2'] . ' ' . $betNext['t2_flag'] . '</span>&nbsp;&nbsp;&nbsp;';
+                $deadClass = ($betNext['is_dead'] ?? false) ? ' class="dead-bet"' : '';
+                echo '<span' . $deadClass . '>' . $betNext['t1_flag'] . ' ' . $betNext['s1'] . '-' . $betNext['s2'] . ' ' . $betNext['t2_flag'] . '</span>&nbsp;&nbsp;&nbsp;';
             }
             echo "</td>";
             echo "</tr><tr><td colspan=4><hr></td></tr>";

@@ -522,6 +522,10 @@ input::-webkit-inner-spin-button {
 .my-friend {
     background-color: #FFCCAA;
 }
+.dead-bet {
+    color: red;
+    text-decoration: line-through;
+}
 
 @media (min-width: 768px) {
     .homepage {
