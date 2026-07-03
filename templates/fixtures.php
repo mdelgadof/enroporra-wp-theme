@@ -46,14 +46,13 @@ function fixtureHTML(EP_Fixture $fixture, array $userBets = []) {
                     $winnerTeamId = $betScore['t' . $winner]->getId();
                     $isDead = $winnerTeamId && !in_array($winnerTeamId, [$realT1, $realT2]);
                 }
-                $deadClass = $isDead ? ' class="dead-bet"' : '';
-                $myBetsHtml .= '<span' . $deadClass . '>'
-                    . esc_html($bet->getName()) . ': '
+                $numberClass = $isDead ? 'number dead-bet' : 'number';
+                $myBetsHtml .= esc_html($bet->getName()) . ': <span class="' . $numberClass . '">'
                     . $betScore['t1']->getFlagHTML(20) . ' ' . $betScore['s1'] . '-' . $betScore['s2'] . ' ' . $betScore['t2']->getFlagHTML(20)
                     . '</span><br />';
             }
             if ($myBetsHtml) {
-                $myBetsHtml = '<div class="">' . __('Mis apuestas', 'enroporra') . '</div>' . $myBetsHtml;
+                $myBetsHtml = '<div class="">' . __('Mis apuestas', 'enroporra') . '</div>' . $myBetsHtml . '<br />';
             }
         }
         $prediction = '<div class="">' . __( 'Nuestros apostantes dicen', 'enroporra' ) . '</div>';
