@@ -5,7 +5,7 @@
  *
  * @throws Exception
  */
-function fixtureHTML(EP_Fixture $fixture) {
+function fixtureHTML(EP_Fixture $fixture, array $userBets = []) {
 
 	if ($fixture->isFuture()) {
 		$title = $fixture->getDateHTML();
@@ -32,7 +32,30 @@ function fixtureHTML(EP_Fixture $fixture) {
 	$goals2 = ($fixture->isPlayed()) ? $fixture->getGoals(2) : (($fixture->isLive()) ? $fixture->getGoals(2,true) : '');
     // Prediction published only if bets are close
     $prediction = '';
+    $myBetsHtml = '';
     if (in_array($fixture->getCompetition()->getStage(),array(EP_Competition::GROUP_STAGE_PLAYING,EP_Competition::PLAYOFF_PLAYING)) && ($fixture->isFuture() || $fixture->isLive())) {
+        if (!empty($userBets) && is_user_logged_in()) {
+            $realT1 = $fixture->getTeam(1)->getId();
+            $realT2 = $fixture->getTeam(2)->getId();
+            foreach ($userBets as $bet) {
+                $betScore = $bet->getFixtureBet($fixture->getFixtureNumber());
+                if (empty($betScore)) continue;
+                $winner = $betScore['winner'] ?? 'X';
+                $isDead = false;
+                if ($realT1 && $realT2 && $winner !== 'X') {
+                    $winnerTeamId = $betScore['t' . $winner]->getId();
+                    $isDead = $winnerTeamId && !in_array($winnerTeamId, [$realT1, $realT2]);
+                }
+                $deadClass = $isDead ? ' class="dead-bet"' : '';
+                $myBetsHtml .= '<span' . $deadClass . '>'
+                    . esc_html($bet->getName()) . ': '
+                    . $betScore['t1']->getFlagHTML(20) . ' ' . $betScore['s1'] . '-' . $betScore['s2'] . ' ' . $betScore['t2']->getFlagHTML(20)
+                    . '</span><br />';
+            }
+            if ($myBetsHtml) {
+                $myBetsHtml = '<div class="">' . __('Mis apuestas', 'enroporra') . '</div>' . $myBetsHtml;
+            }
+        }
         $prediction = '<div class="">' . __( 'Nuestros apostantes dicen', 'enroporra' ) . '</div>';
         $t1id = $fixture->getTeam(1)->getId();
         $t2id = $fixture->getTeam(2)->getId();
@@ -143,6 +166,7 @@ function fixtureHTML(EP_Fixture $fixture) {
             </table>
             <div class="underscore-desktop">
 			<?php if ($fixture->isFuture() || $fixture->isLive()) {
+                echo $myBetsHtml;
                 echo $prediction;
 			} else { ?>
                 <div class="score-scorers-wrapper">
