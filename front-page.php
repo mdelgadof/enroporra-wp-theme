@@ -2,6 +2,11 @@
 /** @var EP_Competition $competition */
 $competition = $GLOBALS['ep_competition'];
 $lastFixtures = $nextFixtures = array();
+$userBets = [];
+if (is_user_logged_in()) {
+    $epCurrentUser = new EP_User(get_current_user_id());
+    $userBets = $epCurrentUser->getBets($competition);
+}
 
 if ($competition->getStage()>EP_Competition::BEFORE_KICK_OFF) {
     $lastFixtures = $competition->getLastFixtures(3);
@@ -35,7 +40,7 @@ if ($competition->getStage()<EP_Competition::AFTER_FINAL_GAME) {
                             <?php
                                 foreach ($nextFixtures as $fixture) {
                                     if (ep_fixture_is_admin_only($fixture) && !current_user_can('manage_options')) continue;
-                                    fixtureHTML($fixture);
+                                    fixtureHTML($fixture, $userBets);
                                 }
                             ?>
                             </div>
@@ -78,7 +83,7 @@ if ($competition->getStage()<EP_Competition::AFTER_FINAL_GAME) {
                 <p class="page_title"><?php _e('Próximos partidos','enroporra') ?></p>
                 <?php foreach ($nextFixtures as $fixture) {
                     if (ep_fixture_is_admin_only($fixture) && !current_user_can('manage_options')) continue;
-                    fixtureHTML($fixture);
+                    fixtureHTML($fixture, $userBets);
                 } ?>
             </div>
             <?php  } ?>
@@ -89,7 +94,7 @@ if ($competition->getStage()<EP_Competition::AFTER_FINAL_GAME) {
                     <div style="display:flex; flex-wrap: wrap; justify-content: center">
 			            <?php foreach ($lastFixtures as $fixture) {
                             if (ep_fixture_is_admin_only($fixture) && !current_user_can('manage_options')) continue;
-                            fixtureHTML($fixture);
+                            fixtureHTML($fixture, $userBets);
                         } ?>
                     </div>
                 </div>
