@@ -33,28 +33,30 @@ function fixtureHTML(EP_Fixture $fixture, array $userBets = []) {
     // Prediction published only if bets are close
     $prediction = '';
     $myBetsHtml = '';
-    if (in_array($fixture->getCompetition()->getStage(),array(EP_Competition::GROUP_STAGE_PLAYING,EP_Competition::PLAYOFF_PLAYING)) && ($fixture->isFuture() || $fixture->isLive())) {
-        if (!empty($userBets) && is_user_logged_in()) {
-            $realT1 = $fixture->getTeam(1)->getId();
-            $realT2 = $fixture->getTeam(2)->getId();
-            foreach ($userBets as $bet) {
-                $betScore = $bet->getFixtureBet($fixture->getFixtureNumber());
-                if (empty($betScore)) continue;
-                $winner = $betScore['winner'] ?? 'X';
-                $isDead = false;
-                if ($realT1 && $realT2 && $winner !== 'X') {
-                    $winnerTeamId = $betScore['t' . $winner]->getId();
-                    $isDead = $winnerTeamId && !in_array($winnerTeamId, [$realT1, $realT2]);
-                }
-                $numberClass = $isDead ? 'number dead-bet' : 'number';
-                $myBetsHtml .= esc_html($bet->getName()) . '<br /><span class="' . $numberClass . '" data-s1="' . (int)$betScore['s1'] . '" data-s2="' . (int)$betScore['s2'] . '">'
-                    . $betScore['t1']->getFlagHTML(20) . ' ' . $betScore['s1'] . '-' . $betScore['s2'] . ' ' . $betScore['t2']->getFlagHTML(20)
-                    . '</span><img class="bet-emoji" src="" alt="" style="width:22px;vertical-align:middle;margin-left:4px;display:none"><br />';
+    $activeStage = in_array($fixture->getCompetition()->getStage(), [EP_Competition::GROUP_STAGE_PLAYING, EP_Competition::PLAYOFF_PLAYING]);
+    if (!empty($userBets) && is_user_logged_in() && ($fixture->isPlayed() || (($fixture->isFuture() || $fixture->isLive()) && $activeStage))) {
+        $realT1 = $fixture->getTeam(1)->getId();
+        $realT2 = $fixture->getTeam(2)->getId();
+        foreach ($userBets as $bet) {
+            $betScore = $bet->getFixtureBet($fixture->getFixtureNumber());
+            if (empty($betScore)) continue;
+            $winner = $betScore['winner'] ?? 'X';
+            $isDead = false;
+            if ($realT1 && $realT2 && $winner !== 'X') {
+                $winnerTeamId = $betScore['t' . $winner]->getId();
+                $isDead = $winnerTeamId && !in_array($winnerTeamId, [$realT1, $realT2]);
             }
-            if ($myBetsHtml) {
-                $myBetsHtml = '<div class=""><strong>' . __('Mis apuestas', 'enroporra') . '</strong></div>' . $myBetsHtml . '<br />';
-            }
+            $numberClass = $isDead ? 'number dead-bet' : 'number';
+            $emojiImg = $fixture->isLive() ? '<img class="bet-emoji" src="" alt="" style="width:22px;vertical-align:middle;margin-left:4px;display:none">' : '';
+            $myBetsHtml .= esc_html($bet->getName()) . '<br /><span class="' . $numberClass . '" data-s1="' . (int)$betScore['s1'] . '" data-s2="' . (int)$betScore['s2'] . '">'
+                . $betScore['t1']->getFlagHTML(20) . ' ' . $betScore['s1'] . '-' . $betScore['s2'] . ' ' . $betScore['t2']->getFlagHTML(20)
+                . '</span>' . $emojiImg . '<br />';
         }
+        if ($myBetsHtml) {
+            $myBetsHtml = '<div class=""><strong>' . __('Mis apuestas', 'enroporra') . '</strong></div>' . $myBetsHtml . '<br />';
+        }
+    }
+    if ($activeStage && ($fixture->isFuture() || $fixture->isLive())) {
         $prediction = '<div class=""><strong>' . __( 'Nuestros apostantes dicen', 'enroporra' ) . '</strong></div>';
         $t1id = $fixture->getTeam(1)->getId();
         $t2id = $fixture->getTeam(2)->getId();
@@ -70,10 +72,10 @@ function fixtureHTML(EP_Fixture $fixture, array $userBets = []) {
             $label = ($winner_id === 'X')
                 ? __('Empate', 'enroporra')
                 : (new EP_Team(intval($winner_id)))->getFlagHTML(20);
-            $prediction .= $label . ': <span class="number">' . round( $times * 100 / $stats["total"] ) . '%</span> &nbsp;&nbsp;';
+            $prediction .= '<span class="stat-item">' . $label . ': <span class="number">' . round( $times * 100 / $stats["total"] ) . '%</span></span>';
         }
         if ($unqualified_count > 0) {
-            $prediction .= __('No clasificados', 'enroporra') . ': <span class="number">' . round( $unqualified_count * 100 / $stats["total"] ) . '%</span> &nbsp;&nbsp;';
+            $prediction .= '<span class="stat-item">' . __('No clasificados', 'enroporra') . ': <span class="number">' . round( $unqualified_count * 100 / $stats["total"] ) . '%</span></span>';
         }
         $moreRepeatedResultData = !empty($stats["scores"]) ? explode("|",array_key_first( $stats["scores"] )) : [];
         $moreWeirdResultData = [];
@@ -168,6 +170,7 @@ function fixtureHTML(EP_Fixture $fixture, array $userBets = []) {
                 echo $myBetsHtml;
                 echo $prediction;
 			} else { ?>
+                <?php echo $myBetsHtml; ?>
                 <div class="score-scorers-wrapper">
 					<?php
 					foreach ($goals as $goal) {

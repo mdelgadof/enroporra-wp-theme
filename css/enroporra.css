@@ -527,6 +527,10 @@ input::-webkit-inner-spin-button {
     text-decoration: line-through;
 }
 
+@media (max-width: 767px) {
+    .stat-item { display: block; }
+}
+
 @media (min-width: 768px) {
     .homepage {
         margin-top: 56vw;
