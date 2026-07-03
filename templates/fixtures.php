@@ -47,9 +47,9 @@ function fixtureHTML(EP_Fixture $fixture, array $userBets = []) {
                     $isDead = $winnerTeamId && !in_array($winnerTeamId, [$realT1, $realT2]);
                 }
                 $numberClass = $isDead ? 'number dead-bet' : 'number';
-                $myBetsHtml .= esc_html($bet->getName()) . ': <span class="' . $numberClass . '">'
+                $myBetsHtml .= esc_html($bet->getName()) . ': <span class="' . $numberClass . '" data-s1="' . (int)$betScore['s1'] . '" data-s2="' . (int)$betScore['s2'] . '">'
                     . $betScore['t1']->getFlagHTML(20) . ' ' . $betScore['s1'] . '-' . $betScore['s2'] . ' ' . $betScore['t2']->getFlagHTML(20)
-                    . '</span><br />';
+                    . '</span><img class="bet-emoji" src="" alt="" style="width:22px;vertical-align:middle;margin-left:4px;display:none"><br />';
             }
             if ($myBetsHtml) {
                 $myBetsHtml = '<div class="">' . __('Mis apuestas', 'enroporra') . '</div>' . $myBetsHtml . '<br />';
