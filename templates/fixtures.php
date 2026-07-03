@@ -37,6 +37,9 @@ function fixtureHTML(EP_Fixture $fixture, array $userBets = []) {
     if (!empty($userBets) && is_user_logged_in() && ($fixture->isPlayed() || (($fixture->isFuture() || $fixture->isLive()) && $activeStage))) {
         $realT1 = $fixture->getTeam(1)->getId();
         $realT2 = $fixture->getTeam(2)->getId();
+        $g1Final = $fixture->isPlayed() ? (int)$fixture->getGoals(1) : null;
+        $g2Final = $fixture->isPlayed() ? (int)$fixture->getGoals(2) : null;
+        $emojiBase = get_template_directory_uri() . '/images/emojis/';
         foreach ($userBets as $bet) {
             $betScore = $bet->getFixtureBet($fixture->getFixtureNumber());
             if (empty($betScore)) continue;
@@ -47,7 +50,22 @@ function fixtureHTML(EP_Fixture $fixture, array $userBets = []) {
                 $isDead = $winnerTeamId && !in_array($winnerTeamId, [$realT1, $realT2]);
             }
             $numberClass = $isDead ? 'number dead-bet' : 'number';
-            $emojiImg = $fixture->isLive() ? '<img class="bet-emoji" src="" alt="" style="width:22px;vertical-align:middle;margin-left:4px;display:none">' : '';
+            if ($fixture->isLive()) {
+                $emojiImg = '<img class="bet-emoji" src="" alt="" style="width:22px;vertical-align:middle;margin-left:4px;display:none">';
+            } elseif ($fixture->isPlayed()) {
+                $s1 = (int)$betScore['s1'];
+                $s2 = (int)$betScore['s2'];
+                if ($s1 === $g1Final && $s2 === $g2Final) {
+                    $emojiFile = 'zany.png';
+                } else {
+                    $bw = $s1 > $s2 ? 1 : ($s1 < $s2 ? 2 : 0);
+                    $aw = $g1Final > $g2Final ? 1 : ($g1Final < $g2Final ? 2 : 0);
+                    $emojiFile = ($bw === $aw) ? 'relieved.png' : 'symbols.png';
+                }
+                $emojiImg = '<img src="' . esc_url($emojiBase . $emojiFile) . '" style="width:22px;vertical-align:middle;margin-left:4px;">';
+            } else {
+                $emojiImg = '';
+            }
             $myBetsHtml .= esc_html($bet->getName()) . '<br /><span class="' . $numberClass . '" data-s1="' . (int)$betScore['s1'] . '" data-s2="' . (int)$betScore['s2'] . '">'
                 . $betScore['t1']->getFlagHTML(20) . ' ' . $betScore['s1'] . '-' . $betScore['s2'] . ' ' . $betScore['t2']->getFlagHTML(20)
                 . '</span>' . $emojiImg . '<br />';
