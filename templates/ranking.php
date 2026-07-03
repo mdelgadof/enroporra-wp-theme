@@ -23,6 +23,13 @@ function rankingHTML(EP_Competition $competition, array $betsTable, array $userB
         <?php
         $positionBefore=0;
         $nextFixtures = $competition->getNextFixtures(4);
+        $fixtureRealTeams = [];
+        foreach ($nextFixtures as $nf) {
+            $fixtureRealTeams[$nf->getFixtureNumber()] = [
+                $nf->getTeam(1)->getId(),
+                $nf->getTeam(2)->getId(),
+            ];
+        }
         foreach ($betsTable as $betRow) {
             $color = ($positionBefore==$betRow["position"]) ? "grey":"black";
             $size = ($betRow["position"]<=5) ? "big":"normal";
@@ -49,7 +56,15 @@ function rankingHTML(EP_Competition $competition, array $betsTable, array $userB
                     continue;
                 $betNext = $betRow["bet"]->getFixtureBet($nextFixture->getFixtureNumber());
                 if (empty($betNext)) continue;
-                echo $betNext["t1"]->getFlagHTML(20)." ".$betNext["s1"]."-".$betNext["s2"]." ".$betNext["t2"]->getFlagHTML(20)."&nbsp;&nbsp;&nbsp;";
+                $realTeams = $fixtureRealTeams[$nextFixture->getFixtureNumber()] ?? [0, 0];
+                $winner    = $betNext['winner'] ?? 'X';
+                $isDead    = false;
+                if ($realTeams[0] && $realTeams[1] && $winner !== 'X') {
+                    $winnerTeamId = isset($betNext['t' . $winner]) ? $betNext['t' . $winner]->getId() : 0;
+                    $isDead = $winnerTeamId && !in_array($winnerTeamId, $realTeams);
+                }
+                $deadStyle = $isDead ? ' style="color:red"' : '';
+                echo '<span' . $deadStyle . '>' . $betNext["t1"]->getFlagHTML(20) . ' ' . $betNext["s1"] . '-' . $betNext["s2"] . ' ' . $betNext["t2"]->getFlagHTML(20) . '</span>&nbsp;&nbsp;&nbsp;';
             }
 
             echo "</td>";
@@ -125,7 +140,8 @@ function rankingHTMLCached(EP_Competition $competition, array $cache, array $use
                 }
                 $betNext = $row['next_bets'][$fixtureData['number']] ?? null;
                 if (!$betNext) continue;
-                echo $betNext['t1_flag'] . ' ' . $betNext['s1'] . '-' . $betNext['s2'] . ' ' . $betNext['t2_flag'] . '&nbsp;&nbsp;&nbsp;';
+                $deadStyle = ($betNext['is_dead'] ?? false) ? ' style="color:red"' : '';
+                echo '<span' . $deadStyle . '>' . $betNext['t1_flag'] . ' ' . $betNext['s1'] . '-' . $betNext['s2'] . ' ' . $betNext['t2_flag'] . '</span>&nbsp;&nbsp;&nbsp;';
             }
             echo "</td>";
             echo "</tr><tr><td colspan=4><hr></td></tr>";
