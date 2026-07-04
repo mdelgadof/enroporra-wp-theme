@@ -59,7 +59,10 @@ function fixtureHTML(EP_Fixture $fixture, array $userBets = []) {
                     $emojiFile = 'zany.png';
                 } else {
                     $bw = $s1 > $s2 ? 1 : ($s1 < $s2 ? 2 : 0);
-                    $aw = $g1Final > $g2Final ? 1 : ($g1Final < $g2Final ? 2 : 0);
+                    // getWinner() resuelve el ganador real, incluyendo penaltis en eliminatorias;
+                    // comparar solo goles colapsaría un empate decidido en penaltis a "X".
+                    $realWinner = $fixture->getWinner();
+                    $aw = ($realWinner === '1') ? 1 : (($realWinner === '2') ? 2 : 0);
                     $emojiFile = ($bw === $aw) ? 'relieved.png' : 'symbols.png';
                 }
                 $emojiImg = '<img src="' . esc_url($emojiBase . $emojiFile) . '" style="width:22px;vertical-align:middle;margin-left:4px;">';
