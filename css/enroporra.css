@@ -533,6 +533,28 @@ input::-webkit-inner-spin-button {
 .bet-result-wrong {
     color: red;
 }
+.ranking-substats {
+    display: none;
+    font-size: 11px;
+    color: #666666;
+}
+.ranking-substats .substat-item {
+    margin-right: 12px;
+    white-space: nowrap;
+}
+.substat-emoji {
+    width: 12px;
+    vertical-align: middle;
+    margin-right: 2px;
+}
+@media (min-width: 600px) and (max-width: 1199px) {
+    .hide-tablet {
+        display: none;
+    }
+    .ranking-substats {
+        display: block;
+    }
+}
 
 @media (max-width: 767px) {
     .stat-item { display: block; }

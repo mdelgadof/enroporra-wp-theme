@@ -14,14 +14,16 @@ function rankingHTML(EP_Competition $competition, array $betsTable, array $userB
     <table>
         <thead>
         <th><?php _e("Porrista","enroporra"); ?></th>
-        <th class="hide-mobile" style="padding-left:20px"><?php _e("Pichichi","enroporra") ?></th>
-        <?php if ($competition->getStage()>=EP_Competition::PLAYOFF_PLAYING || $admin) { ?><th class="hide-mobile" style="padding-left:20px"><?php _e("Árbitro","enroporra") ?></th><?php } ?>
+        <th class="hide-mobile hide-tablet" style="padding-left:20px"><?php _e("Pichichi","enroporra") ?></th>
+        <?php if ($competition->getStage()>=EP_Competition::PLAYOFF_PLAYING || $admin) { ?><th class="hide-mobile hide-tablet" style="padding-left:20px"><?php _e("Árbitro","enroporra") ?></th><?php } ?>
         <th class="hide-mobile" style="padding-left:20px"><?php _e("Próximas apuestas","enroporra") ?></th>
         </thead>
         <tbody>
         <tr><td colspan=4><hr></td></tr>
         <?php
         $positionBefore=0;
+        $ballEmoji = get_template_directory_uri()."/images/emojis/ball.png";
+        $refereeEmoji = get_template_directory_uri()."/images/emojis/a.png";
         $nextFixtures = $competition->getNextFixtures(4);
         $fixtureRealTeams = [];
         foreach ($nextFixtures as $nf) {
@@ -41,12 +43,26 @@ function rankingHTML(EP_Competition $competition, array $betsTable, array $userB
             $playerGoals = $competition->getGoalsByPlayer($betRow["bet"]->getPlayer());
             $playerGoalsString = ($playerGoals) ? " (".$playerGoals.")" : "";
 	        $verifiedPlayer = (EP_Player::isPlayer($betRow["bet"]->getPlayer()) && !is_null($competition->getTopScorers()) && !empty($competition->getTopScorers()) && EP_Player::inArrayPlayers($betRow["bet"]->getPlayer(),$competition->getTopScorers())) ? verifiedTickHTML(__('Pichichi de la competición','enroporra'),$size) : "";
-            echo "<tr class='".$classTr."'><td><div class='".$size."-text black-link'><b class='".$color."-text'>".$betRow["position"]."</b> <a href='".$betRow["bet"]->getUrl()."'>".$betRow["bet"]->getName()."</a>".$verified." <span class='points-text'>".$betRow["points"]."</span></div></td>";
-            echo "<td class='hide-mobile' style='padding-left:20px'>".$betRow["bet"]->getPlayer()->getName().$playerGoalsString.$verifiedPlayer."</td>";
-            if ($competition->getStage()>=EP_Competition::PLAYOFF_PLAYING || $admin) {
+            $playerLine = $betRow["bet"]->getPlayer()->getName().$playerGoalsString.$verifiedPlayer;
+
+            $showReferee = ($competition->getStage()>=EP_Competition::PLAYOFF_PLAYING || $admin);
+            $refereeLine = "";
+            if ($showReferee) {
 	            $verifiedReferee = (!is_null($betRow["bet"]->getReferee()) && !is_null($competition->getReferee()) && $betRow["bet"]->getReferee()->getId()==$competition->getReferee()->getId()) ? verifiedTickHTML(__('Árbitro de la final','enroporra'),$size) : "";
 	            $refereeName = (is_null($betRow["bet"]->getReferee())) ? "" : $betRow["bet"]->getReferee()->getName();
-                echo "<td class='hide-mobile' style='padding-left:20px'>".$refereeName.$verifiedReferee."</td>";
+                $refereeLine = $refereeName.$verifiedReferee;
+            }
+
+            $substats = "<div class='ranking-substats'><span class='substat-item'><img src='".$ballEmoji."' class='substat-emoji' alt=''> ".$playerLine."</span>";
+            if ($showReferee) {
+                $substats .= "<span class='substat-item'><img src='".$refereeEmoji."' class='substat-emoji' alt=''> ".$refereeLine."</span>";
+            }
+            $substats .= "</div>";
+
+            echo "<tr class='".$classTr."'><td><div class='".$size."-text black-link'><b class='".$color."-text'>".$betRow["position"]."</b> <a href='".$betRow["bet"]->getUrl()."'>".$betRow["bet"]->getName()."</a>".$verified." <span class='points-text'>".$betRow["points"]."</span></div>".$substats."</td>";
+            echo "<td class='hide-mobile hide-tablet' style='padding-left:20px'>".$playerLine."</td>";
+            if ($showReferee) {
+                echo "<td class='hide-mobile hide-tablet' style='padding-left:20px'>".$refereeLine."</td>";
             }
             echo "<td class='hide-mobile' style='padding-left:20px'>";
 
@@ -94,14 +110,16 @@ function rankingHTMLCached(EP_Competition $competition, array $cache, array $use
     <table>
         <thead>
         <th><?php _e("Porrista","enroporra"); ?></th>
-        <th class="hide-mobile" style="padding-left:20px"><?php _e("Pichichi","enroporra") ?></th>
-        <?php if ($stage >= EP_Competition::PLAYOFF_PLAYING || $admin) { ?><th class="hide-mobile" style="padding-left:20px"><?php _e("Árbitro","enroporra") ?></th><?php } ?>
+        <th class="hide-mobile hide-tablet" style="padding-left:20px"><?php _e("Pichichi","enroporra") ?></th>
+        <?php if ($stage >= EP_Competition::PLAYOFF_PLAYING || $admin) { ?><th class="hide-mobile hide-tablet" style="padding-left:20px"><?php _e("Árbitro","enroporra") ?></th><?php } ?>
         <th class="hide-mobile" style="padding-left:20px"><?php _e("Próximas apuestas","enroporra") ?></th>
         </thead>
         <tbody>
         <tr><td colspan=4><hr></td></tr>
         <?php
         $positionBefore = 0;
+        $ballEmoji = get_template_directory_uri()."/images/emojis/ball.png";
+        $refereeEmoji = get_template_directory_uri()."/images/emojis/a.png";
         foreach ($cache['rows'] as $row) {
             $color = ($positionBefore === $row['position']) ? 'grey' : 'black';
             $size  = ($row['position'] <= 5) ? 'big' : 'normal';
@@ -117,16 +135,29 @@ function rankingHTMLCached(EP_Competition $competition, array $cache, array $use
             $verifiedPlayer    = ($row['player_id'] && in_array($row['player_id'], $topScorerIds))
                 ? "<img src='".get_template_directory_uri()."/images/icons/verified.png' class='verified-{$size}' title='".__('Pichichi de la competición','enroporra')."' />"
                 : '';
+            $playerLine = $row['player_name'].$playerGoalsString.$verifiedPlayer;
 
-            echo "<tr class='{$classTr}'><td><div class='{$size}-text black-link'><b class='{$color}-text'>{$row['position']}</b> <a href='{$row['url']}'>{$row['name']}</a>{$verified} <span class='points-text'>{$row['points']}</span></div></td>";
-            echo "<td class='hide-mobile' style='padding-left:20px'>{$row['player_name']}{$playerGoalsString}{$verifiedPlayer}</td>";
-
-            if ($stage >= EP_Competition::PLAYOFF_PLAYING || $admin) {
+            $showReferee = ($stage >= EP_Competition::PLAYOFF_PLAYING || $admin);
+            $refereeLine = '';
+            if ($showReferee) {
                 $isRefereeHit    = ($row['referee_id'] && $row['referee_id'] === $compRefereeId);
                 $verifiedReferee = $isRefereeHit
                     ? "<img src='".get_template_directory_uri()."/images/icons/verified.png' class='verified-{$size}' title='".__('Árbitro de la final','enroporra')."' />"
                     : '';
-                echo "<td class='hide-mobile' style='padding-left:20px'>" . ($row['referee_name'] ?? '') . $verifiedReferee . "</td>";
+                $refereeLine = ($row['referee_name'] ?? '') . $verifiedReferee;
+            }
+
+            $substats = "<div class='ranking-substats'><span class='substat-item'><img src='".$ballEmoji."' class='substat-emoji' alt=''> ".$playerLine."</span>";
+            if ($showReferee) {
+                $substats .= "<span class='substat-item'><img src='".$refereeEmoji."' class='substat-emoji' alt=''> ".$refereeLine."</span>";
+            }
+            $substats .= "</div>";
+
+            echo "<tr class='{$classTr}'><td><div class='{$size}-text black-link'><b class='{$color}-text'>{$row['position']}</b> <a href='{$row['url']}'>{$row['name']}</a>{$verified} <span class='points-text'>{$row['points']}</span></div>{$substats}</td>";
+            echo "<td class='hide-mobile hide-tablet' style='padding-left:20px'>{$playerLine}</td>";
+
+            if ($showReferee) {
+                echo "<td class='hide-mobile hide-tablet' style='padding-left:20px'>{$refereeLine}</td>";
             }
 
             echo "<td class='hide-mobile' style='padding-left:20px'>";
