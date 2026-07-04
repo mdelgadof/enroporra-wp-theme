@@ -54,7 +54,7 @@ function rankingHTML(EP_Competition $competition, array $betsTable, array $userB
             }
 
             $substats = "<div class='ranking-substats'><span class='substat-item'><img src='".$ballEmoji."' class='substat-emoji' alt=''> ".$playerLine."</span>";
-            if ($showReferee) {
+            if ($refereeLine !== "") {
                 $substats .= "<span class='substat-item'><img src='".$refereeEmoji."' class='substat-emoji' alt=''> ".$refereeLine."</span>";
             }
             $substats .= "</div>";
@@ -148,7 +148,7 @@ function rankingHTMLCached(EP_Competition $competition, array $cache, array $use
             }
 
             $substats = "<div class='ranking-substats'><span class='substat-item'><img src='".$ballEmoji."' class='substat-emoji' alt=''> ".$playerLine."</span>";
-            if ($showReferee) {
+            if ($refereeLine !== "") {
                 $substats .= "<span class='substat-item'><img src='".$refereeEmoji."' class='substat-emoji' alt=''> ".$refereeLine."</span>";
             }
             $substats .= "</div>";
