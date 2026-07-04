@@ -98,7 +98,7 @@ function fixtureHTML(EP_Fixture $fixture, array $userBets = []) {
             $prediction .= '<span class="stat-item">' . $label . ': <span class="number">' . round( $times * 100 / $stats["total"] ) . '%</span></span>';
         }
         if ($unqualified_count > 0) {
-            $prediction .= '<span class="stat-item">' . __('No clasificados', 'enroporra') . ': <span class="number">' . round( $unqualified_count * 100 / $stats["total"] ) . '%</span></span>';
+            $prediction .= '<span class="stat-item"> ' . __('No clasificados', 'enroporra') . ': <span class="number">' . round( $unqualified_count * 100 / $stats["total"] ) . '%</span></span>';
         }
         $moreRepeatedResultData = !empty($stats["scores"]) ? explode("|",array_key_first( $stats["scores"] )) : [];
         $moreWeirdResultData = [];
@@ -119,9 +119,9 @@ function fixtureHTML(EP_Fixture $fixture, array $userBets = []) {
         }
         if (is_numeric($moreRepeatedResultData[0]) && is_numeric($moreRepeatedResultData[2])) {
             $prediction .=
-                '<br />' . __('Resultado más repetido', 'enroporra') . ': <span class="number">' . (new EP_Team($moreRepeatedResultData[0]))->getFlagHTML(20) . $moreRepeatedResultData[1] . (new EP_Team($moreRepeatedResultData[2]))->getFlagHTML(20) . ' (' . round(array_shift($stats["scores"]) * 100 / $stats["total"]) . '%)</span>' .
-                '<br />' .
-                __('Resultado más raro', 'enroporra') . ': <span class="number">' . (new EP_Team($moreWeirdResultData[0]))->getFlagHTML(20) . $moreWeirdResultData[1] . (new EP_Team($moreWeirdResultData[2]))->getFlagHTML(20) . '</span>';
+                '<br /><span class="stat-label">' . __('Resultado más repetido', 'enroporra') . ':</span> <span class="number">' . (new EP_Team($moreRepeatedResultData[0]))->getFlagHTML(20) . $moreRepeatedResultData[1] . (new EP_Team($moreRepeatedResultData[2]))->getFlagHTML(20) . ' (' . round(array_shift($stats["scores"]) * 100 / $stats["total"]) . '%)</span>' .
+                '<br /><span class="stat-label">' .
+                __('Resultado más raro', 'enroporra') . ':</span> <span class="number">' . (new EP_Team($moreWeirdResultData[0]))->getFlagHTML(20) . $moreWeirdResultData[1] . (new EP_Team($moreWeirdResultData[2]))->getFlagHTML(20) . '</span>';
 
             // Media de goles pronosticados
             $sum1 = $sum2 = 0;
@@ -131,7 +131,7 @@ function fixtureHTML(EP_Fixture $fixture, array $userBets = []) {
                 $sum1 += (int)$goals[0] * $count;
                 $sum2 += (int)$goals[1] * $count;
             }
-            $prediction .= '<br />' . __('Media pronosticada', 'enroporra') . ': <span class="number">' .
+            $prediction .= '<br /><span class="stat-label">' . __('Media pronosticada', 'enroporra') . ':</span> <span class="number">' .
                 $fixture->getTeam(1)->getFlagHTML(20) . ' ' . round($sum1 / $stats["total"], 1) .
                 ' – ' .
                 round($sum2 / $stats["total"], 1) . ' ' . $fixture->getTeam(2)->getFlagHTML(20) . '</span>';

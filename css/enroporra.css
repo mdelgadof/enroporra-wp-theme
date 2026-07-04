@@ -584,6 +584,7 @@ input::-webkit-inner-spin-button {
 
 @media (max-width: 767px) {
     .stat-item { display: block; }
+    .stat-label { display: block; }
 }
 
 @media (min-width: 768px) {
