@@ -526,6 +526,13 @@ input::-webkit-inner-spin-button {
     color: red;
     text-decoration: line-through;
 }
+.bet-result-correct {
+    color: green;
+    font-weight: bold;
+}
+.bet-result-wrong {
+    color: red;
+}
 
 @media (max-width: 767px) {
     .stat-item { display: block; }

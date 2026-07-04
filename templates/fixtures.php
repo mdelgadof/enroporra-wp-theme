@@ -66,6 +66,8 @@ function fixtureHTML(EP_Fixture $fixture, array $userBets = []) {
                     $emojiFile = ($bw === $aw) ? 'relieved.png' : 'symbols.png';
                 }
                 $emojiImg = '<img src="' . esc_url($emojiBase . $emojiFile) . '" style="width:22px;vertical-align:middle;margin-left:4px;">';
+                if ($emojiFile === 'zany.png') $numberClass .= ' bet-result-correct';
+                elseif ($emojiFile === 'symbols.png') $numberClass .= ' bet-result-wrong';
             } else {
                 $emojiImg = '';
             }
