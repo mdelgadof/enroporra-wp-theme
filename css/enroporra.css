@@ -582,7 +582,7 @@ input::-webkit-inner-spin-button {
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1199px) {
     .stat-item { display: block; }
     .stat-label { display: block; }
 }
