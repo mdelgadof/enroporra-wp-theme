@@ -275,6 +275,24 @@ p.page_title span {
         top: 20%;
     }
 }
+@media (min-width: 768px) and (max-width: 1199px) {
+    .carousel-caption.text-left {
+        display: none;
+    }
+    .scores {
+        display: none;
+    }
+    .scores-mobile {
+        display: block;
+    }
+    .scores-mobile .score {
+        min-width: initial;
+        max-width: initial;
+        margin: 30px 30px;
+        background-color: rgba(60%,60%,60%,1);
+        color: #FFFFFF;
+    }
+}
 @media (max-width: 767px) {
     header .container {
         display: block;
