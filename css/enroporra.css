@@ -584,6 +584,7 @@ input::-webkit-inner-spin-button {
 @media (max-width: 599px) {
     .ranking-next-mobile {
         display: flex;
+        justify-content: space-between;
         margin-top: 4px;
         gap: 4px 6px;
     }
