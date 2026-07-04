@@ -55,10 +55,20 @@ function fixtureHTML(EP_Fixture $fixture, array $userBets = []) {
             } elseif ($fixture->isPlayed()) {
                 $s1 = (int)$betScore['s1'];
                 $s2 = (int)$betScore['s2'];
-                if ($s1 === $g1Final && $s2 === $g2Final) {
+                $bw = $s1 > $s2 ? 1 : ($s1 < $s2 ? 2 : 0);
+                $predictedWinnerId = null;
+                if ($bw === 1) $predictedWinnerId = $betScore['t1']->getId();
+                elseif ($bw === 2) $predictedWinnerId = $betScore['t2']->getId();
+                elseif ($winner !== 'X') $predictedWinnerId = $betScore['t' . $winner]->getId();
+                // Si el equipo por el que apostó como ganador ya estaba eliminado (no jugó este partido real),
+                // el acierto es imposible aunque el marcador o el bando coincidan por casualidad.
+                $predictedWinnerDead = $fixture->getTournament() !== 'groups' && $realT1 && $realT2
+                    && $predictedWinnerId && !in_array($predictedWinnerId, [$realT1, $realT2]);
+                if ($predictedWinnerDead) {
+                    $emojiFile = 'symbols.png';
+                } elseif ($s1 === $g1Final && $s2 === $g2Final) {
                     $emojiFile = 'zany.png';
                 } else {
-                    $bw = $s1 > $s2 ? 1 : ($s1 < $s2 ? 2 : 0);
                     // getWinner() resuelve el ganador real, incluyendo penaltis en eliminatorias;
                     // comparar solo goles colapsaría un empate decidido en penaltis a "X".
                     $realWinner = $fixture->getWinner();
