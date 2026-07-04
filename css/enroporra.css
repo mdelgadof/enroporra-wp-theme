@@ -573,16 +573,26 @@ input::-webkit-inner-spin-button {
 .next-bet-item {
     white-space: nowrap;
 }
+.ranking-next-mobile {
+    display: none;
+}
 @media (max-width: 1199px) {
     .ranking-substats {
         display: block;
     }
 }
+@media (max-width: 599px) {
+    .ranking-next-mobile {
+        display: flex;
+        margin-top: 4px;
+    }
+    .ranking-next-mobile img {
+        width: 14px !important;
+        margin: 0 4px !important;
+    }
+}
 @media (min-width: 600px) and (max-width: 1199px) {
     .hide-tablet {
-        display: none;
-    }
-    .substat-next-mobile {
         display: none;
     }
     .container-ranking table th:first-child:not([colspan]),

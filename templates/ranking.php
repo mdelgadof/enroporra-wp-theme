@@ -75,10 +75,10 @@ function rankingHTML(EP_Competition $competition, array $betsTable, array $userB
             if ($refereeLine !== "") {
                 $substats .= "<span class='substat-item'><img src='".$refereeEmoji."' class='substat-emoji' alt=''> ".$refereeLine."</span>";
             }
-            if (!empty($nextBetsSpans)) {
-                $substats .= "<span class='substat-item substat-next-mobile'>".$nextBetsSpans[0]."</span>";
-            }
             $substats .= "</div>";
+            if (!empty($nextBetsSpans)) {
+                $substats .= "<div class='ranking-next-mobile next-bets-wrap'>" . implode('', array_map(function($span) { return "<div class='next-bet-item'>{$span}</div>"; }, $nextBetsSpans)) . "</div>";
+            }
 
             echo "<tr class='".$classTr."'><td><div class='".$size."-text black-link'><b class='".$color."-text'>".$betRow["position"]."</b> <a href='".$betRow["bet"]->getUrl()."'>".$betRow["bet"]->getName()."</a>".$verified." <span class='points-text'>".$betRow["points"]."</span></div>".$substats."</td>";
             echo "<td class='hide-mobile hide-tablet' style='padding-left:20px'>".$playerLine."</td>";
@@ -170,10 +170,10 @@ function rankingHTMLCached(EP_Competition $competition, array $cache, array $use
             if ($refereeLine !== "") {
                 $substats .= "<span class='substat-item'><img src='".$refereeEmoji."' class='substat-emoji' alt=''> ".$refereeLine."</span>";
             }
-            if (!empty($nextBetsSpans)) {
-                $substats .= "<span class='substat-item substat-next-mobile'>".$nextBetsSpans[0]."</span>";
-            }
             $substats .= "</div>";
+            if (!empty($nextBetsSpans)) {
+                $substats .= "<div class='ranking-next-mobile next-bets-wrap'>" . implode('', array_map(function($span) { return "<div class='next-bet-item'>{$span}</div>"; }, $nextBetsSpans)) . "</div>";
+            }
 
             echo "<tr class='{$classTr}'><td><div class='{$size}-text black-link'><b class='{$color}-text'>{$row['position']}</b> <a href='{$row['url']}'>{$row['name']}</a>{$verified} <span class='points-text'>{$row['points']}</span></div>{$substats}</td>";
             echo "<td class='hide-mobile hide-tablet' style='padding-left:20px'>{$playerLine}</td>";
