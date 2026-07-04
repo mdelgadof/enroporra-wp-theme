@@ -547,12 +547,17 @@ input::-webkit-inner-spin-button {
     vertical-align: middle;
     margin-right: 2px;
 }
+@media (max-width: 1199px) {
+    .ranking-substats {
+        display: block;
+    }
+}
 @media (min-width: 600px) and (max-width: 1199px) {
     .hide-tablet {
         display: none;
     }
-    .ranking-substats {
-        display: block;
+    .substat-next-mobile {
+        display: none;
     }
 }
 

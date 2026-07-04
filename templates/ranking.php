@@ -53,19 +53,7 @@ function rankingHTML(EP_Competition $competition, array $betsTable, array $userB
                 $refereeLine = $refereeName.$verifiedReferee;
             }
 
-            $substats = "<div class='ranking-substats'><span class='substat-item'><img src='".$ballEmoji."' class='substat-emoji' alt=''> ".$playerLine."</span>";
-            if ($refereeLine !== "") {
-                $substats .= "<span class='substat-item'><img src='".$refereeEmoji."' class='substat-emoji' alt=''> ".$refereeLine."</span>";
-            }
-            $substats .= "</div>";
-
-            echo "<tr class='".$classTr."'><td><div class='".$size."-text black-link'><b class='".$color."-text'>".$betRow["position"]."</b> <a href='".$betRow["bet"]->getUrl()."'>".$betRow["bet"]->getName()."</a>".$verified." <span class='points-text'>".$betRow["points"]."</span></div>".$substats."</td>";
-            echo "<td class='hide-mobile hide-tablet' style='padding-left:20px'>".$playerLine."</td>";
-            if ($showReferee) {
-                echo "<td class='hide-mobile hide-tablet' style='padding-left:20px'>".$refereeLine."</td>";
-            }
-            echo "<td class='hide-mobile' style='padding-left:20px'>";
-
+            $nextBetsSpans = [];
             foreach ($nextFixtures as $nextFixture) {
                 /** @var EP_Fixture $nextFixture */
                 if ($nextFixture->getTournament()!="groups" && $competition->getStage()<EP_Competition::PLAYOFF_PLAYING && !$betRow["bet"]->getOwner()->isViewing() && !$admin)
@@ -80,9 +68,25 @@ function rankingHTML(EP_Competition $competition, array $betsTable, array $userB
                     $isDead = $winnerTeamId && !in_array($winnerTeamId, $realTeams);
                 }
                 $deadClass = $isDead ? ' class="dead-bet"' : '';
-                echo '<span' . $deadClass . '>' . $betNext["t1"]->getFlagHTML(20) . ' ' . $betNext["s1"] . '-' . $betNext["s2"] . ' ' . $betNext["t2"]->getFlagHTML(20) . '</span>&nbsp;&nbsp;&nbsp;';
+                $nextBetsSpans[] = '<span' . $deadClass . '>' . $betNext["t1"]->getFlagHTML(20) . ' ' . $betNext["s1"] . '-' . $betNext["s2"] . ' ' . $betNext["t2"]->getFlagHTML(20) . '</span>';
             }
 
+            $substats = "<div class='ranking-substats'><span class='substat-item'><img src='".$ballEmoji."' class='substat-emoji' alt=''> ".$playerLine."</span>";
+            if ($refereeLine !== "") {
+                $substats .= "<span class='substat-item'><img src='".$refereeEmoji."' class='substat-emoji' alt=''> ".$refereeLine."</span>";
+            }
+            if (!empty($nextBetsSpans)) {
+                $substats .= "<span class='substat-item substat-next-mobile'>".$nextBetsSpans[0]."</span>";
+            }
+            $substats .= "</div>";
+
+            echo "<tr class='".$classTr."'><td><div class='".$size."-text black-link'><b class='".$color."-text'>".$betRow["position"]."</b> <a href='".$betRow["bet"]->getUrl()."'>".$betRow["bet"]->getName()."</a>".$verified." <span class='points-text'>".$betRow["points"]."</span></div>".$substats."</td>";
+            echo "<td class='hide-mobile hide-tablet' style='padding-left:20px'>".$playerLine."</td>";
+            if ($showReferee) {
+                echo "<td class='hide-mobile hide-tablet' style='padding-left:20px'>".$refereeLine."</td>";
+            }
+            echo "<td class='hide-mobile' style='padding-left:20px'>";
+            echo implode('&nbsp;&nbsp;&nbsp;', $nextBetsSpans);
             echo "</td>";
             echo "</tr><tr><td colspan=4><hr></td></tr>";
 
@@ -147,9 +151,27 @@ function rankingHTMLCached(EP_Competition $competition, array $cache, array $use
                 $refereeLine = ($row['referee_name'] ?? '') . $verifiedReferee;
             }
 
+            $isViewing = ($row['owner_id'] === $currentUserId);
+            $nextBetsSpans = [];
+            foreach ($nextFixturesData as $fixtureData) {
+                if ($fixtureData['tournament'] !== 'groups'
+                    && $stage < EP_Competition::PLAYOFF_PLAYING
+                    && !$isViewing
+                    && !$admin) {
+                    continue;
+                }
+                $betNext = $row['next_bets'][$fixtureData['number']] ?? null;
+                if (!$betNext) continue;
+                $deadClass = ($betNext['is_dead'] ?? false) ? ' class="dead-bet"' : '';
+                $nextBetsSpans[] = '<span' . $deadClass . '>' . $betNext['t1_flag'] . ' ' . $betNext['s1'] . '-' . $betNext['s2'] . ' ' . $betNext['t2_flag'] . '</span>';
+            }
+
             $substats = "<div class='ranking-substats'><span class='substat-item'><img src='".$ballEmoji."' class='substat-emoji' alt=''> ".$playerLine."</span>";
             if ($refereeLine !== "") {
                 $substats .= "<span class='substat-item'><img src='".$refereeEmoji."' class='substat-emoji' alt=''> ".$refereeLine."</span>";
+            }
+            if (!empty($nextBetsSpans)) {
+                $substats .= "<span class='substat-item substat-next-mobile'>".$nextBetsSpans[0]."</span>";
             }
             $substats .= "</div>";
 
@@ -161,19 +183,7 @@ function rankingHTMLCached(EP_Competition $competition, array $cache, array $use
             }
 
             echo "<td class='hide-mobile' style='padding-left:20px'>";
-            $isViewing = ($row['owner_id'] === $currentUserId);
-            foreach ($nextFixturesData as $fixtureData) {
-                if ($fixtureData['tournament'] !== 'groups'
-                    && $stage < EP_Competition::PLAYOFF_PLAYING
-                    && !$isViewing
-                    && !$admin) {
-                    continue;
-                }
-                $betNext = $row['next_bets'][$fixtureData['number']] ?? null;
-                if (!$betNext) continue;
-                $deadClass = ($betNext['is_dead'] ?? false) ? ' class="dead-bet"' : '';
-                echo '<span' . $deadClass . '>' . $betNext['t1_flag'] . ' ' . $betNext['s1'] . '-' . $betNext['s2'] . ' ' . $betNext['t2_flag'] . '</span>&nbsp;&nbsp;&nbsp;';
-            }
+            echo implode('&nbsp;&nbsp;&nbsp;', $nextBetsSpans);
             echo "</td>";
             echo "</tr><tr><td colspan=4><hr></td></tr>";
 
