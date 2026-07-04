@@ -86,7 +86,7 @@ function rankingHTML(EP_Competition $competition, array $betsTable, array $userB
                 echo "<td class='hide-mobile hide-tablet' style='padding-left:20px'>".$refereeLine."</td>";
             }
             echo "<td class='hide-mobile' style='padding-left:20px'>";
-            echo implode('&nbsp;&nbsp;&nbsp;', $nextBetsSpans);
+            echo "<div class='next-bets-wrap'>" . implode('', array_map(function($span) { return "<div class='next-bet-item'>{$span}</div>"; }, $nextBetsSpans)) . "</div>";
             echo "</td>";
             echo "</tr><tr><td colspan=4><hr></td></tr>";
 
@@ -183,7 +183,7 @@ function rankingHTMLCached(EP_Competition $competition, array $cache, array $use
             }
 
             echo "<td class='hide-mobile' style='padding-left:20px'>";
-            echo implode('&nbsp;&nbsp;&nbsp;', $nextBetsSpans);
+            echo "<div class='next-bets-wrap'>" . implode('', array_map(function($span) { return "<div class='next-bet-item'>{$span}</div>"; }, $nextBetsSpans)) . "</div>";
             echo "</td>";
             echo "</tr><tr><td colspan=4><hr></td></tr>";
 

@@ -547,6 +547,14 @@ input::-webkit-inner-spin-button {
     vertical-align: middle;
     margin-right: 2px;
 }
+.next-bets-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+}
+.next-bet-item {
+    white-space: nowrap;
+}
 @media (max-width: 1199px) {
     .ranking-substats {
         display: block;
@@ -558,6 +566,19 @@ input::-webkit-inner-spin-button {
     }
     .substat-next-mobile {
         display: none;
+    }
+    .container-ranking table th:first-child:not([colspan]),
+    .container-ranking table td:first-child:not([colspan]) {
+        width: 66%;
+    }
+    .container-ranking table th:last-child:not([colspan]),
+    .container-ranking table td:last-child:not([colspan]) {
+        width: 34%;
+    }
+    .next-bets-wrap {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px 8px;
     }
 }
 
