@@ -585,10 +585,11 @@ input::-webkit-inner-spin-button {
     .ranking-next-mobile {
         display: flex;
         margin-top: 4px;
+        gap: 4px 6px;
     }
     .ranking-next-mobile img {
         width: 14px !important;
-        margin: 0 4px !important;
+        margin: 0 2px !important;
     }
 }
 @media (min-width: 600px) and (max-width: 1199px) {
