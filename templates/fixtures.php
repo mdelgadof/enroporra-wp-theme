@@ -69,11 +69,12 @@ function fixtureHTML(EP_Fixture $fixture, array $userBets = []) {
                 } elseif ($s1 === $g1Final && $s2 === $g2Final) {
                     $emojiFile = 'zany.png';
                 } else {
-                    // getWinner() resuelve el ganador real, incluyendo penaltis en eliminatorias;
-                    // comparar solo goles colapsaría un empate decidido en penaltis a "X".
+                    // getWinner() resuelve el ganador real, incluyendo penaltis en eliminatorias.
+                    // Comparamos por equipo (no por marcador 1/2) porque el pronóstico puede
+                    // marcar el ganador de penaltis aunque el marcador introducido sea un empate.
                     $realWinner = $fixture->getWinner();
-                    $aw = ($realWinner === '1') ? 1 : (($realWinner === '2') ? 2 : 0);
-                    $emojiFile = ($bw === $aw) ? 'relieved.png' : 'symbols.png';
+                    $actualWinnerId = ($realWinner === '1') ? $realT1 : (($realWinner === '2') ? $realT2 : null);
+                    $emojiFile = ($predictedWinnerId === $actualWinnerId) ? 'relieved.png' : 'symbols.png';
                 }
                 $emojiImg = '<img src="' . esc_url($emojiBase . $emojiFile) . '" style="width:22px;vertical-align:middle;margin-left:4px;">';
                 if ($emojiFile === 'zany.png') $numberClass .= ' bet-result-correct';
