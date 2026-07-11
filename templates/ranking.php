@@ -74,7 +74,8 @@ function rankingHTML(EP_Competition $competition, array $betsTable, array $userB
                     }
                 }
                 $deadClass = $isDead ? ' class="dead-bet"' : '';
-                $nextBetsSpans[] = '<span' . $deadClass . '>' . $betNext["t1"]->getFlagHTML(20) . ' ' . $betNext["s1"] . '-' . $betNext["s2"] . ' ' . $betNext["t2"]->getFlagHTML(20) . '</span>';
+                $isDrawPick = ($betNext["s1"] == $betNext["s2"]);
+                $nextBetsSpans[] = '<span' . $deadClass . '>' . $betNext["t1"]->getFlagHTML(20, $isDrawPick && $winner === '1') . ' ' . $betNext["s1"] . '-' . $betNext["s2"] . ' ' . $betNext["t2"]->getFlagHTML(20, $isDrawPick && $winner === '2') . '</span>';
             }
 
             $substats = "<div class='ranking-substats'><span class='substat-item'><img src='".$ballEmoji."' class='substat-emoji' alt=''> ".$playerLine."</span>";

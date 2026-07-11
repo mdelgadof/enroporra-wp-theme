@@ -544,6 +544,11 @@ input::-webkit-inner-spin-button {
     color: red;
     text-decoration: line-through;
 }
+.penalty-pick {
+    display: inline-block;
+    border-radius: 3px;
+    box-shadow: 0 0 0 2px #f1c40f;
+}
 .bet-result-correct {
     color: green;
     font-weight: bold;

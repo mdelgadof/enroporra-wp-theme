@@ -82,8 +82,9 @@ function fixtureHTML(EP_Fixture $fixture, array $userBets = []) {
             } else {
                 $emojiImg = '';
             }
+            $isDrawPick = ($betScore['s1'] == $betScore['s2']);
             $myBetsHtml .= esc_html($bet->getName()) . '<br /><span class="' . $numberClass . '" data-s1="' . (int)$betScore['s1'] . '" data-s2="' . (int)$betScore['s2'] . '">'
-                . $betScore['t1']->getFlagHTML(20) . ' ' . $betScore['s1'] . '-' . $betScore['s2'] . ' ' . $betScore['t2']->getFlagHTML(20)
+                . $betScore['t1']->getFlagHTML(20, $isDrawPick && $winner === '1') . ' ' . $betScore['s1'] . '-' . $betScore['s2'] . ' ' . $betScore['t2']->getFlagHTML(20, $isDrawPick && $winner === '2')
                 . '</span>' . $emojiImg . '<br />';
         }
         if ($myBetsHtml) {
