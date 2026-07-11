@@ -63,9 +63,15 @@ function rankingHTML(EP_Competition $competition, array $betsTable, array $userB
                 $realTeams = $fixtureRealTeams[$nextFixture->getFixtureNumber()] ?? [0, 0];
                 $winner    = $betNext['winner'] ?? 'X';
                 $isDead    = false;
-                if ($realTeams[0] && $realTeams[1] && $winner !== 'X') {
+                if ($winner !== 'X') {
                     $winnerTeamId = isset($betNext['t' . $winner]) ? $betNext['t' . $winner]->getId() : 0;
-                    $isDead = $winnerTeamId && !in_array($winnerTeamId, $realTeams);
+                    if ($realTeams[0] && $realTeams[1]) {
+                        $isDead = $winnerTeamId && !in_array($winnerTeamId, $realTeams);
+                    } else {
+                        // Cruce todavía no resuelto: solo podemos saber que la apuesta
+                        // está muerta si el equipo pronosticado ya fue eliminado antes.
+                        $isDead = $winnerTeamId && $competition->isTeamEliminated($winnerTeamId);
+                    }
                 }
                 $deadClass = $isDead ? ' class="dead-bet"' : '';
                 $nextBetsSpans[] = '<span' . $deadClass . '>' . $betNext["t1"]->getFlagHTML(20) . ' ' . $betNext["s1"] . '-' . $betNext["s2"] . ' ' . $betNext["t2"]->getFlagHTML(20) . '</span>';
